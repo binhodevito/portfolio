@@ -41,13 +41,10 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .nav-logo {
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink);
+  .nav-logo-img {
+    height: 32px;
+    width: auto;
+    display: block;
   }
 
   .nav-right { display: flex; align-items: center; gap: 32px; }
@@ -514,7 +511,9 @@
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">Fábio Devito</span>
+  <a href="#" aria-label="Fábio Devito">
+    <img src="logo.svg" alt="Devito" class="nav-logo-img" height="32" width="auto">
+  </a>
   <div class="nav-right">
     <div class="nav-links">
       <a href="#experience" data-lang="pt">Experiência</a>
@@ -959,7 +958,7 @@
 </section>
 
 <footer>
-  <p>© 2025 Fábio Devito</p>
+  <img src="logo.svg" alt="Devito" height="24" width="auto" style="opacity:0.5;">
   <p style="color: var(--muted);" data-lang="pt">Sorocaba, Brasil · Disponível para São Paulo</p>
   <p style="color: var(--muted);" data-lang="en">Sorocaba, Brazil · Available for São Paulo</p>
   <p style="color: var(--muted);" data-lang="es">Sorocaba, Brasil · Disponible para São Paulo</p>
