@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fábio Devito — Content Strategist & Digital Journalist</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/fva2wgn.css">
 <style>
   :root {
     --ink: #111111;
@@ -41,11 +42,9 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .nav-logo-img {
-    height: 32px;
-    width: auto;
-    display: block;
-  }
+  .nav-logo-link { display: block; line-height: 0; }
+  .nav-logo-img { height: 32px; width: auto; display: block; }
+  .footer-logo { height: 24px; width: auto; display: block; }
 
   .nav-right { display: flex; align-items: center; gap: 32px; }
 
@@ -511,8 +510,11 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" aria-label="Fábio Devito">
-    <img src="logo.svg" alt="Devito" class="nav-logo-img" height="32" width="auto">
+  <a href="#" aria-label="Fábio Devito" class="nav-logo-link">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="35 311 1009 457" class="nav-logo-img" role="img" aria-label="Devito">
+      <rect x="35" y="311" width="1009" height="457" fill="#111111"/>
+      <text font-family="fit, 'DM Serif Display', serif" fill="#C8442A" transform="matrix(0.79,0,0,0.79,56.924875,745.84972)" font-size="700px">Devito</text>
+    </svg>
   </a>
   <div class="nav-right">
     <div class="nav-links">
@@ -958,7 +960,10 @@
 </section>
 
 <footer>
-  <img src="logo.svg" alt="Devito" height="24" width="auto" style="opacity:0.5;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="35 311 1009 457" class="footer-logo" role="img" aria-label="Devito">
+    <rect x="35" y="311" width="1009" height="457" fill="#7A7065"/>
+    <text font-family="fit, 'DM Serif Display', serif" fill="#F5F0E8" transform="matrix(0.79,0,0,0.79,56.924875,745.84972)" font-size="700px">Devito</text>
+  </svg>
   <p style="color: var(--muted);" data-lang="pt">Sorocaba, Brasil · Disponível para São Paulo</p>
   <p style="color: var(--muted);" data-lang="en">Sorocaba, Brazil · Available for São Paulo</p>
   <p style="color: var(--muted);" data-lang="es">Sorocaba, Brasil · Disponible para São Paulo</p>
