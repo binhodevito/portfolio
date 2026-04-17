@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fábio Devito — Content Strategist & Digital Journalist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111111;
+    --paper: #F5F0E8;
+    --accent: #C8442A;
+    --muted: #7A7065;
+    --border: #D8D0C4;
+    --card: #EDEAE2;
+    --tag-bg: #111111;
+    --tag-fg: #F5F0E8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 32px; }
+
+  .nav-links { display: flex; gap: 24px; }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px 6px;
+    cursor: pointer;
+  }
+
+  .lang-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.06em;
+  }
+
+  .lang-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* HERO */
+  .hero {
+    padding: 140px 48px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 36px;
+    line-height: 1.75;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    padding: 14px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .hero-cta:hover { background: var(--accent); transform: translateY(-2px); }
+
+  .hero-image-wrap {
+    position: relative;
+  }
+
+  .hero-image-wrap::before {
+    content: '';
+    position: absolute;
+    top: 16px; left: 16px;
+    right: -16px; bottom: -16px;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    z-index: 0;
+  }
+
+  .hero-image-wrap img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(15%);
+  }
+
+  /* BRANDS */
+  .brands-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .brands-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-right: 8px;
+  }
+
+  .brand-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 48px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+  }
+
+  .section-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--ink);
+  }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .exp-meta { }
+
+  .exp-period {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  .exp-company {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .exp-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .exp-desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .exp-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* HIGHLIGHTS */
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .highlight-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  }
+
+  .highlight-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .highlight-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .highlight-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-group { }
+
+  .skill-group-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .skill-list li {
+    font-size: 14px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-list li::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  /* EDUCATION */
+  .edu-list { display: flex; flex-direction: column; gap: 0; }
+
+  .edu-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .edu-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+
+  .edu-degree {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .edu-inst {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* CONTACT */
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .contact-tagline {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .contact-tagline em { font-style: italic; color: var(--accent); }
+
+  .contact-info { display: flex; flex-direction: column; gap: 16px; }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .contact-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .contact-value {
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .contact-value:hover { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: none;
+  }
+
+  footer p {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* LANG HIDE */
+  [data-lang] { display: none; }
+  .lang-pt [data-lang="pt"] { display: block; }
+  .lang-pt [data-lang="pt"].inline { display: inline; }
+  .lang-en [data-lang="en"] { display: block; }
+  .lang-en [data-lang="en"].inline { display: inline; }
+  .lang-es [data-lang="es"] { display: block; }
+  .lang-es [data-lang="es"].inline { display: inline; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero > * {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero > *:nth-child(2) { animation-delay: 0.15s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+    .hero-image-wrap { order: -1; max-width: 240px; margin: 0 auto; }
+    section { padding: 60px 24px; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    .edu-item { grid-template-columns: 1fr; gap: 4px; }
+    .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+    .brands-bar { padding: 20px 24px; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body class="lang-pt">
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Fábio Devito</span>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#experience" data-lang="pt">Experiência</a>
+      <a href="#experience" data-lang="en">Experience</a>
+      <a href="#experience" data-lang="es">Experiencia</a>
+      <a href="#highlights" data-lang="pt">Destaques</a>
+      <a href="#highlights" data-lang="en">Highlights</a>
+      <a href="#highlights" data-lang="es">Destacados</a>
+      <a href="#skills" data-lang="pt">Skills</a>
+      <a href="#skills" data-lang="en">Skills</a>
+      <a href="#skills" data-lang="es">Skills</a>
+      <a href="#contact" data-lang="pt">Contato</a>
+      <a href="#contact" data-lang="en">Contact</a>
+      <a href="#contact" data-lang="es">Contacto</a>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <p class="hero-eyebrow">Content Strategist · Digital Journalist · LATAM</p>
+
+    <h1 data-lang="pt">Histórias que <em>conectam</em> marcas a culturas.</h1>
+    <h1 data-lang="en">Stories that <em>connect</em> brands to cultures.</h1>
+    <h1 data-lang="es">Historias que <em>conectan</em> marcas con culturas.</h1>
+
+    <p class="hero-desc" data-lang="pt">Jornalista e estrategista de conteúdo com mais de 14 anos de experiência em mídia digital, comunicação corporativa e cultura pop. Hoje liderando estratégias para Intel e Coca-Cola na Burson Global (WPP).</p>
+    <p class="hero-desc" data-lang="en">Journalist and content strategist with 14+ years of experience in digital media, corporate communications, and pop culture. Currently leading strategies for Intel and Coca-Cola at Burson Global (WPP).</p>
+    <p class="hero-desc" data-lang="es">Periodista y estratega de contenido con más de 14 años de experiencia en medios digitales, comunicación corporativa y cultura pop. Actualmente liderando estrategias para Intel y Coca-Cola en Burson Global (WPP).</p>
+
+    <a href="mailto:devito.fabio@outlook.com" class="hero-cta" data-lang="pt">Vamos conversar →</a>
+    <a href="mailto:devito.fabio@outlook.com" class="hero-cta" data-lang="en">Let's talk →</a>
+    <a href="mailto:devito.fabio@outlook.com" class="hero-cta" data-lang="es">Hablemos →</a>
+  </div>
+  <div class="hero-image-wrap">
+    <img src="https://fabiodevito.com.br/wp-content/uploads/2024/05/WhatsApp-Image-2024-05-02-at-14.51.42.jpeg" alt="Fábio Devito" loading="lazy" onerror="this.style.display='none'">
+  </div>
+</div>
+
+<!-- BRANDS BAR -->
+<div class="brands-bar">
+  <span class="brands-label" data-lang="pt">Passou por →</span>
+  <span class="brands-label" data-lang="en">Worked with →</span>
+  <span class="brands-label" data-lang="es">Trabajó con →</span>
+  <span class="brand-tag">Burson / WPP</span>
+  <span class="brand-tag">Intel</span>
+  <span class="brand-tag">Coca-Cola</span>
+  <span class="brand-tag">G1 · Globo</span>
+  <span class="brand-tag">Olhar Digital</span>
+  <span class="brand-tag">Brasil Game Show</span>
+  <span class="brand-tag">SESC</span>
+  <span class="brand-tag">Cruzeiro do Sul</span>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title" data-lang="pt">Experiência</h2>
+    <h2 class="section-title" data-lang="en">Experience</h2>
+    <h2 class="section-title" data-lang="es">Experiencia</h2>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2023 — <span data-lang="pt" class="inline">Presente</span><span data-lang="en" class="inline">Present</span><span data-lang="es" class="inline">Presente</span></div>
+        <div class="exp-company">Burson Global · WPP</div>
+      </div>
+      <div>
+        <div class="exp-role" data-lang="pt">Estrategista Sênior de Conteúdo · LATAM</div>
+        <div class="exp-role" data-lang="en">Senior Content Strategist · LATAM</div>
+        <div class="exp-role" data-lang="es">Estratega Senior de Contenido · LATAM</div>
+        <p class="exp-desc" data-lang="pt">Membro do Innovation Hub da Burson, contribui para o desenvolvimento de estratégias de conteúdo e gestão de comunidade para Intel e Coca-Cola no Brasil e LATAM. Lançou e gerenciou o Instagram da Intel na América do Sul, participando de equipes multidisciplinares e conduzindo coberturas em tempo real em eventos como Brasil Game Show e Intel Extreme Masters.</p>
+        <p class="exp-desc" data-lang="en">Member of Burson's Innovation Hub, contributes to content strategy development and community management for Intel and Coca-Cola across Brazil and LATAM. Launched and managed Intel's Instagram for South America, participating in cross-functional teams and driving real-time coverage at events like Brasil Game Show and Intel Extreme Masters.</p>
+        <p class="exp-desc" data-lang="es">Miembro del Innovation Hub de Burson, contribuye al desarrollo de estrategias de contenido y gestión de comunidad para Intel y Coca-Cola en Brasil y LATAM. Lanzó y gestionó el Instagram de Intel en América del Sur, participando en equipos multidisciplinarios y conduciendo coberturas en tiempo real en eventos como Brasil Game Show e Intel Extreme Masters.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Content Strategy</span>
+          <span class="exp-tag">Community Management</span>
+          <span class="exp-tag">Influencer Marketing</span>
+          <span class="exp-tag">Social Media</span>
+          <span class="exp-tag">LATAM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2021 — 2023</div>
+        <div class="exp-company">RPNT Comunicação</div>
+      </div>
+      <div>
+        <div class="exp-role" data-lang="pt">Sócio · Produtor de Conteúdo</div>
+        <div class="exp-role" data-lang="en">Partner · Content Producer</div>
+        <div class="exp-role" data-lang="es">Socio · Productor de Contenido</div>
+        <p class="exp-desc" data-lang="pt">Liderou projetos de branded content e podcasts corporativos para marcas internacionais. Gerenciou roteiros, cronogramas e fornecedores, desenvolvendo narrativas criativas para fortalecer o engajamento de comunidades.</p>
+        <p class="exp-desc" data-lang="en">Led branded content and corporate podcast projects for international brands. Managed scripting, timelines, and vendor relations, crafting creative narratives to strengthen community engagement and brand positioning.</p>
+        <p class="exp-desc" data-lang="es">Lideró proyectos de branded content y podcasts corporativos para marcas internacionales. Gestionó guiones, cronogramas y proveedores, desarrollando narrativas creativas para fortalecer el engagement de comunidades.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Branded Content</span>
+          <span class="exp-tag">Podcast</span>
+          <span class="exp-tag">Storytelling</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Jan — Abr 2021</div>
+        <div class="exp-company">G1 · TV TEM · Globo</div>
+      </div>
+      <div>
+        <div class="exp-role" data-lang="pt">Editor</div>
+        <div class="exp-role" data-lang="en">Editor</div>
+        <div class="exp-role" data-lang="es">Editor</div>
+        <p class="exp-desc" data-lang="pt">Cobriu o auge da pandemia de COVID-19, gerenciando conteúdo jornalístico para 53 cidades do interior de São Paulo. Artigos com circulação nacional referenciados no Jornal Nacional, Bom Dia Brasil e Bom Dia São Paulo.</p>
+        <p class="exp-desc" data-lang="en">Covered the peak of the COVID-19 pandemic, managing news content for 53 cities across the interior of São Paulo. Articles gained national circulation, referenced on Jornal Nacional, Bom Dia Brasil, and Bom Dia São Paulo.</p>
+        <p class="exp-desc" data-lang="es">Cubrió el pico de la pandemia de COVID-19, gestionando contenido periodístico para 53 ciudades del interior de São Paulo. Artículos con circulación nacional referenciados en Jornal Nacional, Bom Dia Brasil y Bom Dia São Paulo.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Hard News</span>
+          <span class="exp-tag">Editorial</span>
+          <span class="exp-tag">SEO</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2020 — 2021</div>
+        <div class="exp-company">Olhar Digital</div>
+      </div>
+      <div>
+        <div class="exp-role" data-lang="pt">Repórter e Editor Assistente · Tech & Games</div>
+        <div class="exp-role" data-lang="en">Reporter & Associate Editor · Tech & Games</div>
+        <div class="exp-role" data-lang="es">Reportero y Editor Asociado · Tech & Games</div>
+        <p class="exp-desc" data-lang="pt">Cobriu editorias mobile, realizou análises e reviews de produtos e fez cobertura remota de eventos como CES, Apple e Samsung. Também foi repórter chave na cobertura da invasão ao Capitólio dos EUA (2021) e produziu investigação sobre vulnerabilidade no aplicativo Conecta SUS.</p>
+        <p class="exp-desc" data-lang="en">Covered mobile product editorials, conducted product analyses and reviews, and remotely covered events including CES, Apple, and Samsung launches. Key reporter on the U.S. Capitol riot (2021) and produced an investigative report exposing a security vulnerability in the Conecta SUS app during the pandemic.</p>
+        <p class="exp-desc" data-lang="es">Cubrió editoriales mobile, realizó análisis y reviews de productos y cubrió remotamente eventos como CES, Apple y Samsung. También fue reportero clave en la cobertura del asalto al Capitolio de EE.UU. (2021) y produjo investigación sobre vulnerabilidad en la app Conecta SUS.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Tech Journalism</span>
+          <span class="exp-tag">Gaming</span>
+          <span class="exp-tag">Investigative</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2019 — 2020</div>
+        <div class="exp-company">Quinto · Proativa Solutions</div>
+      </div>
+      <div>
+        <div class="exp-role" data-lang="pt">Especialista em Comunidade & Growth</div>
+        <div class="exp-role" data-lang="en">Community & Growth Specialist</div>
+        <div class="exp-role" data-lang="es">Especialista en Comunidad & Growth</div>
+        <p class="exp-desc" data-lang="pt">Gerenciou comunidades digitais e campanhas de mídia paga (Meta, Google Ads) com foco em aquisição, retenção e melhora de CAC e ROI.</p>
+        <p class="exp-desc" data-lang="en">Managed digital communities and paid media campaigns (Meta, Google Ads) focused on user acquisition, retention, and improving CAC and ROI metrics.</p>
+        <p class="exp-desc" data-lang="es">Gestionó comunidades digitales y campañas de medios pagos (Meta, Google Ads) con foco en adquisición, retención y mejora de CAC y ROI.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Growth Marketing</span>
+          <span class="exp-tag">Paid Media</span>
+          <span class="exp-tag">Analytics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2018 — 2019</div>
+        <div class="exp-company">Jornal Cruzeiro do Sul</div>
+      </div>
+      <div>
+        <div class="exp-role" data-lang="pt">Editor de Redes Sociais & Estrategista SEO</div>
+        <div class="exp-role" data-lang="en">Social Media Editor & SEO Strategist</div>
+        <div class="exp-role" data-lang="es">Editor de Redes Sociales & Estratega SEO</div>
+        <p class="exp-desc" data-lang="pt">Co-desenvolveu o novo portal de notícias (arquitetura de conteúdo, UX, SEO). Dirigiu o documentário web "Luta e Resistência", competidor na categoria melhor curta no festival de Votorantim-SP.</p>
+        <p class="exp-desc" data-lang="en">Co-developed the news portal redesign (content architecture, UX, SEO). Directed the web documentary "Luta e Resistência", which competed for best short film at the Votorantim-SP festival.</p>
+        <p class="exp-desc" data-lang="es">Co-desarrolló el nuevo portal de noticias (arquitectura de contenido, UX, SEO). Dirigió el documental web "Luta e Resistência", competidor en la categoría mejor cortometraje en el festival de Votorantim-SP.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">SEO</span>
+          <span class="exp-tag">UX Editorial</span>
+          <span class="exp-tag">Audiovisual</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2017 — 2018</div>
+        <div class="exp-company">Cunha Vaz & Associados</div>
+      </div>
+      <div>
+        <div class="exp-role" data-lang="pt">Analista em Comunicação & Public Affairs</div>
+        <div class="exp-role" data-lang="en">Communications & Public Affairs Analyst</div>
+        <div class="exp-role" data-lang="es">Analista en Comunicación & Asuntos Públicos</div>
+        <p class="exp-desc" data-lang="pt">Gestão de assessoria de imprensa e conteúdo institucional para o Consulado Geral de Portugal em São Paulo.</p>
+        <p class="exp-desc" data-lang="en">Managed press relations and institutional content for the Consulate General of Portugal in São Paulo.</p>
+        <p class="exp-desc" data-lang="es">Gestión de relaciones con la prensa y contenido institucional para el Consulado General de Portugal en São Paulo.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">PR</span>
+          <span class="exp-tag">Public Affairs</span>
+          <span class="exp-tag">Institutional</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights" style="background: var(--card); max-width: none; padding: 80px 48px;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title" data-lang="pt">Destaques</h2>
+      <h2 class="section-title" data-lang="en">Highlights</h2>
+      <h2 class="section-title" data-lang="es">Destacados</h2>
+    </div>
+    <div class="highlights-grid">
+
+      <div class="highlight-card">
+        <span class="highlight-icon">📡</span>
+        <h3 data-lang="pt">Gestão de Comunidades — Intel</h3>
+        <h3 data-lang="en">Community Management — Intel</h3>
+        <h3 data-lang="es">Gestión de Comunidades — Intel</h3>
+        <p data-lang="pt">Liderou o lançamento do Instagram da Intel para América Latina do zero — do conceito à estratégia de crescimento com audiências engajadas. Desenvolveu a estratégia de comunicação da marca em eventos como Brasil Game Show, CES, Intel Extreme Masters, Intel Gamer Days e Gamescom. Trabalhou ao lado de marcas parceiras como Asus, Dell, Acer, Mercado Livre, Amazon, Ubisoft, PlayStation e Gamers Club.</p>
+        <p data-lang="en">Led the launch of Intel's Instagram for Latin America from scratch — from concept to a growth strategy with engaged audiences. Developed the brand's communication strategy at events such as Brasil Game Show, CES, Intel Extreme Masters, Intel Gamer Days, and Gamescom. Worked alongside partner brands including Asus, Dell, Acer, Mercado Livre, Amazon, Ubisoft, PlayStation, and Gamers Club.</p>
+        <p data-lang="es">Lideró el lanzamiento del Instagram de Intel para América Latina desde cero — del concepto a la estrategia de crecimiento con audiencias comprometidas. Desarrolló la estrategia de comunicación de la marca en eventos como Brasil Game Show, CES, Intel Extreme Masters, Intel Gamer Days y Gamescom. Trabajó junto a marcas socias como Asus, Dell, Acer, Mercado Libre, Amazon, Ubisoft, PlayStation y Gamers Club.</p>
+      </div>
+
+      <div class="highlight-card">
+        <span class="highlight-icon">🏆</span>
+        <h3 data-lang="pt">Comunicação Estratégica — Coca-Cola Trophy Tour</h3>
+        <h3 data-lang="en">Strategic Communications — Coca-Cola Trophy Tour</h3>
+        <h3 data-lang="es">Comunicación Estratégica — Coca-Cola Trophy Tour</h3>
+        <p data-lang="pt">Participou do desenvolvimento da estratégia de cobertura e do planejamento de conteúdo para o tour global do troféu da Copa do Mundo da FIFA com a The Coca-Cola Company. Operações de alto impacto em São Paulo, Rio de Janeiro e Brasília, gerenciando ativações com os embaixadores Denilson e Cafu e integrando equipes multidisciplinares da América Latina.</p>
+        <p data-lang="en">Contributed to the coverage strategy and content planning for the global FIFA World Cup Trophy Tour with The Coca-Cola Company. High-impact operations across São Paulo, Rio de Janeiro, and Brasília, managing activations with ambassadors Denilson and Cafu and integrating multidisciplinary teams across Latin America.</p>
+        <p data-lang="es">Participó en el desarrollo de la estrategia de cobertura y planificación de contenido para el tour global del trofeo de la Copa del Mundo de la FIFA con The Coca-Cola Company. Operaciones de alto impacto en São Paulo, Río de Janeiro y Brasilia, gestionando activaciones con los embajadores Denilson y Cafu e integrando equipos multidisciplinarios de América Latina.</p>
+      </div>
+
+      <div class="highlight-card">
+        <span class="highlight-icon">📰</span>
+        <h3 data-lang="pt">Hard News — Cobertura da Pandemia</h3>
+        <h3 data-lang="en">Hard News — Pandemic Coverage</h3>
+        <h3 data-lang="es">Hard News — Cobertura de la Pandemia</h3>
+        <p data-lang="pt">Cobertura jornalística do auge da COVID-19 no interior paulista. Artigos com alcance nacional citados no Jornal Nacional, Bom Dia Brasil e Bom Dia São Paulo.</p>
+        <p data-lang="en">Journalistic coverage of COVID-19's peak across the interior of São Paulo. Articles reached national audiences, cited on Jornal Nacional, Bom Dia Brasil, and Bom Dia São Paulo.</p>
+        <p data-lang="es">Cobertura periodística del pico de COVID-19 en el interior de São Paulo. Artículos con alcance nacional citados en Jornal Nacional, Bom Dia Brasil y Bom Dia São Paulo.</p>
+      </div>
+
+      <div class="highlight-card">
+        <span class="highlight-icon">🔍</span>
+        <h3 data-lang="pt">Hard News — Investigação Conecta SUS</h3>
+        <h3 data-lang="en">Hard News — Conecta SUS Investigation</h3>
+        <h3 data-lang="es">Hard News — Investigación Conecta SUS</h3>
+        <p data-lang="pt">Reportagem investigativa no Olhar Digital que expôs riscos de segurança no Conecta SUS, utilizado por médicos para prescrição durante a pandemia.</p>
+        <p data-lang="en">Investigative report at Olhar Digital exposing security risks in the Conecta SUS app, used by doctors to prescribe medications during the pandemic.</p>
+        <p data-lang="es">Reportaje investigativo en Olhar Digital que expuso riesgos de seguridad en el Conecta SUS, utilizado por médicos para prescribir durante la pandemia.</p>
+      </div>
+
+      <div class="highlight-card">
+        <span class="highlight-icon">🎮</span>
+        <h3 data-lang="pt">Produção de Conteúdo — BGS & Intel Extreme Masters</h3>
+        <h3 data-lang="en">Content Production — BGS & Intel Extreme Masters</h3>
+        <h3 data-lang="es">Producción de Contenido — BGS & Intel Extreme Masters</h3>
+        <p data-lang="pt">Cobertura e ativação de marca em tempo real no maior festival gamer da América Latina e no maior torneio de CS do mundo.</p>
+        <p data-lang="en">Real-time brand coverage and activation at the largest gaming festival in Latin America and the world's biggest CS tournament.</p>
+        <p data-lang="es">Cobertura y activación de marca en tiempo real en el mayor festival gamer de América Latina y el mayor torneo de CS del mundo.</p>
+      </div>
+
+      <div class="highlight-card">
+        <span class="highlight-icon">🎬</span>
+        <h3 data-lang="pt">Produção de Conteúdo — Doc "Luta e Resistência"</h3>
+        <h3 data-lang="en">Content Production — Doc "Luta e Resistência"</h3>
+        <h3 data-lang="es">Producción de Contenido — Doc "Luta e Resistência"</h3>
+        <p data-lang="pt">Direção de documentário web sobre relações de trabalho para pessoas trans — competiu na categoria melhor curta no festival de Votorantim-SP.</p>
+        <p data-lang="en">Directed a web documentary on labor relations for transgender people, competing for best short film at the Votorantim-SP film festival.</p>
+        <p data-lang="es">Dirección de documental web sobre relaciones laborales para personas trans — compitió en la categoría mejor cortometraje en el festival de Votorantim-SP.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title" data-lang="pt">Estratégia & Conteúdo</div>
+      <div class="skill-group-title" data-lang="en">Strategy & Content</div>
+      <div class="skill-group-title" data-lang="es">Estrategia & Contenido</div>
+      <ul class="skill-list">
+        <li data-lang="pt">Estratégia de Conteúdo</li><li data-lang="en">Content Strategy</li><li data-lang="es">Estrategia de Contenido</li>
+        <li data-lang="pt">Storytelling & Copywriting</li><li data-lang="en">Storytelling & Copywriting</li><li data-lang="es">Storytelling & Copywriting</li>
+        <li data-lang="pt">Hard News & Pauta</li><li data-lang="en">Hard News & Editorial</li><li data-lang="es">Hard News & Pauta</li>
+        <li>SEO & UX Writing</li>
+        <li data-lang="pt">Comunicação Corporativa</li><li data-lang="en">Corporate Communications</li><li data-lang="es">Comunicación Corporativa</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title" data-lang="pt">Social & Comunidade</div>
+      <div class="skill-group-title" data-lang="en">Social & Community</div>
+      <div class="skill-group-title" data-lang="es">Social & Comunidad</div>
+      <ul class="skill-list">
+        <li data-lang="pt">Gestão de Comunidades</li><li data-lang="en">Community Management</li><li data-lang="es">Gestión de Comunidades</li>
+        <li data-lang="pt">Marketing de Influência</li><li data-lang="en">Influencer Marketing</li><li data-lang="es">Marketing de Influencia</li>
+        <li data-lang="pt">Social Media Planning</li><li data-lang="en">Social Media Planning</li><li data-lang="es">Social Media Planning</li>
+        <li data-lang="pt">Monitoramento de Tendências</li><li data-lang="en">Trend Monitoring</li><li data-lang="es">Monitoreo de Tendencias</li>
+        <li data-lang="pt">Cultura Pop & Gaming</li><li data-lang="en">Pop Culture & Gaming</li><li data-lang="es">Cultura Pop & Gaming</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title" data-lang="pt">Dados & Ferramentas</div>
+      <div class="skill-group-title" data-lang="en">Data & Tools</div>
+      <div class="skill-group-title" data-lang="es">Datos & Herramientas</div>
+      <ul class="skill-list">
+        <li>HubSpot · Hootsuite · Sprinklr</li>
+        <li>Google Analytics · Tableau</li>
+        <li>Google Ads · Meta Ads</li>
+        <li>Python (básico / basic / básico)</li>
+        <li>Notion · Slack · Workspace</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title" data-lang="pt">Idiomas</div>
+      <div class="skill-group-title" data-lang="en">Languages</div>
+      <div class="skill-group-title" data-lang="es">Idiomas</div>
+      <ul class="skill-list">
+        <li data-lang="pt">Português — Nativo</li><li data-lang="en">Portuguese — Native</li><li data-lang="es">Portugués — Nativo</li>
+        <li data-lang="pt">Inglês — C1 / Avançado</li><li data-lang="en">English — C1 / Advanced</li><li data-lang="es">Inglés — C1 / Avanzado</li>
+        <li data-lang="pt">Espanhol — Profissional</li><li data-lang="en">Spanish — Professional</li><li data-lang="es">Español — Profesional</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title" data-lang="pt">Formação</h2>
+    <h2 class="section-title" data-lang="en">Education</h2>
+    <h2 class="section-title" data-lang="es">Formación</h2>
+  </div>
+  <div class="edu-list">
+    <div class="edu-item">
+      <div class="edu-year">2019 — 2020</div>
+      <div>
+        <div class="edu-degree" data-lang="pt">Mestrado (Aluno Especial) — Mídia, Cidade e Cultura</div>
+        <div class="edu-degree" data-lang="en">Master's (Special Student) — Media, City & Culture</div>
+        <div class="edu-degree" data-lang="es">Maestría (Alumno Especial) — Medios, Ciudad y Cultura</div>
+        <div class="edu-inst">Universidade de Sorocaba</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2014 — 2017</div>
+      <div>
+        <div class="edu-degree" data-lang="pt">Bacharelado em Comunicação Social — Jornalismo</div>
+        <div class="edu-degree" data-lang="en">Bachelor's Degree in Social Communication — Journalism</div>
+        <div class="edu-degree" data-lang="es">Licenciatura en Comunicación Social — Periodismo</div>
+        <div class="edu-inst">Universidade de Sorocaba</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: var(--ink); max-width: none; padding: 80px 48px;">
+  <div style="max-width: 1100px; margin: 0 auto;" class="contact-wrap">
+    <div>
+      <p class="contact-tagline" style="color: var(--paper);" data-lang="pt">Pronto para criar histórias que <em>importam.</em></p>
+      <p class="contact-tagline" style="color: var(--paper);" data-lang="en">Ready to craft stories that <em>matter.</em></p>
+      <p class="contact-tagline" style="color: var(--paper);" data-lang="es">Listo para crear historias que <em>importan.</em></p>
+      <p style="color: var(--muted); font-size: 15px; margin-top: 12px;" data-lang="pt">Aberto a projetos, colaborações e oportunidades em comunicação, conteúdo e estratégia digital.</p>
+      <p style="color: var(--muted); font-size: 15px; margin-top: 12px;" data-lang="en">Open to projects, collaborations, and opportunities in communications, content, and digital strategy.</p>
+      <p style="color: var(--muted); font-size: 15px; margin-top: 12px;" data-lang="es">Abierto a proyectos, colaboraciones y oportunidades en comunicación, contenido y estrategia digital.</p>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <a href="mailto:devito.fabio@outlook.com" class="contact-value" style="color: var(--paper);">devito.fabio@outlook.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label" data-lang="pt">Telefone</span>
+        <span class="contact-label" data-lang="en">Phone</span>
+        <span class="contact-label" data-lang="es">Teléfono</span>
+        <a href="tel:+5515998003110" class="contact-value" style="color: var(--paper);">+55 (15) 99800-3110</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">LinkedIn</span>
+        <a href="https://linkedin.com/in/fabiodevito" class="contact-value" style="color: var(--paper);">linkedin.com/in/fabiodevito</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Website</span>
+        <a href="https://fabiodevito.com.br" class="contact-value" style="color: var(--paper);">fabiodevito.com.br</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label" data-lang="pt">Localização</span>
+        <span class="contact-label" data-lang="en">Location</span>
+        <span class="contact-label" data-lang="es">Ubicación</span>
+        <span class="contact-value" style="color: var(--paper);" data-lang="pt">Sorocaba, SP — disponível para São Paulo</span>
+        <span class="contact-value" style="color: var(--paper);" data-lang="en">Sorocaba, SP — available for São Paulo</span>
+        <span class="contact-value" style="color: var(--paper);" data-lang="es">Sorocaba, SP — disponible para São Paulo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Fábio Devito</p>
+  <p style="color: var(--muted);" data-lang="pt">Sorocaba, Brasil · Disponível para São Paulo</p>
+  <p style="color: var(--muted);" data-lang="en">Sorocaba, Brazil · Available for São Paulo</p>
+  <p style="color: var(--muted);" data-lang="es">Sorocaba, Brasil · Disponible para São Paulo</p>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

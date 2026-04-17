@@ -1,0 +1,110 @@
+================================================================================
+FÁBIO DEVITO — CONTEÚDO (PT-BR)
+Edite os textos e devolva o arquivo. Não altere as linhas [CHAVE].
+================================================================================
+
+--- NAV ---
+[nav.experience] Experiência
+[nav.highlights] Destaques
+[nav.skills] Skills
+[nav.contact] Contato
+
+--- HERO ---
+[hero.eyebrow] Content Strategist · Digital Journalist · LATAM
+[hero.h1] Histórias que conectam marcas a culturas.
+[hero.desc] Jornalista e estrategista de conteúdo com mais de 14 anos de experiência em mídia digital, comunicação corporativa e cultura pop. Hoje liderando estratégias para Intel e Coca-Cola na Burson Global (WPP).
+[hero.cta] Vamos conversar →
+
+--- BRANDS BAR ---
+[brands.label] Passou por →
+
+--- EXPERIENCE ---
+
+[exp1.period] 2023 — Presente
+[exp1.company] Burson Global · WPP
+[exp1.role] Estrategista Sênior de Conteúdo · LATAM
+[exp1.desc] Membro do Innovation Hub da Burson, contribui para o desenvolvimento de estratégias de conteúdo e gestão de comunidade para Intel e Coca-Cola no Brasil e LATAM. Lançou e gerenciou o Instagram da Intel na América do Sul, participando de equipes multidisciplinares e conduzindo coberturas em tempo real em eventos como Brasil Game Show e Intel Extreme Masters. 
+
+[exp2.period] 2021 — 2023
+[exp2.company] RPNT Comunicação
+[exp2.role] Sócio · Produtor de Conteúdo
+[exp2.desc] Liderou projetos de branded content e podcasts corporativos para marcas internacionais. Gerenciou roteiros, cronogramas e fornecedores, desenvolvendo narrativas criativas para fortalecer o engajamento de comunidades.
+
+[exp3.period] Jan — Abr 2021
+[exp3.company] G1 · TV TEM · Globo
+[exp3.role] Editor 
+[exp3.desc] Cobriu o auge da pandemia de COVID-19, gerenciando conteúdo jornalístico para 53 cidades do interior de São Paulo. Artigos com circulação nacional referenciados no Jornal Nacional, Bom Dia Brasil e Bom Dia São Paulo.
+
+[exp4.period] 2020 — 2021
+[exp4.company] Olhar Digital
+[exp4.role] Repórter e Editor Assistente · Tech & Games
+[exp4.desc] Cobriu editorias mobile, realizou análises e reviews de produtos e fez cobertura remota de eventos como CES, Apple e Samsung. Também foi repórter chave na cobertura da invasão ao Capitólio dos EUA (2021) e produziu investigação sobre vulnerabilidade no aplicativo Conecta SUS.
+
+[exp5.period] 2019 — 2020
+[exp5.company] Quinto · Proativa Solutions
+[exp5.role] Especialista em Comunidade & Growth
+[exp5.desc] Gerenciou comunidades digitais e campanhas de mídia paga (Meta, Google Ads) com foco em aquisição, retenção e melhora de CAC e ROI.
+
+[exp6.period] 2018 — 2019
+[exp6.company] Jornal Cruzeiro do Sul
+[exp6.role] Editor de Redes Sociais & Estrategista SEO
+[exp6.desc] Co-desenvolveu o novo portal de notícias (arquitetura de conteúdo, UX, SEO). Dirigiu o documentário web "Luta e Resistência", competidor na categoria melhor curta no festival de Votorantim-SP.
+
+[exp7.period] 2017 — 2018
+[exp7.company] Cunha Vaz & Associados
+[exp7.role] Analista em Comunicação & Public Affairs
+[exp7.desc] Gestão de assessoria de imprensa e conteúdo institucional para o Consulado Geral de Portugal em São Paulo.
+
+--- HIGHLIGHTS ---
+
+[hl1.title] Gestão de comunidades - Intel 
+[hl1.desc] Liderou o lançamento do Instagram da Intel para América Latina do zero — do conceito à estratégia de crescimento com audiências engajadas. Desenvolveu a estratégia de comunicação da marca em eventos como Brasil Game Shows, CES, Intel Extreme Masters, Intel Gamer Days, Gamescon, entre outros. Trabalhou ao lado de marcas parceiras como Asus, Dell, Acer, Mercado Livre, Amazon, Ubisoft, Playstation e Gamers Club. 
+
+[hl2.title]Comunicação Estratégica — Coca-Cola Trophy Tour
+[hl2.desc] Participou do desenvolvimento da estratégia de cobertura e do planejamento de conteúdo para o tour global do troféu da Copa do Mundo da FIFA com a The Coca-Cola Company. Operações de alto impacto em São Paulo, Rio de Janeiro e Brasília, gerenciando ativações com os embaixadores Denilson e Cafu e integrando equipes multidisciplinares da América Latina para garantir uma entrega de excelência em nível global.
+
+[hl3.title] Hard News - Cobertura da Pandemia
+[hl3.desc] Cobertura jornalística do auge da COVID-19 no interior paulista. Artigos com alcance nacional citados no Jornal Nacional, Bom Dia Brasil e Bom Dia São Paulo.
+
+[hl4.title] Hard News - Investigação Conecta SUS
+[hl4.desc] Reportagem investigativa no Olhar Digital que expôs riscos de segurança no Conecta SUS, utilizado por médicos para prescrição durante a pandemia.
+
+[hl5.title] Produção de conteúdo -  BGS & Intel Extreme Masters
+[hl5.desc] Cobertura e ativação de marca em tempo real no maior festival gamer da América Latina e no maior torneio de CS do mundo.
+
+[hl6.title]Produção de conteúdo - Doc "Luta e Resistência"
+[hl6.desc] Direção de documentário web sobre relações de trabalho para pessoas trans — competiu na categoria melhor curta no festival de Votorantim-SP.
+
+
+--- SKILLS ---
+
+[skills.group1] Estratégia & Conteúdo
+[skills.group2] Social & Comunidade
+[skills.group3] Dados & Ferramentas
+[skills.group4] Idiomas
+
+[skills.lang1] Português — Nativo
+[skills.lang2] Inglês — C1 / Avançado
+[skills.lang3] Espanhol — Profissional
+
+--- EDUCATION ---
+
+[edu1.year] 2019 — 2020
+[edu1.degree] Mestrado (Aluno Especial) — Mídia, Cidade e Cultura
+[edu1.inst] Universidade de Sorocaba
+
+[edu2.year] 2014 — 2017
+[edu2.degree] Bacharelado em Comunicação Social — Jornalismo
+[edu2.inst] Universidade de Sorocaba
+
+--- CONTACT ---
+
+[contact.tagline] Pronto para criar histórias que importam.
+[contact.subtitle] Aberto a projetos, colaborações e oportunidades em comunicação, conteúdo e estratégia digital.
+[contact.location] Sorocaba, SP — disponível para São Paulo
+
+--- FOOTER ---
+
+[footer.location] Sorocaba, Brasil · Disponível para São Paulo
+
+================================================================================
