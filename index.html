@@ -322,23 +322,11 @@
     position: relative;
   }
 
-  .hero-image-wrap::before {
-    content: '';
-    position: absolute;
-    top: 16px; left: 16px;
-    right: -16px; bottom: -16px;
-    border: 2px solid var(--accent);
-    border-radius: 4px;
-    z-index: 0;
-  }
-
   .hero-image-wrap img {
     width: 100%;
+    height: auto;
     border-radius: 4px;
     display: block;
-    position: relative;
-    z-index: 1;
-    filter: grayscale(15%);
   }
 
   /* BRANDS */
@@ -763,7 +751,7 @@
     <a href="mailto:contato@fabiodevito.com.br" class="hero-cta" data-lang="es">Hablemos →</a>
   </div>
   <div class="hero-image-wrap">
-    <img src="profile.png" alt="Fábio Devito" loading="lazy" onerror="this.style.display='none'">
+    <img src="profile.gif" alt="Fábio Devito" onerror="this.style.display='none'">
   </div>
 </div>
 
@@ -784,10 +772,7 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="about-wrap">
-    <div class="about-image-wrap">
-      <img src="profile.png" alt="Fábio Devito" loading="lazy">
-    </div>
+  <div class="about-wrap" style="grid-template-columns: 1fr;">
     <div>
       <div class="section-header">
         <span class="section-num">00</span>
