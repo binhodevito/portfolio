@@ -46,19 +46,79 @@
   .nav-logo-img { height: 32px; width: auto; display: block; }
   .footer-logo { height: 24px; width: auto; display: block; }
 
-  .nav-right { display: flex; align-items: center; gap: 32px; }
+  .nav-right { display: flex; align-items: center; gap: 24px; }
 
-  .nav-links { display: flex; gap: 24px; }
+  .nav-links { display: flex; align-items: center; gap: 4px; }
 
   .nav-links a {
-    font-size: 13px;
-    font-weight: 500;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--muted);
     text-decoration: none;
-    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 2px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); background: var(--card); }
+
+  .nav-links a.nav-newsletter {
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 5px 12px;
+  }
+  .nav-links a.nav-newsletter:hover {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    transition: all 0.2s;
+  }
+
+  /* MOBILE MENU */
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 65px; left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
+    padding: 24px;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 99;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--ink); }
+  .nav-mobile a:hover { color: var(--ink); }
+  .nav-mobile a.nav-newsletter { color: var(--accent); border-bottom-color: var(--accent); }
 
   .lang-toggle {
     display: flex;
@@ -472,12 +532,15 @@
   }
 
   /* LANG HIDE */
-  [data-lang] { display: none; }
+  [data-lang], li[data-lang] { display: none; }
   .lang-pt [data-lang="pt"] { display: block; }
+  .lang-pt li[data-lang="pt"] { display: flex; }
   .lang-pt [data-lang="pt"].inline { display: inline; }
   .lang-en [data-lang="en"] { display: block; }
+  .lang-en li[data-lang="en"] { display: flex; }
   .lang-en [data-lang="en"].inline { display: inline; }
   .lang-es [data-lang="es"] { display: block; }
+  .lang-es li[data-lang="es"] { display: flex; }
   .lang-es [data-lang="es"].inline { display: inline; }
 
   /* ANIMATIONS */
@@ -495,6 +558,7 @@
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; }
     .hero-image-wrap { order: -1; max-width: 240px; margin: 0 auto; }
     section { padding: 60px 24px; }
@@ -512,8 +576,7 @@
 <nav>
   <a href="#" aria-label="Fábio Devito" class="nav-logo-link">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="35 311 1009 457" class="nav-logo-img" role="img" aria-label="Devito">
-      <rect x="35" y="311" width="1009" height="457" fill="#111111"/>
-      <text font-family="fit, 'DM Serif Display', serif" fill="#C8442A" transform="matrix(0.79,0,0,0.79,56.924875,745.84972)" font-size="700px">Devito</text>
+      <text font-family="fit, 'DM Serif Display', serif" fill="#111111" transform="matrix(0.79,0,0,0.79,56.924875,745.84972)" font-size="700px">Devito</text>
     </svg>
   </a>
   <div class="nav-right">
@@ -530,17 +593,35 @@
       <a href="#contact" data-lang="pt">Contato</a>
       <a href="#contact" data-lang="en">Contact</a>
       <a href="#contact" data-lang="es">Contacto</a>
-      <a href="https://substack.com/@devito" target="_blank" rel="noopener" data-lang="pt">Newsletter</a>
-      <a href="https://substack.com/@devito" target="_blank" rel="noopener" data-lang="en">Newsletter</a>
-      <a href="https://substack.com/@devito" target="_blank" rel="noopener" data-lang="es">Newsletter</a>
+      <a href="https://substack.com/@devito" target="_blank" rel="noopener" class="nav-newsletter" data-lang="pt">Newsletter</a>
+      <a href="https://substack.com/@devito" target="_blank" rel="noopener" class="nav-newsletter" data-lang="en">Newsletter</a>
+      <a href="https://substack.com/@devito" target="_blank" rel="noopener" class="nav-newsletter" data-lang="es">Newsletter</a>
     </div>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('pt')">PT</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('es')">ES</button>
     </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#experience" data-lang="pt" onclick="toggleMenu()">Experiência</a>
+  <a href="#experience" data-lang="en" onclick="toggleMenu()">Experience</a>
+  <a href="#experience" data-lang="es" onclick="toggleMenu()">Experiencia</a>
+  <a href="#highlights" data-lang="pt" onclick="toggleMenu()">Destaques</a>
+  <a href="#highlights" data-lang="en" onclick="toggleMenu()">Highlights</a>
+  <a href="#highlights" data-lang="es" onclick="toggleMenu()">Destacados</a>
+  <a href="#skills" onclick="toggleMenu()">Skills</a>
+  <a href="#contact" data-lang="pt" onclick="toggleMenu()">Contato</a>
+  <a href="#contact" data-lang="en" onclick="toggleMenu()">Contact</a>
+  <a href="#contact" data-lang="es" onclick="toggleMenu()">Contacto</a>
+  <a href="https://substack.com/@devito" target="_blank" rel="noopener" class="nav-newsletter" onclick="toggleMenu()">Newsletter</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -854,6 +935,18 @@
       </ul>
     </div>
     <div class="skill-group">
+      <div class="skill-group-title" data-lang="pt">IA & Automação</div>
+      <div class="skill-group-title" data-lang="en">AI & Automation</div>
+      <div class="skill-group-title" data-lang="es">IA & Automatización</div>
+      <ul class="skill-list">
+        <li data-lang="pt">Prompt Engineering — Conteúdo & Dados</li><li data-lang="en">Prompt Engineering — Content & Data</li><li data-lang="es">Prompt Engineering — Contenido & Datos</li>
+        <li data-lang="pt">Análise de dados com IA</li><li data-lang="en">AI-driven Data Analysis</li><li data-lang="es">Análisis de datos con IA</li>
+        <li>WPP Open</li>
+        <li>Claude · ChatGPT · Gemini</li>
+        <li>Midjourney · Firefly</li>
+      </ul>
+    </div>
+    <div class="skill-group">
       <div class="skill-group-title" data-lang="pt">Idiomas</div>
       <div class="skill-group-title" data-lang="en">Languages</div>
       <div class="skill-group-title" data-lang="es">Idiomas</div>
@@ -878,9 +971,9 @@
     <div class="edu-item">
       <div class="edu-year">2018</div>
       <div>
-        <div class="edu-degree" data-lang="pt">Certificado em Jornalismo de Jogos</div>
-        <div class="edu-degree" data-lang="en">Certificate in Game Journalism</div>
-        <div class="edu-degree" data-lang="es">Certificado en Periodismo de Videojuegos</div>
+        <div class="edu-degree" data-lang="pt">Certificado em Jornalismo de Jogos Digitais</div>
+        <div class="edu-degree" data-lang="en">Certificate in Digital Game Journalism</div>
+        <div class="edu-degree" data-lang="es">Certificado en Periodismo de Videojuegos Digitales</div>
         <div class="edu-inst">Cásper Líbero</div>
       </div>
     </div>
@@ -961,8 +1054,7 @@
 
 <footer>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="35 311 1009 457" class="footer-logo" role="img" aria-label="Devito">
-    <rect x="35" y="311" width="1009" height="457" fill="#7A7065"/>
-    <text font-family="fit, 'DM Serif Display', serif" fill="#F5F0E8" transform="matrix(0.79,0,0,0.79,56.924875,745.84972)" font-size="700px">Devito</text>
+    <text font-family="fit, 'DM Serif Display', serif" fill="#7A7065" transform="matrix(0.79,0,0,0.79,56.924875,745.84972)" font-size="700px">Devito</text>
   </svg>
   <p style="color: var(--muted);" data-lang="pt">Sorocaba, Brasil · Disponível para São Paulo</p>
   <p style="color: var(--muted);" data-lang="en">Sorocaba, Brazil · Available for São Paulo</p>
@@ -970,6 +1062,10 @@
 </footer>
 
 <script>
+  function toggleMenu() {
+    document.getElementById('nav-mobile').classList.toggle('open');
+  }
+
   function setLang(lang) {
     document.body.className = 'lang-' + lang;
     document.querySelectorAll('.lang-btn').forEach(btn => {
