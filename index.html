@@ -150,6 +150,59 @@
     color: var(--paper);
   }
 
+  /* ABOUT */
+  .about-wrap {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-image-wrap {
+    position: relative;
+  }
+
+  .about-image-wrap::before {
+    content: '';
+    position: absolute;
+    top: 12px; left: 12px;
+    right: -12px; bottom: -12px;
+    border: 2px solid var(--accent);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .about-image-wrap img {
+    width: 100%;
+    border-radius: 2px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(10%);
+  }
+
+  .about-pull {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(22px, 2.5vw, 30px);
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  .about-pull em { font-style: italic; color: var(--accent); }
+
+  .about-body {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 560px;
+  }
+
+  @media (max-width: 768px) {
+    .about-wrap { grid-template-columns: 1fr; gap: 32px; }
+    .about-image-wrap { max-width: 220px; }
+  }
+
   /* HERO */
   .hero {
     padding: 140px 48px 80px;
@@ -581,6 +634,9 @@
   </a>
   <div class="nav-right">
     <div class="nav-links">
+      <a href="#about" data-lang="pt">Sobre</a>
+      <a href="#about" data-lang="en">About</a>
+      <a href="#about" data-lang="es">Sobre</a>
       <a href="#experience" data-lang="pt">Experiência</a>
       <a href="#experience" data-lang="en">Experience</a>
       <a href="#experience" data-lang="es">Experiencia</a>
@@ -613,6 +669,9 @@
 
 <!-- MOBILE MENU -->
 <div class="nav-mobile" id="nav-mobile">
+  <a href="#about" data-lang="pt" onclick="toggleMenu()">Sobre</a>
+  <a href="#about" data-lang="en" onclick="toggleMenu()">About</a>
+  <a href="#about" data-lang="es" onclick="toggleMenu()">Sobre</a>
   <a href="#experience" data-lang="pt" onclick="toggleMenu()">Experiência</a>
   <a href="#experience" data-lang="en" onclick="toggleMenu()">Experience</a>
   <a href="#experience" data-lang="es" onclick="toggleMenu()">Experiencia</a>
@@ -647,7 +706,7 @@
     <a href="mailto:contato@fabiodevito.com.br" class="hero-cta" data-lang="es">Hablemos →</a>
   </div>
   <div class="hero-image-wrap">
-    <img src="https://fabiodevito.com.br/wp-content/uploads/2024/05/WhatsApp-Image-2024-05-02-at-14.51.42.jpeg" alt="Fábio Devito" loading="lazy" onerror="this.style.display='none'">
+    <img src="foto.jpg" alt="Fábio Devito" loading="lazy" onerror="this.style.display='none'">
   </div>
 </div>
 
@@ -665,6 +724,29 @@
   <span class="brand-tag">SESC</span>
   <span class="brand-tag">Cruzeiro do Sul</span>
 </div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-image-wrap">
+      <img src="foto.jpg" alt="Fábio Devito" loading="lazy">
+    </div>
+    <div>
+      <div class="section-header">
+        <span class="section-num">00</span>
+        <h2 class="section-title" data-lang="pt">Sobre</h2>
+        <h2 class="section-title" data-lang="en">About</h2>
+        <h2 class="section-title" data-lang="es">Sobre</h2>
+      </div>
+      <p class="about-pull" data-lang="pt">Fábio Devito é jornalista, <em>estrategista</em> de conteúdo digital.</p>
+      <p class="about-pull" data-lang="en">Fábio Devito is a journalist and <em>digital content strategist.</em></p>
+      <p class="about-pull" data-lang="es">Fábio Devito es periodista y <em>estratega</em> de contenido digital.</p>
+      <p class="about-body" data-lang="pt">Desde 2012, navega entre o jornalismo digital, a comunicação corporativa e a publicidade. Neste período, cobriu hard news no G1 e tecnologia no Olhar Digital, e, hoje, atua como Estrategista Digital para marcas globais, unindo dados, criatividade e storytelling.</p>
+      <p class="about-body" data-lang="en">Since 2012, he has navigated between digital journalism, corporate communications, and advertising. During this time, he covered hard news at G1 and technology at Olhar Digital — and today works as a Digital Strategist for global brands, combining data, creativity, and storytelling.</p>
+      <p class="about-body" data-lang="es">Desde 2012, navega entre el periodismo digital, la comunicación corporativa y la publicidad. En este período, cubrió hard news en G1 y tecnología en Olhar Digital, y hoy trabaja como Estratega Digital para marcas globales, uniendo datos, creatividad y storytelling.</p>
+    </div>
+  </div>
+</section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
