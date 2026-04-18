@@ -645,30 +645,21 @@
   .hadouken-orb {
     position: fixed;
     top: 50%;
-    left: -140px;
+    left: -200px;
     transform: translateY(-50%);
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #ffffff 0%, #7DDCFF 30%, #1A8FFF 60%, #0044CC 100%);
-    box-shadow: 0 0 20px #7DDCFF, 0 0 50px #1A8FFF, 0 0 90px #0044CC, inset 0 0 20px rgba(255,255,255,0.6);
+    width: 180px;
+    height: 120px;
+    background: url('hadouken-sprite.png') 0 0 / 720px 120px no-repeat;
+    mix-blend-mode: screen;
     z-index: 9999;
     pointer-events: none;
-    animation: hadouken-fly 0.65s cubic-bezier(0.15, 0, 0.6, 1) forwards;
-  }
-
-  .hadouken-orb::after {
-    content: '';
-    position: absolute;
-    inset: -20px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(100,210,255,0.4) 0%, transparent 70%);
-    animation: hadouken-pulse 0.15s ease infinite alternate;
+    animation: hadouken-fly 0.7s linear forwards,
+               hadouken-frames 0.48s steps(4, end) infinite;
   }
 
   .hadouken-text {
     position: fixed;
-    top: calc(50% - 80px);
+    top: calc(50% - 90px);
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Roboto Slab', serif;
@@ -684,13 +675,13 @@
   }
 
   @keyframes hadouken-fly {
-    0%   { left: -140px; opacity: 1; }
-    100% { left: calc(100vw + 140px); opacity: 1; }
+    from { left: -200px; }
+    to   { left: calc(100vw + 200px); }
   }
 
-  @keyframes hadouken-pulse {
-    from { transform: scale(1); opacity: 0.6; }
-    to   { transform: scale(1.15); opacity: 1; }
+  @keyframes hadouken-frames {
+    from { background-position: 0 0; }
+    to   { background-position: -720px 0; }
   }
 
   @keyframes hadouken-text-pop {
@@ -1249,22 +1240,40 @@
   (function() {
     const combo = ['a','s','d','5'];
     let buf = [];
+    const sfx = new Audio('shinkuuhadouken.mp3');
+    sfx.load();
+
     document.addEventListener('keydown', e => {
       buf.push(e.key.toLowerCase());
       if (buf.length > combo.length) buf.shift();
       if (buf.join('') === combo.join('')) {
         buf = [];
-        const orb = document.createElement('div');
-        orb.className = 'hadouken-orb';
-        const txt = document.createElement('div');
-        txt.className = 'hadouken-text';
-        txt.textContent = 'Hadouken!';
-        document.body.appendChild(orb);
-        document.body.appendChild(txt);
-        orb.addEventListener('animationend', () => orb.remove());
-        txt.addEventListener('animationend', () => txt.remove());
+        fireHadouken();
       }
     });
+
+    function fireHadouken() {
+      sfx.currentTime = 0;
+      sfx.play();
+
+      const duration = sfx.duration && isFinite(sfx.duration) ? sfx.duration : 2.0;
+
+      const orb = document.createElement('div');
+      orb.className = 'hadouken-orb';
+      orb.style.animationDuration = `${duration}s, 0.48s`;
+
+      const txt = document.createElement('div');
+      txt.className = 'hadouken-text';
+      txt.textContent = 'Hadouken!';
+
+      document.body.appendChild(orb);
+      document.body.appendChild(txt);
+
+      orb.addEventListener('animationend', e => {
+        if (e.animationName === 'hadouken-fly') orb.remove();
+      });
+      txt.addEventListener('animationend', () => txt.remove());
+    }
   })();
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
