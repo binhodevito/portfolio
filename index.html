@@ -645,11 +645,11 @@
   .hadouken-orb {
     position: fixed;
     top: 50%;
-    left: -200px;
+    left: -180px;
     transform: translateY(-50%);
-    width: 180px;
-    height: 120px;
-    background: url('hadouken.png') 0 0 / 720px 120px no-repeat;
+    width: 160px;
+    height: 160px;
+    background: url('hadouken.png') 0 0 / 320px 320px no-repeat;
     mix-blend-mode: screen;
     z-index: 9999;
     pointer-events: none;
@@ -680,8 +680,11 @@
   }
 
   @keyframes hadouken-frames {
-    from { background-position: 0 0; }
-    to   { background-position: -720px 0; }
+    0%   { background-position: 0 0; }
+    25%  { background-position: -160px 0; }
+    50%  { background-position: 0 -160px; }
+    75%  { background-position: -160px -160px; }
+    100% { background-position: 0 0; }
   }
 
   @keyframes hadouken-text-pop {
