@@ -641,6 +641,66 @@
   .lang-es li[data-lang="es"] { display: flex; }
   .lang-es [data-lang="es"].inline { display: inline; }
 
+  /* HADOUKEN EASTER EGG */
+  .hadouken-orb {
+    position: fixed;
+    top: 50%;
+    left: -140px;
+    transform: translateY(-50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ffffff 0%, #7DDCFF 30%, #1A8FFF 60%, #0044CC 100%);
+    box-shadow: 0 0 20px #7DDCFF, 0 0 50px #1A8FFF, 0 0 90px #0044CC, inset 0 0 20px rgba(255,255,255,0.6);
+    z-index: 9999;
+    pointer-events: none;
+    animation: hadouken-fly 0.65s cubic-bezier(0.15, 0, 0.6, 1) forwards;
+  }
+
+  .hadouken-orb::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(100,210,255,0.4) 0%, transparent 70%);
+    animation: hadouken-pulse 0.15s ease infinite alternate;
+  }
+
+  .hadouken-text {
+    position: fixed;
+    top: calc(50% - 80px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Roboto Slab', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px #1A8FFF, 0 0 50px #0044CC, 2px 2px 0 #003399;
+    z-index: 9999;
+    pointer-events: none;
+    animation: hadouken-text-pop 1.1s ease forwards;
+  }
+
+  @keyframes hadouken-fly {
+    0%   { left: -140px; opacity: 1; }
+    100% { left: calc(100vw + 140px); opacity: 1; }
+  }
+
+  @keyframes hadouken-pulse {
+    from { transform: scale(1); opacity: 0.6; }
+    to   { transform: scale(1.15); opacity: 1; }
+  }
+
+  @keyframes hadouken-text-pop {
+    0%   { opacity: 0; transform: translateX(-50%) scale(0.6); }
+    15%  { opacity: 1; transform: translateX(-50%) scale(1.08); }
+    30%  { transform: translateX(-50%) scale(1); }
+    70%  { opacity: 1; }
+    100% { opacity: 0; transform: translateX(-50%) scale(1); }
+  }
+
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -1184,6 +1244,28 @@
       btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
     });
   }
+
+  // Easter egg: A S D 5 = Hadouken
+  (function() {
+    const combo = ['a','s','d','5'];
+    let buf = [];
+    document.addEventListener('keydown', e => {
+      buf.push(e.key.toLowerCase());
+      if (buf.length > combo.length) buf.shift();
+      if (buf.join('') === combo.join('')) {
+        buf = [];
+        const orb = document.createElement('div');
+        orb.className = 'hadouken-orb';
+        const txt = document.createElement('div');
+        txt.className = 'hadouken-text';
+        txt.textContent = 'Hadouken!';
+        document.body.appendChild(orb);
+        document.body.appendChild(txt);
+        orb.addEventListener('animationend', () => orb.remove());
+        txt.addEventListener('animationend', () => txt.remove());
+      }
+    });
+  })();
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
