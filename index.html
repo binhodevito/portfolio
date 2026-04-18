@@ -208,55 +208,52 @@
   }
 
   /* PIXEL CHARACTER SPRITE
-     Sprite sheet: sprite.png — 6 frames horizontally, 400x400px each → 2400x400px total
-     Total animation: 3520ms
-     Sequence: typing×3 (480ms) → think (600ms) → typing×2 (320ms) →
-               laugh (600ms) → typing×1 (160ms) → surprised (600ms) →
-               typing×1 (160ms) → blush (600ms) → loop
+     Sprite: Animation 1/sprite.png — 6 frames × 400px → 2400×400px
+     Order: 0=laptop_04 1=laptop_05 2=laptop_06 3=laptop_01 4=laptop_02 5=laptop_03
+     Total: 3300ms (15×80ms typing + 3×700ms expression hold)
   */
   .pixel-character {
     --sz: 300px;
     width: var(--sz);
     height: var(--sz);
-    background-image: url('animation%201/sprite.png');
+    background-image: url('Animation%201/sprite.png');
     background-size: calc(var(--sz) * 6) var(--sz);
     background-repeat: no-repeat;
-    background-color: #F7EFE2;
+    background-color: #F5F0E8;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     -ms-interpolation-mode: nearest-neighbor;
-    animation: px-anim 3.52s infinite;
+    animation: px-anim 3.3s infinite;
   }
 
   @media (max-width: 768px) {
     .pixel-character { --sz: 200px; }
   }
 
-  /* frame positions: 0=type1  -1=type2  -2=think  -3=laugh  -4=surprised  -5=blush
-     percentages = cumulative_ms / 3520 * 100
-     0      80     160    240    320    400    480     1080   1160   1240   1320   1400    2000   2080   2160    2760   2840   2920   3520
-     0%   2.27%  4.55%  6.82%  9.09% 11.36% 13.64% 30.68% 32.95% 35.23% 37.50% 39.77%  56.82% 59.09% 61.36%  78.41% 80.68% 82.95% 100%
+  /* frame index → bg-x: 0=0  1=-1sz  2=-2sz  3=-3sz  4=-4sz  5=-5sz
+     ms:  0   80  160  240  320   400  1100 1180 1260 1340  1420  1500 2200 2280 2360 2440  2520  2600  3300
+     %:   0  2.42 4.85 7.27 9.70 12.12 33.33 35.76 38.18 40.61 43.03 45.45 66.67 69.09 71.52 73.94 76.36 78.79 100
   */
   @keyframes px-anim {
-    0%     { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
-    2.27%  { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
-    4.55%  { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
-    6.82%  { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
-    9.09%  { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
-    11.36% { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
-    13.64% { background-position: calc(var(--sz)* -2) 0; animation-timing-function: step-end; }
-    30.68% { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
-    32.95% { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
-    35.23% { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
-    37.50% { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
-    39.77% { background-position: calc(var(--sz)* -3) 0; animation-timing-function: step-end; }
-    56.82% { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
-    59.09% { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
-    61.36% { background-position: calc(var(--sz)* -4) 0; animation-timing-function: step-end; }
-    78.41% { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
-    80.68% { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
-    82.95% { background-position: calc(var(--sz)* -5) 0; animation-timing-function: step-end; }
-    100%   { background-position: calc(var(--sz)*  0) 0; }
+    0%      { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    2.42%   { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    4.85%   { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    7.27%   { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    9.70%   { background-position: calc(var(--sz)* -2) 0; animation-timing-function: step-end; }
+    12.12%  { background-position: calc(var(--sz)* -3) 0; animation-timing-function: step-end; }
+    33.33%  { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    35.76%  { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    38.18%  { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    40.61%  { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    43.03%  { background-position: calc(var(--sz)* -2) 0; animation-timing-function: step-end; }
+    45.45%  { background-position: calc(var(--sz)* -4) 0; animation-timing-function: step-end; }
+    66.67%  { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    69.09%  { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    71.52%  { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    73.94%  { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    76.36%  { background-position: calc(var(--sz)* -2) 0; animation-timing-function: step-end; }
+    78.79%  { background-position: calc(var(--sz)* -5) 0; animation-timing-function: step-end; }
+    100%    { background-position: calc(var(--sz)*  0) 0; }
   }
 
   /* ABOUT */
