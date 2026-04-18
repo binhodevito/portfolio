@@ -207,6 +207,58 @@
     color: var(--paper);
   }
 
+  /* PIXEL CHARACTER SPRITE
+     Sprite sheet: sprite.png — 6 frames horizontally, 400x400px each → 2400x400px total
+     Total animation: 3520ms
+     Sequence: typing×3 (480ms) → think (600ms) → typing×2 (320ms) →
+               laugh (600ms) → typing×1 (160ms) → surprised (600ms) →
+               typing×1 (160ms) → blush (600ms) → loop
+  */
+  .pixel-character {
+    --sz: 300px;
+    width: var(--sz);
+    height: var(--sz);
+    background-image: url('animation 1/sprite.png');
+    background-size: calc(var(--sz) * 6) var(--sz);
+    background-repeat: no-repeat;
+    background-color: #F7EFE2;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    animation: px-anim 3.52s infinite;
+  }
+
+  @media (max-width: 768px) {
+    .pixel-character { --sz: 200px; }
+  }
+
+  /* frame positions: 0=type1  -1=type2  -2=think  -3=laugh  -4=surprised  -5=blush
+     percentages = cumulative_ms / 3520 * 100
+     0      80     160    240    320    400    480     1080   1160   1240   1320   1400    2000   2080   2160    2760   2840   2920   3520
+     0%   2.27%  4.55%  6.82%  9.09% 11.36% 13.64% 30.68% 32.95% 35.23% 37.50% 39.77%  56.82% 59.09% 61.36%  78.41% 80.68% 82.95% 100%
+  */
+  @keyframes px-anim {
+    0%     { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    2.27%  { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    4.55%  { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    6.82%  { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    9.09%  { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    11.36% { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    13.64% { background-position: calc(var(--sz)* -2) 0; animation-timing-function: step-end; }
+    30.68% { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    32.95% { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    35.23% { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    37.50% { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    39.77% { background-position: calc(var(--sz)* -3) 0; animation-timing-function: step-end; }
+    56.82% { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    59.09% { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    61.36% { background-position: calc(var(--sz)* -4) 0; animation-timing-function: step-end; }
+    78.41% { background-position: calc(var(--sz)*  0) 0; animation-timing-function: step-end; }
+    80.68% { background-position: calc(var(--sz)* -1) 0; animation-timing-function: step-end; }
+    82.95% { background-position: calc(var(--sz)* -5) 0; animation-timing-function: step-end; }
+    100%   { background-position: calc(var(--sz)*  0) 0; }
+  }
+
   /* ABOUT */
   .about-wrap {
     display: grid;
@@ -805,7 +857,7 @@
     <a href="mailto:contato@fabiodevito.com.br" class="hero-cta" data-lang="es">Hablemos →</a>
   </div>
   <div class="hero-image-wrap">
-    <img src="profile.gif" alt="Fábio Devito" onerror="this.style.display='none'">
+    <div class="pixel-character" role="img" aria-label="Fábio Devito"></div>
   </div>
 </div>
 
