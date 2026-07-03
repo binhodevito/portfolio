@@ -32,7 +32,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
     background: var(--paper);
@@ -149,7 +149,7 @@
   .lang-btn.active { background: var(--ink); color: var(--paper); }
 
   /* ── LAYOUT ── */
-  .manual-wrapper { display: flex; padding-top: var(--nav-h); min-height: 100vh; }
+  .manual-wrapper { display: flex; padding-top: var(--nav-h); min-height: 100vh; overflow-x: hidden; }
 
   /* ── SIDEBAR ── */
   .manual-sidebar {
@@ -324,9 +324,9 @@
   .scale-char-name { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
   .scale-char-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-  .scale-center { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .scale-center { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; }
 
-  .scale-label-text { font-family: 'Roboto Slab', serif; font-size: 14px; color: var(--ink); text-align: center; min-height: 22px; line-height: 1.4; transition: color 0.3s; }
+  .scale-label-text { font-family: 'Roboto Slab', serif; font-size: 14px; color: var(--ink); text-align: center; min-height: 22px; line-height: 1.4; transition: color 0.3s; word-break: break-word; overflow-wrap: break-word; }
 
   .scale-track-wrap { position: relative; width: 100%; height: 28px; display: flex; align-items: center; }
 
@@ -450,23 +450,35 @@
     .manual-sidebar     { display: none; }
     .sidebar-mobile-bar { display: block; }
     .manual-content     { margin-left: 0; }
-    .site-footer        { margin-left: 0; padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
-    .manual-inner       { padding: 36px 24px 80px; }
-    nav                 { padding: 16px 24px; }
+    .site-footer        { margin-left: 0; padding: 20px 20px; flex-direction: column; gap: 8px; text-align: center; }
+    .manual-inner       { padding: 28px 20px 64px; overflow-x: hidden; }
+    nav                 { padding: 14px 20px; }
     .nav-links          { display: none; }
     .nav-hamburger      { display: flex; }
+    .nav-right          { gap: 10px; }
+    .lang-btn           { padding: 4px 8px; font-size: 10px; }
     .two-col, .prompt-compare, .temp-grid { grid-template-columns: 1fr; }
     .tool-item          { grid-template-columns: 1fr; gap: 4px; }
-    .scale-block        { gap: 12px; padding: 20px 16px; }
-    .scale-char         { width: 130px; }
-    .scale-img          { width: 110px; height: 110px; }
+    .scale-block        { gap: 8px; padding: 16px 12px; }
+    .scale-char         { width: 72px; }
+    .scale-img          { width: 68px; height: 68px; }
+    .scale-label-text   { font-size: 12px; min-height: auto; }
+    .scale-ends         { font-size: 10px; letter-spacing: 0; }
+    .scale-char-name    { font-size: 9px; }
+    .scale-emoji        { font-size: 14px; }
+    .gif-block          { max-width: 100%; }
+    .manual-h1          { font-size: clamp(22px, 6vw, 34px); }
+    .code-block         { font-size: 12px; padding: 16px; }
     .chapter            { scroll-margin-top: calc(var(--nav-h) + 56px); }
     .author-box         { scroll-margin-top: calc(var(--nav-h) + 56px); }
   }
 
   @media (max-width: 480px) {
-    .scale-char { width: 90px; }
-    .scale-img  { width: 82px; height: 82px; }
+    .scale-char         { width: 60px; }
+    .scale-img          { width: 56px; height: 56px; }
+    .scale-label-text   { font-size: 11px; }
+    .scale-ends         { display: none; }
+    .manual-inner       { padding: 24px 16px 56px; }
   }
 </style>
 </head>
