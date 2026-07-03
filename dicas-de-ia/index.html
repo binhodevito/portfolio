@@ -6,9 +6,9 @@
 <title>Dicas de IA — Manual do Escoteiro Mirim · Fábio Devito</title>
 <meta name="description" content="Guia prático sobre uso de IA para times criativos e jornalistas. Sem programação, com foco no raciocínio.">
 <meta name="author" content="Fábio Devito">
-<link rel="canonical" href="https://fabiodevito.com.br/manual">
+<link rel="canonical" href="https://fabiodevito.com.br/dicas-de-ia">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://fabiodevito.com.br/manual">
+<meta property="og:url" content="https://fabiodevito.com.br/dicas-de-ia">
 <meta property="og:title" content="Dicas de IA — Manual do Escoteiro Mirim · Fábio Devito">
 <meta property="og:description" content="Guia prático sobre uso de IA para times criativos e jornalistas. Sem programação, com foco no raciocínio.">
 <meta property="og:image" content="https://fabiodevito.com.br/profile.png">
@@ -77,11 +77,7 @@
     transition: color 0.2s, background 0.2s;
   }
   .nav-links a:hover { color: var(--ink); background: var(--card); }
-
-  .nav-links a.nav-current {
-    color: var(--ink);
-    background: var(--card);
-  }
+  .nav-links a.nav-current { color: var(--ink); background: var(--card); }
 
   .nav-links a.nav-newsletter {
     color: var(--accent);
@@ -90,7 +86,6 @@
   }
   .nav-links a.nav-newsletter:hover { background: var(--accent); color: var(--paper); }
 
-  /* HAMBURGER */
   .nav-hamburger {
     display: none;
     flex-direction: column;
@@ -102,7 +97,6 @@
   }
   .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); transition: all 0.2s; }
 
-  /* MOBILE MENU */
   .nav-mobile {
     display: none;
     position: fixed;
@@ -130,7 +124,6 @@
   .nav-mobile a:hover, .nav-mobile a.nav-current { color: var(--ink); }
   .nav-mobile a.nav-newsletter { color: var(--accent); border-bottom-color: var(--accent); }
 
-  /* LANG TOGGLE */
   .lang-toggle {
     display: flex;
     align-items: center;
@@ -156,17 +149,12 @@
   .lang-btn.active { background: var(--ink); color: var(--paper); }
 
   /* ── LAYOUT ── */
-  .manual-wrapper {
-    display: flex;
-    padding-top: var(--nav-h);
-    min-height: 100vh;
-  }
+  .manual-wrapper { display: flex; padding-top: var(--nav-h); min-height: 100vh; }
 
-  /* ── SIDEBAR (desktop) ── */
+  /* ── SIDEBAR ── */
   .manual-sidebar {
     position: fixed;
-    top: var(--nav-h);
-    left: 0;
+    top: var(--nav-h); left: 0;
     width: var(--sidebar-w);
     height: calc(100vh - var(--nav-h));
     overflow-y: auto;
@@ -213,14 +201,9 @@
     line-height: 1.4;
   }
   .sidebar-link:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
-  .sidebar-link.active {
-    color: var(--ink);
-    border-left-color: var(--accent);
-    background: rgba(0,0,0,0.04);
-    font-weight: 500;
-  }
+  .sidebar-link.active { color: var(--ink); border-left-color: var(--accent); background: rgba(0,0,0,0.04); font-weight: 500; }
 
-  /* ── MOBILE SIDEBAR BAR ── */
+  /* ── MOBILE INDEX BAR ── */
   .sidebar-mobile-bar {
     display: none;
     position: sticky;
@@ -259,24 +242,14 @@
     overflow-y: auto;
   }
   .sidebar-mobile-bar.open .sidebar-mobile-nav { display: flex; }
-
-  .sidebar-mobile-nav .sidebar-link {
-    border-left: none;
-    border-bottom: 1px solid var(--border);
-    padding: 9px 24px;
-    font-size: 14px;
-  }
+  .sidebar-mobile-nav .sidebar-link { border-left: none; border-bottom: 1px solid var(--border); padding: 9px 24px; font-size: 14px; }
   .sidebar-mobile-nav .sidebar-link.active { color: var(--accent); background: rgba(200,68,42,0.06); }
   .sidebar-mobile-nav .sidebar-part { border-top: none; padding: 12px 24px 4px; }
 
   /* ── CONTENT ── */
   .manual-content { flex: 1; margin-left: var(--sidebar-w); min-height: 100vh; }
 
-  .manual-inner {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 56px 48px 80px;
-  }
+  .manual-inner { max-width: 720px; margin: 0 auto; padding: 56px 48px 80px; }
 
   /* ── PAGE HEADER ── */
   .manual-eyebrow {
@@ -289,13 +262,7 @@
     margin-bottom: 14px;
   }
 
-  .manual-h1 {
-    font-family: 'Roboto Slab', serif;
-    font-size: clamp(26px, 4vw, 42px);
-    line-height: 1.1;
-    color: var(--ink);
-    margin-bottom: 16px;
-  }
+  .manual-h1 { font-family: 'Roboto Slab', serif; font-size: clamp(26px, 4vw, 42px); line-height: 1.1; color: var(--ink); margin-bottom: 16px; }
 
   .manual-intro {
     font-size: 16px;
@@ -313,7 +280,6 @@
     border: 1px solid var(--border);
     border-radius: 2px;
     padding: 22px 24px;
-    margin-bottom: 32px;
     scroll-margin-top: calc(var(--nav-h) + 24px);
   }
   .author-label {
@@ -328,7 +294,7 @@
   .author-box p { font-size: 15px; color: var(--muted); line-height: 1.75; }
   .author-box p + p { margin-top: 10px; font-style: italic; font-size: 14px; }
 
-  /* ── ESCALA (SLIDER KURIRIN/TRUNKS) ── */
+  /* ── ESCALA KURIRIN/TRUNKS ── */
   .scale-block {
     display: flex;
     align-items: center;
@@ -340,12 +306,7 @@
     margin-bottom: 48px;
   }
 
-  .scale-char {
-    text-align: center;
-    flex-shrink: 0;
-    width: 110px;
-    transition: opacity 0.3s;
-  }
+  .scale-char { text-align: center; flex-shrink: 0; width: 110px; }
 
   .scale-img {
     width: 90px;
@@ -357,51 +318,17 @@
     border: 3px solid var(--border);
     transition: border-color 0.3s, transform 0.2s;
   }
-
-  .scale-char.active .scale-img {
-    border-color: var(--accent);
-    transform: scale(1.06);
-  }
+  .scale-char.active .scale-img { border-color: var(--accent); transform: scale(1.06); }
 
   .scale-emoji { font-size: 16px; margin-bottom: 4px; line-height: 1; }
-
-  .scale-char-name {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink);
-  }
-
+  .scale-char-name { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
   .scale-char-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-  .scale-center {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-  }
+  .scale-center { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 14px; }
 
-  .scale-label-text {
-    font-family: 'Roboto Slab', serif;
-    font-size: 14px;
-    color: var(--ink);
-    text-align: center;
-    min-height: 22px;
-    line-height: 1.4;
-    transition: color 0.3s;
-  }
+  .scale-label-text { font-family: 'Roboto Slab', serif; font-size: 14px; color: var(--ink); text-align: center; min-height: 22px; line-height: 1.4; transition: color 0.3s; }
 
-  /* Custom range / termômetro */
-  .scale-track-wrap {
-    position: relative;
-    width: 100%;
-    height: 28px;
-    display: flex;
-    align-items: center;
-  }
+  .scale-track-wrap { position: relative; width: 100%; height: 28px; display: flex; align-items: center; }
 
   .scale-slider {
     -webkit-appearance: none;
@@ -412,104 +339,48 @@
     outline: none;
     cursor: grab;
     background: linear-gradient(to right, #6B62D9, #D8D0C4, var(--accent));
-    position: relative;
-    z-index: 2;
   }
   .scale-slider:active { cursor: grabbing; }
-
   .scale-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 26px;
-    height: 26px;
+    width: 26px; height: 26px;
     border-radius: 50%;
     background: var(--ink);
     border: 3px solid var(--paper);
     box-shadow: 0 2px 8px rgba(0,0,0,0.35);
     cursor: grab;
-    transition: transform 0.1s, background 0.2s;
+    transition: transform 0.1s;
   }
   .scale-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
-  .scale-slider:active::-webkit-slider-thumb { cursor: grabbing; }
-
   .scale-slider::-moz-range-thumb {
-    width: 26px;
-    height: 26px;
+    width: 26px; height: 26px;
     border-radius: 50%;
     background: var(--ink);
     border: 3px solid var(--paper);
     box-shadow: 0 2px 8px rgba(0,0,0,0.35);
-    cursor: grab;
   }
 
-  .scale-ends {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    font-size: 11px;
-    color: var(--muted);
-    font-family: 'Roboto Mono', monospace;
-    letter-spacing: 0.04em;
-  }
+  .scale-ends { display: flex; justify-content: space-between; width: 100%; font-size: 11px; color: var(--muted); font-family: 'Roboto Mono', monospace; letter-spacing: 0.04em; }
 
   /* ── GIFs ── */
-  .gif-block {
-    margin: 0 auto 8px;
-    border-radius: 2px;
-    overflow: hidden;
-    max-width: 420px;
-    display: block;
-  }
+  .gif-block { margin: 0 auto 8px; border-radius: 2px; overflow: hidden; max-width: 420px; display: block; }
   .gif-block img { width: 100%; display: block; }
   .gif-caption { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 32px; text-align: center; }
 
   /* ── PART HEADER ── */
-  .part-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 28px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid var(--ink);
-  }
-
-  .part-badge {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--paper);
-    background: var(--accent);
-    padding: 4px 10px;
-    border-radius: 2px;
-    white-space: nowrap;
-  }
-
+  .part-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 2px solid var(--ink); }
+  .part-badge { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper); background: var(--accent); padding: 4px 10px; border-radius: 2px; white-space: nowrap; }
   .part-title { font-family: 'Roboto Slab', serif; font-size: 21px; color: var(--ink); }
 
   /* ── SECTION ── */
   .manual-section { margin-bottom: 72px; }
 
   /* ── CHAPTER ── */
-  .chapter {
-    margin-bottom: 52px;
-    padding-bottom: 52px;
-    border-bottom: 1px solid var(--border);
-    scroll-margin-top: calc(var(--nav-h) + 24px);
-  }
+  .chapter { margin-bottom: 52px; padding-bottom: 52px; border-bottom: 1px solid var(--border); scroll-margin-top: calc(var(--nav-h) + 24px); }
   .chapter:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
   .chapter-hd { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
-
-  .chapter-num {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    flex-shrink: 0;
-  }
-
+  .chapter-num { font-family: 'Roboto Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); flex-shrink: 0; }
   .chapter-title { font-family: 'Roboto Slab', serif; font-size: 21px; line-height: 1.2; color: var(--ink); }
 
   .chapter p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 14px; }
@@ -519,69 +390,26 @@
   .chapter a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
   .chapter a:hover { text-decoration: none; }
 
-  .subhead {
-    font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink);
-    margin: 24px 0 8px;
-  }
+  .subhead { font-family: 'Roboto', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin: 24px 0 8px; }
 
   .chapter ul { list-style: none; margin: 0 0 14px; padding: 0; }
-  .chapter ul li {
-    font-size: 16px;
-    color: var(--muted);
-    line-height: 1.7;
-    padding: 3px 0 3px 20px;
-    position: relative;
-  }
+  .chapter ul li { font-size: 16px; color: var(--muted); line-height: 1.7; padding: 3px 0 3px 20px; position: relative; }
   .chapter ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
   .chapter ul li strong { color: var(--ink); font-weight: 600; }
 
-  /* ── CALLOUT ── */
-  .callout {
-    border-left: 3px solid var(--accent);
-    background: var(--card);
-    padding: 14px 18px;
-    margin: 20px 0;
-    border-radius: 0 2px 2px 0;
-  }
+  .callout { border-left: 3px solid var(--accent); background: var(--card); padding: 14px 18px; margin: 20px 0; border-radius: 0 2px 2px 0; }
   .callout p { font-size: 15px; color: var(--ink) !important; margin-bottom: 0 !important; font-style: italic; line-height: 1.65 !important; }
 
-  /* ── TWO COLUMNS ── */
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
   .col-box { background: var(--card); border: 1px solid var(--border); border-radius: 2px; padding: 16px; }
-  .col-box-label {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 10px;
-  }
+  .col-box-label { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
   .col-box ul { list-style: none; padding: 0; margin: 0; }
   .col-box ul li { font-size: 14px; color: var(--muted); padding: 3px 0 3px 14px; position: relative; line-height: 1.5; }
   .col-box ul li::before { content: '–'; position: absolute; left: 0; color: var(--muted); }
 
-  /* ── CODE BLOCK ── */
-  .code-block {
-    background: var(--ink);
-    color: #E8E2D8;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 13px;
-    line-height: 1.7;
-    padding: 22px 24px;
-    border-radius: 2px;
-    margin: 18px 0;
-    overflow-x: auto;
-    white-space: pre;
-  }
+  .code-block { background: var(--ink); color: #E8E2D8; font-family: 'Roboto Mono', monospace; font-size: 13px; line-height: 1.7; padding: 22px 24px; border-radius: 2px; margin: 18px 0; overflow-x: auto; white-space: pre; }
   .code-var { color: #E8A87C; font-style: italic; }
 
-  /* ── PROMPT COMPARE ── */
   .prompt-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
   .prompt-box { background: var(--card); border: 1px solid var(--border); border-radius: 2px; padding: 16px; }
   .prompt-label { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
@@ -589,7 +417,6 @@
   .prompt-label.good { color: #3A7A3A; }
   .prompt-box p { font-size: 14px; color: var(--muted) !important; line-height: 1.6; font-style: italic; margin-bottom: 0 !important; }
 
-  /* ── TOOL LIST ── */
   .tool-list { margin: 18px 0; }
   .tool-item { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: start; }
   .tool-item:last-child { border-bottom: none; }
@@ -597,13 +424,11 @@
   .tool-maker { font-size: 11px; color: var(--accent); margin-top: 3px; }
   .tool-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0; }
 
-  /* ── TEMP CARDS ── */
   .temp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
   .temp-card { background: var(--card); border: 1px solid var(--border); border-radius: 2px; padding: 16px; }
   .temp-label { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
   .temp-card p { font-size: 14px; color: var(--muted) !important; line-height: 1.6; margin-bottom: 6px !important; }
 
-  /* ── TOOL CATEGORY ── */
   .tool-category { margin-bottom: 28px; }
   .tool-cat-title { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); padding-bottom: 8px; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
 
@@ -616,29 +441,24 @@
     align-items: center;
     margin-left: var(--sidebar-w);
   }
-  .site-footer p {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-  }
+  .site-footer p { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--muted); }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .manual-sidebar  { display: none; }
+    .manual-sidebar     { display: none; }
     .sidebar-mobile-bar { display: block; }
-    .manual-content  { margin-left: 0; }
-    .site-footer     { margin-left: 0; padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
-    .manual-inner    { padding: 36px 24px 80px; }
-    nav              { padding: 16px 24px; }
-    .nav-links       { display: none; }
-    .nav-hamburger   { display: flex; }
+    .manual-content     { margin-left: 0; }
+    .site-footer        { margin-left: 0; padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+    .manual-inner       { padding: 36px 24px 80px; }
+    nav                 { padding: 16px 24px; }
+    .nav-links          { display: none; }
+    .nav-hamburger      { display: flex; }
     .two-col, .prompt-compare, .temp-grid { grid-template-columns: 1fr; }
-    .tool-item       { grid-template-columns: 1fr; gap: 4px; }
-    .scale-block     { flex-wrap: wrap; justify-content: center; gap: 16px; }
-    .scale-center    { width: 100%; order: 3; }
-    .chapter         { scroll-margin-top: calc(var(--nav-h) + 56px); }
-    .author-box      { scroll-margin-top: calc(var(--nav-h) + 56px); }
+    .tool-item          { grid-template-columns: 1fr; gap: 4px; }
+    .scale-block        { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    .scale-center       { width: 100%; order: 3; }
+    .chapter            { scroll-margin-top: calc(var(--nav-h) + 56px); }
+    .author-box         { scroll-margin-top: calc(var(--nav-h) + 56px); }
   }
 
   @media (max-width: 480px) {
@@ -651,20 +471,20 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="index.html" aria-label="Fábio Devito" class="nav-logo-link">
+  <a href="../index.html" aria-label="Fábio Devito" class="nav-logo-link">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="35 311 1009 457" class="nav-logo-img" role="img" aria-label="Devito">
       <text font-family="fit, 'Roboto Slab', serif" fill="#111111" transform="matrix(0.79,0,0,0.79,56.924875,745.84972)" font-size="700px">Devito</text>
     </svg>
   </a>
   <div class="nav-right">
     <div class="nav-links">
-      <a href="index.html#about">Sobre</a>
-      <a href="index.html#experience">Experiência</a>
-      <a href="index.html#highlights">Destaques</a>
-      <a href="index.html#skills">Skills</a>
-      <a href="index.html#education">Formação</a>
-      <a href="index.html#contact">Contato</a>
-      <a href="manual.html" class="nav-current">Dicas de IA</a>
+      <a href="../index.html#about">Sobre</a>
+      <a href="../index.html#experience">Experiência</a>
+      <a href="../index.html#highlights">Destaques</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#education">Formação</a>
+      <a href="../index.html#contact">Contato</a>
+      <a href="./" class="nav-current">Dicas de IA</a>
       <a href="https://substack.com/@devito" target="_blank" rel="noopener" class="nav-newsletter">Newsletter</a>
     </div>
     <div class="lang-toggle">
@@ -680,24 +500,23 @@
 
 <!-- ── MOBILE MENU ── -->
 <div class="nav-mobile" id="nav-mobile">
-  <a href="index.html#about" onclick="toggleMenu()">Sobre</a>
-  <a href="index.html#experience" onclick="toggleMenu()">Experiência</a>
-  <a href="index.html#highlights" onclick="toggleMenu()">Destaques</a>
-  <a href="index.html#skills" onclick="toggleMenu()">Skills</a>
-  <a href="index.html#education" onclick="toggleMenu()">Formação</a>
-  <a href="index.html#contact" onclick="toggleMenu()">Contato</a>
-  <a href="manual.html" class="nav-current" onclick="toggleMenu()">Dicas de IA</a>
+  <a href="../index.html#about" onclick="toggleMenu()">Sobre</a>
+  <a href="../index.html#experience" onclick="toggleMenu()">Experiência</a>
+  <a href="../index.html#highlights" onclick="toggleMenu()">Destaques</a>
+  <a href="../index.html#skills" onclick="toggleMenu()">Skills</a>
+  <a href="../index.html#education" onclick="toggleMenu()">Formação</a>
+  <a href="../index.html#contact" onclick="toggleMenu()">Contato</a>
+  <a href="./" class="nav-current" onclick="toggleMenu()">Dicas de IA</a>
   <a href="https://substack.com/@devito" target="_blank" rel="noopener" class="nav-newsletter" onclick="toggleMenu()">Newsletter</a>
 </div>
 
-<!-- ── MANUAL WRAPPER ── -->
 <div class="manual-wrapper">
 
-  <!-- ── SIDEBAR (desktop) ── -->
+  <!-- ── SIDEBAR ── -->
   <aside class="manual-sidebar" aria-label="Índice">
     <div class="sidebar-eyebrow">Dicas de IA</div>
-    <a href="#quem-escreve" class="sidebar-link" data-target="quem-escreve">Quem escreve</a>
     <a href="#prologo" class="sidebar-link" data-target="prologo">Prólogo</a>
+    <a href="#quem-escreve" class="sidebar-link" data-target="quem-escreve">Quem escreve</a>
 
     <div class="sidebar-part">Parte 0 — Regras de Campo</div>
     <a href="#cap-1" class="sidebar-link" data-target="cap-1">1. O que não colocar</a>
@@ -723,15 +542,14 @@
   <!-- ── CONTENT ── -->
   <main class="manual-content">
 
-    <!-- ── MOBILE INDEX BAR ── -->
     <div class="sidebar-mobile-bar" id="sidebar-mobile-bar">
       <button class="sidebar-mobile-btn" onclick="toggleIndex()" aria-label="Índice">
         <span>Índice</span>
         <span class="sidebar-mobile-arrow">↓</span>
       </button>
-      <nav class="sidebar-mobile-nav" id="sidebar-mobile-nav">
-        <a href="#quem-escreve" class="sidebar-link" onclick="closeIndex()">Quem escreve</a>
+      <nav class="sidebar-mobile-nav">
         <a href="#prologo" class="sidebar-link" onclick="closeIndex()">Prólogo</a>
+        <a href="#quem-escreve" class="sidebar-link" onclick="closeIndex()">Quem escreve</a>
         <div class="sidebar-part">Parte 0 — Regras de Campo</div>
         <a href="#cap-1" class="sidebar-link" onclick="closeIndex()">1. O que não colocar numa IA</a>
         <a href="#cap-2" class="sidebar-link" onclick="closeIndex()">2. Quando NÃO usar IA</a>
@@ -754,46 +572,30 @@
 
     <div class="manual-inner">
 
-      <!-- ── TÍTULO ── -->
       <p class="manual-eyebrow">Dicas de IA</p>
       <h1 class="manual-h1">Manual do Escoteiro Mirim da IA</h1>
       <p class="manual-intro">Um guia prático para criativos e jornalistas que querem usar IA com mais intenção. Sem programação. Com raciocínio.</p>
 
-      <!-- ── QUEM ESCREVE ── -->
-      <div id="quem-escreve" class="author-box">
-        <div class="author-label">Quem escreve</div>
-        <p>Fábio Devito é jornalista e estrategista de conteúdo digital com mais de 14 anos transitando entre redação, publicidade e comunicação corporativa. Passou pelo G1, Olhar Digital e hoje atua como Estrategista Sênior de Conteúdo para Intel e Coca-Cola na Burson Global, agência do grupo WPP. Usa IA no trabalho desde antes de virar tendência de LinkedIn e criou esse manual porque percebeu que as mesmas dúvidas aparecem em profissionais de perfis muito diferentes, e que faltava um lugar simples para começar.</p>
-        <p>Este manual foi escrito com IA sob supervisão humana. Nenhum prompt foi colado sem ser lido antes e nenhuma IA foi maltratada no processo.</p>
-      </div>
-
-      <!-- ── ESCALA KURIRIN / TRUNKS ── -->
+      <!-- ── ESCALA ── -->
       <div class="scale-block">
         <div class="scale-char" id="char-kuririn">
-          <img src="imagens/kuririn.png" alt="Kuririn" class="scale-img">
+          <img src="../imagens/kuririn.png" alt="Kuririn" class="scale-img">
           <div class="scale-emoji">🤖❤️</div>
           <div class="scale-char-name">Kuririn</div>
           <div class="scale-char-role">ama IA</div>
         </div>
-
         <div class="scale-center">
           <div class="scale-label-text" id="scale-label">Em cima do muro 🤔</div>
           <div class="scale-track-wrap">
-            <input
-              type="range"
-              min="0" max="100" value="50"
-              class="scale-slider"
-              id="scale-slider"
-              aria-label="Escala Kuririn–Trunks"
-            >
+            <input type="range" min="0" max="100" value="50" class="scale-slider" id="scale-slider" aria-label="Escala Kuririn–Trunks">
           </div>
           <div class="scale-ends">
             <span>🤖❤️ ama IA</span>
             <span>odeia IA 💥</span>
           </div>
         </div>
-
         <div class="scale-char" id="char-trunks">
-          <img src="imagens/trunks.png" alt="Trunks" class="scale-img">
+          <img src="../imagens/trunks.png" alt="Trunks" class="scale-img">
           <div class="scale-emoji">💥</div>
           <div class="scale-char-name">Trunks</div>
           <div class="scale-char-role">odeia IA</div>
@@ -812,11 +614,16 @@
         <div class="callout">
           <p>IA funciona bem nas mãos de quem pensa antes de usar. Você define o que quer, a IA executa, você revisa o que saiu. Quem pula esse fluxo vai notar no resultado.</p>
         </div>
+
+        <!-- ── QUEM ESCREVE (último item do prólogo) ── -->
+        <div id="quem-escreve" class="author-box" style="margin-top: 28px;">
+          <div class="author-label">Quem escreve</div>
+          <p>Fábio Devito é jornalista e estrategista de conteúdo digital com mais de 14 anos transitando entre redação, publicidade e comunicação corporativa. Passou pelo G1, Olhar Digital e hoje atua como Estrategista Sênior de Conteúdo para Intel e Coca-Cola na Burson (WPP). Usa IA no trabalho desde antes de virar tendência de LinkedIn e criou esse manual porque percebeu que as mesmas dúvidas aparecem em profissionais de perfis muito diferentes, e que faltava um lugar simples para começar.</p>
+          <p>Este manual foi escrito com IA sob supervisão humana. Nenhum prompt foi colado sem ser lido antes e nenhuma IA foi maltratada no processo.</p>
+        </div>
       </article>
 
-      <!-- ════════════════════════
-           PARTE 0 — REGRAS DE CAMPO
-           ════════════════════════ -->
+      <!-- ════════════ PARTE 0 ════════════ -->
       <section class="manual-section">
         <div class="part-header">
           <span class="part-badge">Parte 0</span>
@@ -891,9 +698,7 @@
         </article>
       </section>
 
-      <!-- ════════════════════════
-           PARTE 1 — FUNDAMENTOS
-           ════════════════════════ -->
+      <!-- ════════════ PARTE 1 ════════════ -->
       <section class="manual-section">
         <div class="part-header">
           <span class="part-badge">Parte 1</span>
@@ -976,7 +781,6 @@ Não use emojis.</div>
         <article id="cap-7" class="chapter">
           <div class="chapter-hd"><span class="chapter-num">07</span><h3 class="chapter-title">Pensamento lógico para o seu briefing</h3></div>
           <p>O resultado da IA vai ser tão bom quanto a instrução que você deu. Se você chega com um briefing vago, vai receber uma resposta vaga.</p>
-          <p>Antes de escrever qualquer prompt, vale gastar dois minutos respondendo essas perguntas:</p>
           <div class="subhead">O que eu quero?</div>
           <p>Seja específico. "Um texto sobre o produto" é diferente de "uma descrição de 80 palavras focada no benefício principal para quem compra pela primeira vez".</p>
           <div class="subhead">Para quem é?</div>
@@ -996,7 +800,7 @@ Não use emojis.</div>
           <div class="chapter-hd"><span class="chapter-num">08</span><h3 class="chapter-title">Economia de tokens</h3></div>
           <p>Token é a unidade que a IA usa para processar texto. De forma simplificada, cada palavra ou pedaço de palavra conta como um ou mais tokens. Isso importa por dois motivos: custo e limite.</p>
           <p>Ferramentas de IA têm um limite de tokens por conversa. Quando você chega nesse limite, a ferramenta começa a perder o fio da meada ou simplesmente para de funcionar bem. Prompts muito longos, contextos excessivos e conversas que se arrastam consomem esse limite mais rápido.</p>
-          <div class="subhead">Hábitos que desperdiçam tokens sem necessidade</div>
+          <div class="subhead">Hábitos que desperdiçam tokens</div>
           <ul>
             <li>Repetir o briefing inteiro toda vez que manda uma mensagem nova</li>
             <li>Colar documentos enormes quando você só precisa de um trecho</li>
@@ -1032,7 +836,7 @@ Não use emojis.</div>
           <div class="chapter-hd"><span class="chapter-num">10</span><h3 class="chapter-title">Alucinação</h3></div>
           <p>IA mente. Não por maldade, por limitação. E o problema é que ela mente com total confiança, sem nenhum sinal de que aquilo pode estar errado.</p>
           <p>Isso acontece porque modelos de linguagem não "sabem" coisas da forma que um humano sabe. Eles geram texto com base em padrões, e às vezes esses padrões produzem informações que parecem corretas mas não são: datas erradas, nomes trocados, citações inventadas, estatísticas que não existem, links que não funcionam.</p>
-          <div class="subhead">O que verificar sempre antes de publicar ou apresentar</div>
+          <div class="subhead">O que verificar antes de publicar ou apresentar</div>
           <ul>
             <li>Dados e estatísticas: cheque a fonte original</li>
             <li>Citações atribuídas a pessoas: verifique se foram ditas de fato</li>
@@ -1046,9 +850,7 @@ Não use emojis.</div>
         </article>
       </section>
 
-      <!-- ════════════════════════
-           PARTE 2 — FERRAMENTAS
-           ════════════════════════ -->
+      <!-- ════════════ PARTE 2 ════════════ -->
       <section class="manual-section">
         <div class="part-header">
           <span class="part-badge">Parte 2</span>
@@ -1077,26 +879,11 @@ Não use emojis.</div>
           <div class="chapter-hd"><span class="chapter-num">12</span><h3 class="chapter-title">O painel de ferramentas</h3></div>
           <p>Não existe a melhor IA. Existe a IA certa para cada tarefa.</p>
           <div class="tool-list">
-            <div class="tool-item">
-              <div><div class="tool-name">ChatGPT</div><div class="tool-maker">OpenAI</div></div>
-              <p class="tool-desc">O mais conhecido e com a base de usuários mais ampla. Bom para tarefas gerais, geração de texto, brainstorming e uso cotidiano. A versão paga acessa a internet e gera imagens via DALL-E.</p>
-            </div>
-            <div class="tool-item">
-              <div><div class="tool-name">Claude</div><div class="tool-maker">Anthropic</div></div>
-              <p class="tool-desc">Forte em textos longos, instruções complexas e escrita com mais nuance. Lida bem com documentos grandes e tende a seguir diretrizes de tom com mais consistência. Boa escolha para quem trabalha com conteúdo editorial.</p>
-            </div>
-            <div class="tool-item">
-              <div><div class="tool-name">Gemini</div><div class="tool-maker">Google</div></div>
-              <p class="tool-desc">Integrado ao Google Workspace (Docs, Drive, Gmail). Vantagem para quem já vive no ecossistema Google e precisa de IA que acessa esses arquivos diretamente. Bom para pesquisa e síntese.</p>
-            </div>
-            <div class="tool-item">
-              <div><div class="tool-name">Perplexity</div><div class="tool-maker">Perplexity AI</div></div>
-              <p class="tool-desc">Focado em pesquisa. Diferente dos outros, busca na internet em tempo real e apresenta as fontes junto com a resposta. Útil quando você precisa de informação atual com referência.</p>
-            </div>
-            <div class="tool-item">
-              <div><div class="tool-name">WPP Open</div><div class="tool-maker">WPP</div></div>
-              <p class="tool-desc">A ferramenta do grupo para uso corporativo. É a opção correta quando o trabalho envolve informações de cliente, briefings e dados sensíveis. Menos flexível, mais segura.</p>
-            </div>
+            <div class="tool-item"><div><div class="tool-name">ChatGPT</div><div class="tool-maker">OpenAI</div></div><p class="tool-desc">O mais conhecido e com a base de usuários mais ampla. Bom para tarefas gerais, geração de texto, brainstorming e uso cotidiano. A versão paga acessa a internet e gera imagens via DALL-E.</p></div>
+            <div class="tool-item"><div><div class="tool-name">Claude</div><div class="tool-maker">Anthropic</div></div><p class="tool-desc">Forte em textos longos, instruções complexas e escrita com mais nuance. Lida bem com documentos grandes e tende a seguir diretrizes de tom com mais consistência. Boa escolha para quem trabalha com conteúdo editorial.</p></div>
+            <div class="tool-item"><div><div class="tool-name">Gemini</div><div class="tool-maker">Google</div></div><p class="tool-desc">Integrado ao Google Workspace (Docs, Drive, Gmail). Vantagem para quem já vive no ecossistema Google e precisa de IA que acessa esses arquivos diretamente. Bom para pesquisa e síntese.</p></div>
+            <div class="tool-item"><div><div class="tool-name">Perplexity</div><div class="tool-maker">Perplexity AI</div></div><p class="tool-desc">Focado em pesquisa. Diferente dos outros, busca na internet em tempo real e apresenta as fontes junto com a resposta. Útil quando você precisa de informação atual com referência.</p></div>
+            <div class="tool-item"><div><div class="tool-name">WPP Open</div><div class="tool-maker">WPP</div></div><p class="tool-desc">A ferramenta do grupo para uso corporativo. É a opção correta quando o trabalho envolve informações de cliente, briefings e dados sensíveis. Menos flexível, mais segura.</p></div>
           </div>
         </article>
 
@@ -1162,11 +949,10 @@ Não use emojis.</div>
         </article>
       </section>
 
-    </div><!-- /manual-inner -->
+    </div>
   </main>
-</div><!-- /manual-wrapper -->
+</div>
 
-<!-- ── FOOTER ── -->
 <footer class="site-footer">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="35 311 1009 457" class="footer-logo" role="img" aria-label="Devito">
     <text font-family="fit, 'Roboto Slab', serif" fill="#7A7065" transform="matrix(0.79,0,0,0.79,56.924875,745.84972)" font-size="700px">Devito</text>
@@ -1175,79 +961,58 @@ Não use emojis.</div>
 </footer>
 
 <script>
-  // ── NAV ──
-  function toggleMenu() {
-    document.getElementById('nav-mobile').classList.toggle('open');
-  }
-
+  function toggleMenu() { document.getElementById('nav-mobile').classList.toggle('open'); }
   function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
     });
   }
+  function toggleIndex() { document.getElementById('sidebar-mobile-bar').classList.toggle('open'); }
+  function closeIndex()  { document.getElementById('sidebar-mobile-bar').classList.remove('open'); }
 
-  // ── MOBILE INDEX ──
-  function toggleIndex() {
-    document.getElementById('sidebar-mobile-bar').classList.toggle('open');
-  }
-
-  function closeIndex() {
-    document.getElementById('sidebar-mobile-bar').classList.remove('open');
-  }
-
-  // ── ESCALA KURIRIN / TRUNKS ──
+  // Escala Kuririn / Trunks
   (function () {
     const slider  = document.getElementById('scale-slider');
     const label   = document.getElementById('scale-label');
     const kuririn = document.getElementById('char-kuririn');
     const trunks  = document.getElementById('char-trunks');
-
-    const steps = [
+    const steps   = [
       [0,  15,  'Kuririn supremo 🤖❤️'],
       [16, 35,  'IA entusiasta 😍'],
       [36, 64,  'Em cima do muro 🤔'],
       [65, 84,  'Prefiro à mão 😤'],
       [85, 100, 'Trunks puro 💥'],
     ];
-
     function update() {
       const v = parseInt(slider.value);
       const match = steps.find(([min, max]) => v >= min && v <= max);
       if (match) label.textContent = match[2];
-
       kuririn.classList.toggle('active', v <= 35);
-      trunks.classList.toggle('active', v >= 65);
+      trunks.classList.toggle('active',  v >= 65);
     }
-
     slider.addEventListener('input', update);
     update();
   })();
 
-  // ── ACTIVE SIDEBAR LINK ──
+  // Active sidebar link
   const desktopLinks = document.querySelectorAll('.manual-sidebar .sidebar-link[data-target]');
-
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            desktopLinks.forEach(link => {
-              link.classList.toggle('active', link.dataset.target === entry.target.id);
-            });
-          }
-        });
-      },
+      entries => entries.forEach(e => {
+        if (e.isIntersecting)
+          desktopLinks.forEach(l => l.classList.toggle('active', l.dataset.target === e.target.id));
+      }),
       { rootMargin: '-80px 0px -55% 0px', threshold: 0 }
     );
     document.querySelectorAll('[id]').forEach(el => io.observe(el));
   }
 
-  // ── SMOOTH SCROLL ──
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 </script>
