@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual do Escoteiro Mirim da IA — Fábio Devito</title>
+<meta name="description" content="Guia prático sobre uso de IA para times criativos e jornalistas. Sem programação, com foco no raciocínio.">
+<meta name="author" content="Fábio Devito">
+<link rel="canonical" href="https://fabiodevito.com.br/manual">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://fabiodevito.com.br/manual">
+<meta property="og:title" content="Manual do Escoteiro Mirim da IA — Fábio Devito">
+<meta property="og:description" content="Guia prático sobre uso de IA para times criativos e jornalistas. Sem programação, com foco no raciocínio.">
+<meta property="og:image" content="https://fabiodevito.com.br/profile.png">
+<meta property="og:locale" content="pt_BR">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/fva2wgn.css">
+
+<style>
+  :root {
+    --ink: #111111;
+    --paper: #F7EFE2;
+    --accent: #C8442A;
+    --muted: #7A7065;
+    --border: #D8D0C4;
+    --card: #EDEAE2;
+    --sidebar-w: 264px;
+    --nav-h: 65px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    height: var(--nav-h);
+  }
+
+  .nav-logo-link { display: block; line-height: 0; }
+  .nav-logo-img { height: 32px; width: auto; display: block; }
+
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+
+  .nav-back {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 2px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-back:hover { color: var(--ink); background: var(--card); }
+
+  .nav-tag {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--accent);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* ── LAYOUT ── */
+  .manual-wrapper {
+    display: flex;
+    padding-top: var(--nav-h);
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR (desktop) ── */
+  .manual-sidebar {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    width: var(--sidebar-w);
+    height: calc(100vh - var(--nav-h));
+    overflow-y: auto;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    padding: 28px 0 48px;
+    z-index: 50;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .manual-sidebar::-webkit-scrollbar { width: 3px; }
+  .manual-sidebar::-webkit-scrollbar-thumb { background: var(--border); }
+
+  .sidebar-eyebrow {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 0 20px 12px;
+  }
+
+  .sidebar-part {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 16px 20px 6px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+  }
+
+  .sidebar-link {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 5px 20px;
+    border-left: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    line-height: 1.4;
+  }
+  .sidebar-link:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+  .sidebar-link.active {
+    color: var(--ink);
+    border-left-color: var(--accent);
+    background: rgba(0,0,0,0.04);
+    font-weight: 500;
+  }
+
+  /* ── MOBILE SIDEBAR BAR ── */
+  .sidebar-mobile-bar {
+    display: none;
+    position: sticky;
+    top: var(--nav-h);
+    z-index: 49;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-mobile-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .sidebar-mobile-arrow { transition: transform 0.2s; }
+  .sidebar-mobile-bar.open .sidebar-mobile-arrow { transform: rotate(180deg); }
+
+  .sidebar-mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+  .sidebar-mobile-bar.open .sidebar-mobile-nav { display: flex; }
+
+  .sidebar-mobile-nav .sidebar-link {
+    border-left: none;
+    border-bottom: 1px solid var(--border);
+    padding: 9px 24px;
+    font-size: 14px;
+  }
+  .sidebar-mobile-nav .sidebar-link.active { color: var(--accent); background: rgba(200,68,42,0.06); }
+  .sidebar-mobile-nav .sidebar-part { border-top: none; padding: 12px 24px 4px; }
+
+  /* ── CONTENT ── */
+  .manual-content {
+    flex: 1;
+    margin-left: var(--sidebar-w);
+    min-height: 100vh;
+  }
+
+  .manual-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 48px 120px;
+  }
+
+  /* ── PAGE HEADER ── */
+  .manual-eyebrow {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .manual-h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: clamp(26px, 4vw, 42px);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .manual-intro {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.75;
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  /* ── AUTHOR BOX ── */
+  .author-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    scroll-margin-top: calc(var(--nav-h) + 24px);
+  }
+
+  .author-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .author-box p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .author-box p + p { margin-top: 10px; font-style: italic; font-size: 14px; }
+
+  /* ── MEME BLOCK ── */
+  .meme-block {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 24px 0 48px;
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+
+  .meme-char { text-align: center; flex-shrink: 0; }
+  .meme-char img {
+    width: 130px;
+    height: auto;
+    border-radius: 2px;
+    display: block;
+    margin: 0 auto 8px;
+    background: var(--border);
+  }
+
+  .meme-char-name {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .meme-char-desc { font-size: 13px; color: var(--muted); margin-top: 3px; }
+
+  .meme-question {
+    flex: 1;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  /* ── PART HEADER ── */
+  .part-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--ink);
+    margin-top: 8px;
+  }
+
+  .part-badge {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--accent);
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .part-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 21px;
+    color: var(--ink);
+  }
+
+  /* ── GIF ── */
+  .gif-block {
+    margin: 0 0 8px;
+    border-radius: 2px;
+    overflow: hidden;
+    max-width: 420px;
+  }
+  .gif-block img { width: 100%; display: block; }
+  .gif-caption {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 32px;
+  }
+
+  /* ── MANUAL SECTION ── */
+  .manual-section { margin-bottom: 72px; }
+
+  /* ── CHAPTER ── */
+  .chapter {
+    margin-bottom: 52px;
+    padding-bottom: 52px;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: calc(var(--nav-h) + 24px);
+  }
+  .chapter:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .chapter-hd {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .chapter-num {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .chapter-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 21px;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .chapter p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+  .chapter p:last-child { margin-bottom: 0; }
+  .chapter p strong { color: var(--ink); font-weight: 600; }
+  .chapter em { color: var(--ink); font-style: italic; }
+
+  .chapter a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .chapter a:hover { text-decoration: none; }
+
+  /* ── SUBHEAD ── */
+  .subhead {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 24px 0 8px;
+  }
+
+  /* ── LISTS ── */
+  .chapter ul {
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+  }
+  .chapter ul li {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    padding: 3px 0 3px 20px;
+    position: relative;
+  }
+  .chapter ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .chapter ul li strong { color: var(--ink); font-weight: 600; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--card);
+    padding: 14px 18px;
+    margin: 20px 0;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout p {
+    font-size: 15px;
+    color: var(--ink) !important;
+    margin-bottom: 0 !important;
+    font-style: italic;
+    line-height: 1.65 !important;
+  }
+
+  /* ── TWO COLUMNS ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .col-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 16px;
+  }
+  .col-box-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .col-box ul { list-style: none; padding: 0; margin: 0; }
+  .col-box ul li {
+    font-size: 14px;
+    color: var(--muted);
+    padding: 3px 0 3px 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .col-box ul li::before { content: '–'; position: absolute; left: 0; color: var(--muted); }
+
+  /* ── CODE BLOCK ── */
+  .code-block {
+    background: var(--ink);
+    color: #E8E2D8;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    padding: 22px 24px;
+    border-radius: 2px;
+    margin: 18px 0;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .code-var { color: #E8A87C; font-style: italic; }
+
+  /* ── PROMPT COMPARE ── */
+  .prompt-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 18px 0;
+  }
+  .prompt-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 16px;
+  }
+  .prompt-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .prompt-label.bad  { color: #A33; }
+  .prompt-label.good { color: #3A7A3A; }
+  .prompt-box p { font-size: 14px; color: var(--muted) !important; line-height: 1.6; font-style: italic; margin-bottom: 0 !important; }
+
+  /* ── TOOL LIST ── */
+  .tool-list { margin: 18px 0; }
+  .tool-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .tool-item:last-child { border-bottom: none; }
+  .tool-name { font-family: 'Roboto Mono', monospace; font-size: 12px; font-weight: 700; color: var(--ink); }
+  .tool-maker { font-size: 11px; color: var(--accent); margin-top: 3px; }
+  .tool-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0; }
+
+  /* ── TEMP CARDS ── */
+  .temp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .temp-card { background: var(--card); border: 1px solid var(--border); border-radius: 2px; padding: 16px; }
+  .temp-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .temp-card p { font-size: 14px; color: var(--muted) !important; line-height: 1.6; margin-bottom: 6px !important; }
+
+  /* ── TOOL CATEGORY ── */
+  .tool-category { margin-bottom: 28px; }
+  .tool-cat-title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+
+  /* ── PAGE FOOTER ── */
+  .manual-footer {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-back {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-back:hover { color: var(--accent); }
+  .footer-note { font-size: 13px; color: var(--muted); font-style: italic; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .manual-sidebar { display: none; }
+    .sidebar-mobile-bar { display: block; }
+    .manual-content { margin-left: 0; }
+    .manual-inner { padding: 36px 24px 80px; }
+    nav { padding: 16px 24px; }
+    .two-col, .prompt-compare, .temp-grid { grid-template-columns: 1fr; }
+    .tool-item { grid-template-columns: 1fr; gap: 4px; }
+    .meme-block { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    .meme-question { order: -1; width: 100%; }
+    .chapter { scroll-margin-top: calc(var(--nav-h) + 56px); }
+    .author-box { scroll-margin-top: calc(var(--nav-h) + 56px); }
+  }
+
+  @media (max-width: 480px) {
+    .nav-tag { display: none; }
+    .meme-char img { width: 110px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="/" aria-label="Fábio Devito" class="nav-logo-link">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="35 311 1009 457" class="nav-logo-img" role="img" aria-label="Devito">
+      <text font-family="fit, 'Roboto Slab', serif" fill="#111111" transform="matrix(0.79,0,0,0.79,56.924875,745.84972)" font-size="700px">Devito</text>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <span class="nav-tag">Manual</span>
+    <a href="/" class="nav-back">← Portfolio</a>
+  </div>
+</nav>
+
+<!-- ── MANUAL WRAPPER ── -->
+<div class="manual-wrapper">
+
+  <!-- ── SIDEBAR (desktop) ── -->
+  <aside class="manual-sidebar" aria-label="Índice do manual">
+    <div class="sidebar-eyebrow">Índice</div>
+    <a href="#quem-escreve" class="sidebar-link" data-target="quem-escreve">Quem escreve</a>
+    <a href="#prologo" class="sidebar-link" data-target="prologo">Prólogo</a>
+
+    <div class="sidebar-part">Parte 0 — Regras de Campo</div>
+    <a href="#cap-1" class="sidebar-link" data-target="cap-1">1. O que não colocar</a>
+    <a href="#cap-2" class="sidebar-link" data-target="cap-2">2. Quando NÃO usar IA</a>
+    <a href="#cap-3" class="sidebar-link" data-target="cap-3">3. A conta do tempo</a>
+
+    <div class="sidebar-part">Parte 1 — Fundamentos</div>
+    <a href="#cap-4" class="sidebar-link" data-target="cap-4">4. O que é um Prompt?</a>
+    <a href="#cap-5" class="sidebar-link" data-target="cap-5">5. O que é um Script?</a>
+    <a href="#cap-6" class="sidebar-link" data-target="cap-6">6. Prompt vs. Script</a>
+    <a href="#cap-7" class="sidebar-link" data-target="cap-7">7. Pensamento lógico</a>
+    <a href="#cap-8" class="sidebar-link" data-target="cap-8">8. Economia de tokens</a>
+    <a href="#cap-9" class="sidebar-link" data-target="cap-9">9. Janela de contexto</a>
+    <a href="#cap-10" class="sidebar-link" data-target="cap-10">10. Alucinação</a>
+
+    <div class="sidebar-part">Parte 2 — Ferramentas</div>
+    <a href="#cap-11" class="sidebar-link" data-target="cap-11">11. LLMs são ferramentas</a>
+    <a href="#cap-12" class="sidebar-link" data-target="cap-12">12. O painel de ferramentas</a>
+    <a href="#cap-13" class="sidebar-link" data-target="cap-13">13. Afinando o instrumento</a>
+    <a href="#cap-14" class="sidebar-link" data-target="cap-14">14. Além do texto</a>
+  </aside>
+
+  <!-- ── CONTENT ── -->
+  <main class="manual-content">
+
+    <!-- ── MOBILE INDEX BAR ── -->
+    <div class="sidebar-mobile-bar" id="sidebar-mobile-bar">
+      <button class="sidebar-mobile-btn" onclick="toggleIndex()" aria-label="Índice">
+        <span>Índice</span>
+        <span class="sidebar-mobile-arrow">↓</span>
+      </button>
+      <nav class="sidebar-mobile-nav" id="sidebar-mobile-nav">
+        <a href="#quem-escreve" class="sidebar-link" onclick="closeIndex()">Quem escreve</a>
+        <a href="#prologo" class="sidebar-link" onclick="closeIndex()">Prólogo</a>
+        <div class="sidebar-part">Parte 0 — Regras de Campo</div>
+        <a href="#cap-1" class="sidebar-link" onclick="closeIndex()">1. O que não colocar numa IA</a>
+        <a href="#cap-2" class="sidebar-link" onclick="closeIndex()">2. Quando NÃO usar IA</a>
+        <a href="#cap-3" class="sidebar-link" onclick="closeIndex()">3. A conta do tempo</a>
+        <div class="sidebar-part">Parte 1 — Fundamentos</div>
+        <a href="#cap-4" class="sidebar-link" onclick="closeIndex()">4. O que é um Prompt?</a>
+        <a href="#cap-5" class="sidebar-link" onclick="closeIndex()">5. O que é um Script?</a>
+        <a href="#cap-6" class="sidebar-link" onclick="closeIndex()">6. Prompt vs. Script</a>
+        <a href="#cap-7" class="sidebar-link" onclick="closeIndex()">7. Pensamento lógico</a>
+        <a href="#cap-8" class="sidebar-link" onclick="closeIndex()">8. Economia de tokens</a>
+        <a href="#cap-9" class="sidebar-link" onclick="closeIndex()">9. Janela de contexto</a>
+        <a href="#cap-10" class="sidebar-link" onclick="closeIndex()">10. Alucinação</a>
+        <div class="sidebar-part">Parte 2 — Ferramentas</div>
+        <a href="#cap-11" class="sidebar-link" onclick="closeIndex()">11. LLMs são ferramentas</a>
+        <a href="#cap-12" class="sidebar-link" onclick="closeIndex()">12. O painel de ferramentas</a>
+        <a href="#cap-13" class="sidebar-link" onclick="closeIndex()">13. Afinando o instrumento</a>
+        <a href="#cap-14" class="sidebar-link" onclick="closeIndex()">14. Além do texto</a>
+      </nav>
+    </div>
+
+    <div class="manual-inner">
+
+      <!-- ── PAGE TITLE ── -->
+      <p class="manual-eyebrow">Manual</p>
+      <h1 class="manual-h1">Manual do Escoteiro Mirim da IA</h1>
+      <p class="manual-intro">Um guia prático para criativos e jornalistas que querem usar IA com mais intenção. Sem programação. Com raciocínio.</p>
+
+      <!-- ── QUEM ESCREVE ── -->
+      <div id="quem-escreve" class="author-box">
+        <div class="author-label">Quem escreve</div>
+        <p>Fábio Devito é jornalista e estrategista de conteúdo digital com mais de 14 anos transitando entre redação, publicidade e comunicação corporativa. Passou pelo G1, Olhar Digital e hoje atua como Estrategista Sênior de Conteúdo para Intel e Coca-Cola na Burson Global, agência do grupo WPP. Usa IA no trabalho desde antes de virar tendência de LinkedIn e criou esse manual porque percebeu que as mesmas dúvidas aparecem em profissionais de perfis muito diferentes, e que faltava um lugar simples para começar.</p>
+        <p>Este manual foi escrito com IA sob supervisão humana. Nenhum prompt foi colado sem ser lido antes e nenhuma IA foi maltratada no processo.</p>
+      </div>
+
+      <!-- ── MEME ── -->
+      <div class="meme-block">
+        <div class="meme-char">
+          <img src="imagens/kuririn.png" alt="Kuririn ama IA" loading="lazy">
+          <div class="meme-char-name">Kuririn</div>
+          <div class="meme-char-desc">ama IA</div>
+        </div>
+        <div class="meme-question">
+          numa escala de Kuririn a Trunks,<br>
+          o quanto você ama ou odeia IA?
+        </div>
+        <div class="meme-char">
+          <img src="imagens/trunks.png" alt="Trunks odeia IA" loading="lazy">
+          <div class="meme-char-name">Trunks</div>
+          <div class="meme-char-desc">odeia IA</div>
+        </div>
+      </div>
+
+      <!-- ── PRÓLOGO ── -->
+      <article id="prologo" class="chapter" style="margin-top: 8px;">
+        <div class="chapter-hd">
+          <span class="chapter-num">—</span>
+          <h2 class="chapter-title">Prólogo</h2>
+        </div>
+        <p>Em algum momento entre 2022 e hoje, "usar IA" virou instrução padrão em qualquer empresa. A parte de ensinar <em>como</em> ficou pra depois.</p>
+        <p>O gap entre saber que a ferramenta existe e saber trabalhar com ela é maior do que parece. Prompts que funcionam uma vez e nunca mais, processos que só uma pessoa consegue replicar, textos que chegam pra revisão sem que ninguém tenha lido antes de mandar, projetos que somem porque ninguém registrou nada.</p>
+        <p>Esse manual foi feito pra criativos e jornalistas que querem usar IA com mais intenção. Não tem programação aqui. O foco é no raciocínio: quando acionar, como avaliar o que a ferramenta entrega e quando o melhor a fazer é simplesmente reescrever do zero.</p>
+        <div class="callout">
+          <p>IA funciona bem nas mãos de quem pensa antes de usar. Você define o que quer, a IA executa, você revisa o que saiu. Quem pula esse fluxo vai notar no resultado.</p>
+        </div>
+      </article>
+
+      <!-- ════════════════════════════════════
+           PARTE 0 — REGRAS DE CAMPO
+           ════════════════════════════════════ -->
+      <section class="manual-section">
+        <div class="part-header">
+          <span class="part-badge">Parte 0</span>
+          <h2 class="part-title">Regras de Campo</h2>
+        </div>
+
+        <div class="gif-block">
+          <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjVlZHp5OHRuZzcyd2VqbTQ5eTVlbWZqZndvNm1zemNlNHJ2N3huZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ip3CsHAuuhnY4/giphy.gif" alt="Regras de campo" loading="lazy">
+        </div>
+        <p class="gif-caption">Leia antes de qualquer outra coisa.</p>
+
+        <!-- 01 -->
+        <article id="cap-1" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">01</span>
+            <h3 class="chapter-title">O que não colocar numa IA</h3>
+          </div>
+          <p>Antes de abrir qualquer ferramenta de IA, vale ter uma regra simples na cabeça: não coloque nada que você não mostraria para um estranho na rua.</p>
+
+          <div class="subhead">O que nunca vai no prompt</div>
+          <ul>
+            <li>Nome de cliente sem autorização</li>
+            <li>Briefing com informações estratégicas</li>
+            <li>Dados de campanha que ainda não foram a público</li>
+            <li>Informações pessoais de terceiros</li>
+            <li>Senhas, planilhas financeiras, contratos</li>
+            <li>Qualquer coisa coberta por NDA</li>
+          </ul>
+
+          <div class="subhead">Por que isso importa</div>
+          <p>Dependendo da ferramenta e das configurações que você não leu quando criou a conta, o que você digita pode ser usado para treinar modelos. Isso não é teoria da conspiração, está nos termos de uso. Ferramentas corporativas como o WPP Open existem justamente para contornar esse problema. Quando o trabalho envolver informações sensíveis, use o canal certo.</p>
+          <div class="callout">
+            <p>Antes de colar qualquer coisa no prompt, pergunte: se esse texto aparecesse numa tela pública, eu teria problema? Se a resposta for sim, não manda.</p>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article id="cap-2" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">02</span>
+            <h3 class="chapter-title">Quando NÃO usar IA</h3>
+          </div>
+          <p>IA é boa em executar. Ruim em julgar. E julgamento é boa parte do que faz o trabalho criativo valer alguma coisa.</p>
+
+          <div class="subhead">Situações em que a ferramenta atrapalha mais do que ajuda</div>
+          <ul>
+            <li>Textos curtos que você escreveria em dois minutos</li>
+            <li>Decisões criativas que dependem de contexto que só você tem</li>
+            <li>Comunicações onde o tom importa mais do que a estrutura (feedback, cliente difícil, situações delicadas)</li>
+            <li>Qualquer coisa que exija conhecimento do histórico de uma conta ou relação</li>
+          </ul>
+          <p>A IA vai entregar um texto funcional. Funcional não é o suficiente quando o que está em jogo é confiança.</p>
+          <div class="callout">
+            <p>A pergunta certa antes de abrir a ferramenta não é "a IA consegue fazer isso?". É "faz sentido pedir pra ela fazer isso agora?".</p>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article id="cap-3" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">03</span>
+            <h3 class="chapter-title">A conta do tempo</h3>
+          </div>
+          <p>Existe uma ilusão de que delegar para a IA é sempre mais rápido. Não é.</p>
+          <p>Tem uma conta que a maioria não faz: o tempo que você gasta explicando o que quer, ajustando o resultado, revisando o que não ficou certo e editando até ficar como você queria. Para tarefas curtas, esse tempo costuma ser maior do que o tempo de simplesmente fazer.</p>
+
+          <div class="two-col">
+            <div class="col-box">
+              <div class="col-box-label">Fazer você mesmo é mais rápido</div>
+              <ul>
+                <li>Título de post</li>
+                <li>Ajuste de um ou dois parágrafos</li>
+                <li>Legenda curta</li>
+                <li>Resposta rápida de e-mail</li>
+              </ul>
+            </div>
+            <div class="col-box">
+              <div class="col-box-label">Quando a IA compensa</div>
+              <ul>
+                <li>Tarefas repetitivas em volume</li>
+                <li>Primeiras versões de textos longos</li>
+                <li>Pesquisa e síntese de informação</li>
+                <li>Padronização de formatos</li>
+              </ul>
+            </div>
+          </div>
+
+          <p>A ferramenta ganha em escala. Para o trabalho pontual e pequeno, às vezes o mais produtivo é simplesmente abrir o documento e escrever.</p>
+        </article>
+      </section>
+
+      <!-- ════════════════════════════════════
+           PARTE 1 — FUNDAMENTOS
+           ════════════════════════════════════ -->
+      <section class="manual-section">
+        <div class="part-header">
+          <span class="part-badge">Parte 1</span>
+          <h2 class="part-title">Fundamentos</h2>
+        </div>
+
+        <div class="gif-block">
+          <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnJzOHI4N3ZqeGxsZGo0bjN4Z2xqbWdlbGhyeDM1cmFwYjkycjIwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sG4zmff2zDOp7t2MNA/giphy.gif" alt="Fundamentos" loading="lazy">
+        </div>
+        <p class="gif-caption" style="margin-bottom: 32px;"> </p>
+
+        <!-- 04 -->
+        <article id="cap-4" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">04</span>
+            <h3 class="chapter-title">O que é um Prompt?</h3>
+          </div>
+          <p>Um prompt é a instrução que você dá para a IA. Pode ser uma pergunta, um comando, um contexto com orientações, ou tudo isso junto. É o ponto de entrada de qualquer interação.</p>
+          <p>O nome intimidou muita gente. "Prompt engineering" virou buzzword de LinkedIn e criou a impressão de que é uma habilidade técnica complicada. Não é. Se você já pediu para um colega "me faz um resumo desse texto mas focando nos números", você escreveu um prompt. Com IA você precisa ser um pouco mais explícito porque ela não tem o contexto que um colega teria, mas o raciocínio é o mesmo.</p>
+
+          <div class="subhead">O que faz um prompt funcionar</div>
+          <ul>
+            <li><strong>Contexto:</strong> quem você é e para que serve o resultado</li>
+            <li><strong>Instrução clara:</strong> o que exatamente você quer</li>
+            <li><strong>Formato:</strong> como quer que a resposta apareça (parágrafo, lista, tabela)</li>
+            <li><strong>Tom:</strong> formal, casual, técnico, direto</li>
+          </ul>
+
+          <div class="prompt-compare">
+            <div class="prompt-box">
+              <div class="prompt-label bad">Exemplo ruim</div>
+              <p>Escreve um post sobre o evento</p>
+            </div>
+            <div class="prompt-box">
+              <div class="prompt-label good">Exemplo bom</div>
+              <p>Escreve um post para o Instagram da Intel sobre o Brasil Game Show. Tom casual, voltado para gamers, sem emojis. Máximo 150 caracteres. Destaca que a Intel vai ter uma área interativa no evento.</p>
+            </div>
+          </div>
+
+          <p>A diferença entre os dois não é habilidade técnica. É clareza sobre o que você quer.</p>
+        </article>
+
+        <!-- 05 -->
+        <article id="cap-5" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">05</span>
+            <h3 class="chapter-title">O que é um Script?</h3>
+          </div>
+          <p>Se um prompt é uma instrução, um script é uma instrução que você construiu para usar várias vezes.</p>
+          <p>Um prompt é uma conversa. Um script é um formulário com campos fixos que você preenche cada vez que precisa do mesmo tipo de resultado. As partes que mudam ficam marcadas como variáveis, as partes que não mudam ficam sempre iguais.</p>
+
+          <div class="subhead">Como um script se parece na prática</div>
+          <div class="code-block">Você é um redator de redes sociais especializado em tecnologia e games.
+
+Escreva uma legenda para o Instagram da <span class="code-var">[MARCA]</span> sobre <span class="code-var">[ASSUNTO]</span>.
+Tom: <span class="code-var">[TOM]</span>
+Tamanho: máximo <span class="code-var">[NÚMERO]</span> caracteres.
+Inclua: <span class="code-var">[ELEMENTO OBRIGATÓRIO]</span>
+Não use emojis.</div>
+
+          <p>Toda vez que precisar de uma legenda, você preenche os campos e manda. O resultado vai ser consistente porque a estrutura é a mesma.</p>
+          <p>Scripts são especialmente úteis quando mais de uma pessoa precisa executar a mesma tarefa, ou quando o resultado precisa ter sempre a mesma cara independente de quem está fazendo.</p>
+        </article>
+
+        <!-- 06 -->
+        <article id="cap-6" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">06</span>
+            <h3 class="chapter-title">Prompt vs. Script</h3>
+          </div>
+          <p>A decisão entre usar um ou outro depende de uma pergunta: você vai precisar desse resultado mais de uma vez, sempre no mesmo formato?</p>
+          <p>Se sim, vale construir um script. Se é algo pontual ou que muda muito de acordo com o contexto, um prompt bem feito resolve.</p>
+
+          <div class="two-col">
+            <div class="col-box">
+              <div class="col-box-label">Use prompt quando</div>
+              <ul>
+                <li>A tarefa é única ou muito específica</li>
+                <li>Você está explorando, testando, pesquisando</li>
+                <li>O contexto muda completamente a cada vez</li>
+              </ul>
+            </div>
+            <div class="col-box">
+              <div class="col-box-label">Use script quando</div>
+              <ul>
+                <li>A tarefa se repete (diária, semanal, por projeto)</li>
+                <li>Mais de uma pessoa precisa executar</li>
+                <li>O resultado precisa ser consistente</li>
+                <li>Qualquer pessoa do time precisa conseguir fazer</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout">
+            <p>Escrever um post avulso sobre um lançamento é um prompt. Escrever posts de lançamento toda semana para uma conta com linguagem definida é um script.</p>
+          </div>
+        </article>
+
+        <!-- 07 -->
+        <article id="cap-7" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">07</span>
+            <h3 class="chapter-title">Pensamento lógico para o seu briefing</h3>
+          </div>
+          <p>O resultado da IA vai ser tão bom quanto a instrução que você deu. Se você chega com um briefing vago, vai receber uma resposta vaga.</p>
+          <p>Antes de escrever qualquer prompt, vale gastar dois minutos respondendo essas perguntas:</p>
+
+          <div class="subhead">O que eu quero?</div>
+          <p>Seja específico. "Um texto sobre o produto" é diferente de "uma descrição de 80 palavras focada no benefício principal para quem compra pela primeira vez".</p>
+
+          <div class="subhead">Para quem é?</div>
+          <p>O público muda completamente o tom, o vocabulário e o que precisa ser dito ou omitido.</p>
+
+          <div class="subhead">Onde vai aparecer?</div>
+          <p>Instagram tem lógica diferente de LinkedIn. E-mail tem lógica diferente de apresentação. Formato importa.</p>
+
+          <div class="subhead">O que não pode faltar?</div>
+          <p>Liste os elementos obrigatórios: mensagem principal, CTA, restrições de marca, palavras que não pode usar.</p>
+
+          <div class="subhead">Qual é o tamanho esperado?</div>
+          <p>IA tende a alongar. Diga o tamanho que você quer.</p>
+
+          <div class="callout">
+            <p>Responder isso antes de escrever o prompt poupa tempo de revisão depois. A maioria dos problemas com resultado de IA começa aqui.</p>
+          </div>
+        </article>
+
+        <!-- 08 -->
+        <article id="cap-8" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">08</span>
+            <h3 class="chapter-title">Economia de tokens</h3>
+          </div>
+          <p>Token é a unidade que a IA usa para processar texto. De forma simplificada, cada palavra ou pedaço de palavra conta como um ou mais tokens. Isso importa por dois motivos: custo e limite.</p>
+          <p>Ferramentas de IA têm um limite de tokens por conversa. Quando você chega nesse limite, a ferramenta começa a perder o fio da meada ou simplesmente para de funcionar bem. Prompts muito longos, contextos excessivos e conversas que se arrastam consomem esse limite mais rápido.</p>
+
+          <div class="subhead">Hábitos que desperdiçam tokens sem necessidade</div>
+          <ul>
+            <li>Repetir o briefing inteiro toda vez que manda uma mensagem nova</li>
+            <li>Colar documentos enormes quando você só precisa de um trecho</li>
+            <li>Deixar conversas antigas abertas e continuar empilhando contexto em vez de começar uma nova</li>
+          </ul>
+
+          <div class="subhead">Como economizar</div>
+          <ul>
+            <li>Seja direto. Contexto útil é diferente de contexto em excesso.</li>
+            <li>Para tarefas longas, divida em conversas separadas.</li>
+            <li>Se precisar que a IA use um documento, destaque só a parte relevante.</li>
+            <li>Resuma o contexto anterior em vez de repetir tudo.</li>
+          </ul>
+
+          <div class="callout">
+            <p>Prompt eficiente não é prompt curto. É prompt com o que precisa, sem o que não precisa.</p>
+          </div>
+        </article>
+
+        <!-- 09 -->
+        <article id="cap-9" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">09</span>
+            <h3 class="chapter-title">Janela de contexto</h3>
+          </div>
+          <p>Se você já notou que a IA parece esquecer o que você disse no começo de uma conversa longa, não é impressão. É o funcionamento da ferramenta.</p>
+          <p>Toda IA tem o que se chama de janela de contexto: o volume de informação que ela consegue considerar de uma vez. À medida que a conversa avança, as informações mais antigas começam a sair para dar lugar às novas. Em conversas muito longas, a IA pode contradizer algo que ela mesma disse antes, ignorar uma instrução do início ou perder coerência com o que foi estabelecido.</p>
+
+          <div class="subhead">Como lidar com isso</div>
+          <ul>
+            <li>Para projetos longos, comece conversas novas e traga só o contexto necessário</li>
+            <li>Repita as instruções mais importantes quando a conversa estiver ficando extensa</li>
+            <li>Se o resultado começar a piorar sem motivo claro, abra uma nova sessão</li>
+            <li>Guarde seus prompts e scripts fora da ferramenta (Notion, planilha, documento) para não depender do histórico da conversa</li>
+          </ul>
+
+          <p>A janela de contexto é uma limitação real. Trabalhar com ela em mente evita frustração e resultado ruim.</p>
+        </article>
+
+        <!-- 10 -->
+        <article id="cap-10" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">10</span>
+            <h3 class="chapter-title">Alucinação</h3>
+          </div>
+          <p>IA mente. Não por maldade, por limitação. E o problema é que ela mente com total confiança, sem nenhum sinal de que aquilo pode estar errado.</p>
+          <p>Isso acontece porque modelos de linguagem não "sabem" coisas da forma que um humano sabe. Eles geram texto com base em padrões, e às vezes esses padrões produzem informações que parecem corretas mas não são: datas erradas, nomes trocados, citações inventadas, estatísticas que não existem, links que não funcionam.</p>
+
+          <div class="subhead">O que verificar sempre antes de publicar ou apresentar</div>
+          <ul>
+            <li>Dados e estatísticas: cheque a fonte original</li>
+            <li>Citações atribuídas a pessoas: verifique se foram ditas de fato</li>
+            <li>Datas e cronologias, especialmente de eventos recentes</li>
+            <li>Links e referências: a IA cria URLs que parecem reais mas não existem</li>
+            <li>Qualquer informação que você vai usar como base de decisão ou argumento</li>
+          </ul>
+
+          <div class="callout">
+            <p>Usar IA para pesquisa é válido e útil. Usar IA como fonte definitiva é um risco desnecessário.</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════════════════════════════
+           PARTE 2 — FERRAMENTAS E MODELOS
+           ════════════════════════════════════ -->
+      <section class="manual-section">
+        <div class="part-header">
+          <span class="part-badge">Parte 2</span>
+          <h2 class="part-title">Ferramentas e Modelos</h2>
+        </div>
+
+        <div class="gif-block">
+          <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzgza2lzd2N4dnpscGdnZDFocmVjZmpsdXRvejkxbm5lYmJ2dmFmdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YpcQ21F8SVvaclQMh8/giphy.gif" alt="Ferramentas e Modelos" loading="lazy">
+        </div>
+        <p class="gif-caption" style="margin-bottom: 32px;"> </p>
+
+        <!-- 11 -->
+        <article id="cap-11" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">11</span>
+            <h3 class="chapter-title">LLMs são ferramentas, não oráculo</h3>
+          </div>
+          <p>LLM é a sigla para Large Language Model, o tipo de modelo que está por trás do ChatGPT, Claude, Gemini e da maioria das ferramentas de IA que você usa para texto. O nome técnico não importa tanto quanto o que ele implica: são modelos treinados para gerar linguagem, não para saber a verdade.</p>
+          <p>Essa distinção muda como você usa a ferramenta. Um oráculo você consulta e obedece. Uma ferramenta você usa com critério, sabendo o que ela faz bem e onde ela falha.</p>
+          <p>Você também não precisa escolher só uma. Cada modelo tem características diferentes, e dependendo da tarefa, uma ferramenta vai funcionar melhor que outra. Usar ChatGPT para uma coisa, Claude para outra e Gemini para uma terceira não é indecisão, é uso inteligente.</p>
+
+          <div class="subhead">Por que combinar ferramentas faz sentido</div>
+          <ul>
+            <li>Cada modelo é treinado de forma diferente e tem pontos fortes distintos</li>
+            <li>Nenhuma ferramenta é a melhor em tudo</li>
+            <li>Para projetos complexos, usar mais de uma pode melhorar o resultado final</li>
+          </ul>
+        </article>
+
+        <!-- 12 -->
+        <article id="cap-12" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">12</span>
+            <h3 class="chapter-title">O painel de ferramentas</h3>
+          </div>
+          <p>Não existe a melhor IA. Existe a IA certa para cada tarefa.</p>
+
+          <div class="tool-list">
+            <div class="tool-item">
+              <div><div class="tool-name">ChatGPT</div><div class="tool-maker">OpenAI</div></div>
+              <p class="tool-desc">O mais conhecido e com a base de usuários mais ampla. Bom para tarefas gerais, geração de texto, brainstorming e uso cotidiano. A versão paga acessa a internet e gera imagens via DALL-E.</p>
+            </div>
+            <div class="tool-item">
+              <div><div class="tool-name">Claude</div><div class="tool-maker">Anthropic</div></div>
+              <p class="tool-desc">Forte em textos longos, instruções complexas e escrita com mais nuance. Lida bem com documentos grandes e tende a seguir diretrizes de tom com mais consistência. Boa escolha para quem trabalha com conteúdo editorial.</p>
+            </div>
+            <div class="tool-item">
+              <div><div class="tool-name">Gemini</div><div class="tool-maker">Google</div></div>
+              <p class="tool-desc">Integrado ao Google Workspace (Docs, Drive, Gmail). Vantagem para quem já vive no ecossistema Google e precisa de IA que acessa esses arquivos diretamente. Bom para pesquisa e síntese.</p>
+            </div>
+            <div class="tool-item">
+              <div><div class="tool-name">Perplexity</div><div class="tool-maker">Perplexity AI</div></div>
+              <p class="tool-desc">Focado em pesquisa. Diferente dos outros, busca na internet em tempo real e apresenta as fontes junto com a resposta. Útil quando você precisa de informação atual com referência.</p>
+            </div>
+            <div class="tool-item">
+              <div><div class="tool-name">WPP Open</div><div class="tool-maker">WPP</div></div>
+              <p class="tool-desc">A ferramenta do grupo para uso corporativo. É a opção correta quando o trabalho envolve informações de cliente, briefings e dados sensíveis. Menos flexível, mais segura.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 13 -->
+        <article id="cap-13" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">13</span>
+            <h3 class="chapter-title">Afinando o instrumento</h3>
+          </div>
+          <p>Trabalhar com modelos de IA tem algo parecido com equalizar um instrumento. Você não usa as mesmas configurações para uma música eletrônica e para um samba. Você ajusta os parâmetros de acordo com o que a tarefa pede.</p>
+          <p>O parâmetro mais relevante para o dia a dia é a <strong>temperatura</strong>. Ela controla o quanto o modelo vai arriscar nas respostas.</p>
+
+          <div class="temp-grid">
+            <div class="temp-card">
+              <div class="temp-label">Temperatura alta</div>
+              <p>O modelo fica mais criativo, mais variado, às vezes mais surpreendente.</p>
+              <p>Bom para brainstorming, geração de ideias, textos que precisam de personalidade.</p>
+            </div>
+            <div class="temp-card">
+              <div class="temp-label">Temperatura baixa</div>
+              <p>O modelo fica mais previsível, mais consistente, mais conservador.</p>
+              <p>Bom para textos técnicos, respostas padronizadas, tarefas onde a variação é um problema.</p>
+            </div>
+          </div>
+
+          <p>Nem toda ferramenta expõe esse controle de forma explícita. Mas você pode simular o efeito no próprio prompt: pedir que a IA "seja mais criativa e ouse nas escolhas" é uma forma de elevar a temperatura via instrução. Pedir que ela "siga rigorosamente o padrão definido" é uma forma de baixá-la.</p>
+
+          <div class="subhead">Outros parâmetros que você controla pelo prompt</div>
+          <ul>
+            <li><strong>Tom:</strong> formal, casual, técnico, bem-humorado</li>
+            <li><strong>Formato:</strong> parágrafo, lista, tabela, tópicos</li>
+            <li><strong>Tamanho:</strong> número de palavras, parágrafos ou caracteres</li>
+            <li><strong>Persona:</strong> escreva como um especialista em X, escreva para o público Y</li>
+          </ul>
+        </article>
+
+        <!-- 14 -->
+        <article id="cap-14" class="chapter">
+          <div class="chapter-hd">
+            <span class="chapter-num">14</span>
+            <h3 class="chapter-title">Além do texto</h3>
+          </div>
+          <p>IA não é só texto. Para times de criação e conteúdo, as ferramentas de imagem, vídeo e áudio já fazem parte do fluxo de trabalho em muitas agências.</p>
+
+          <div class="tool-category">
+            <div class="tool-cat-title">Imagem</div>
+            <div class="tool-list">
+              <div class="tool-item">
+                <div><div class="tool-name">Midjourney</div></div>
+                <p class="tool-desc">Referência em qualidade de imagem gerada. Forte para conceito visual, ilustração e direção de arte. Tem curva de aprendizado mas os resultados são consistentemente bons.</p>
+              </div>
+              <div class="tool-item">
+                <div><div class="tool-name">Adobe Firefly</div></div>
+                <p class="tool-desc">Integrado ao ecossistema Adobe. Vantagem para quem já usa Photoshop e Illustrator. Treinado com conteúdo licenciado, o que reduz riscos de copyright.</p>
+              </div>
+              <div class="tool-item">
+                <div><div class="tool-name">DALL-E</div><div class="tool-maker">ChatGPT · OpenAI</div></div>
+                <p class="tool-desc">Mais acessível, bom para geração rápida e uso casual. Integrado direto na interface do ChatGPT.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-category">
+            <div class="tool-cat-title">Vídeo</div>
+            <div class="tool-list">
+              <div class="tool-item">
+                <div><div class="tool-name">RunwayML</div></div>
+                <p class="tool-desc">Forte para geração e edição de vídeo com IA. Usado por produtoras e agências para prototipagem de conceitos.</p>
+              </div>
+              <div class="tool-item">
+                <div><div class="tool-name">Sora</div><div class="tool-maker">OpenAI</div></div>
+                <p class="tool-desc">Geração de vídeo a partir de texto. Ainda em rollout, mas já referência técnica do setor.</p>
+              </div>
+              <div class="tool-item">
+                <div><div class="tool-name">Kling</div></div>
+                <p class="tool-desc">Alternativa com boa qualidade para geração de vídeo curto.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-category">
+            <div class="tool-cat-title">Áudio e voz</div>
+            <div class="tool-list">
+              <div class="tool-item">
+                <div><div class="tool-name">ElevenLabs</div></div>
+                <p class="tool-desc">Clonagem e geração de voz. Usado para narração, podcasts e dublagem.</p>
+              </div>
+              <div class="tool-item">
+                <div><div class="tool-name">Suno · Udio</div></div>
+                <p class="tool-desc">Geração de músicas a partir de prompt de texto.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout">
+            <p>Conteúdo gerado por IA ainda está em zona cinza legal em vários países. Para uso em campanhas de clientes, verifique as políticas da ferramenta e as orientações do grupo antes de publicar.</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- ── FOOTER ── -->
+      <div class="manual-footer">
+        <a href="/" class="footer-back">← Voltar ao portfolio</a>
+        <span class="footer-note">Fábio Devito · 2026</span>
+      </div>
+
+    </div><!-- /manual-inner -->
+  </main>
+</div><!-- /manual-wrapper -->
+
+<script>
+  // ── MOBILE INDEX TOGGLE ──
+  function toggleIndex() {
+    document.getElementById('sidebar-mobile-bar').classList.toggle('open');
+  }
+
+  function closeIndex() {
+    document.getElementById('sidebar-mobile-bar').classList.remove('open');
+    // allow scroll to settle before closing
+    setTimeout(() => {}, 100);
+  }
+
+  // ── ACTIVE SIDEBAR LINK (desktop) ──
+  const anchors = document.querySelectorAll('[id]');
+  const desktopLinks = document.querySelectorAll('.manual-sidebar .sidebar-link[data-target]');
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            desktopLinks.forEach(link => {
+              link.classList.toggle('active', link.dataset.target === entry.target.id);
+            });
+          }
+        });
+      },
+      { rootMargin: '-80px 0px -55% 0px', threshold: 0 }
+    );
+    anchors.forEach(el => io.observe(el));
+  }
+
+  // ── SMOOTH SCROLL ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
