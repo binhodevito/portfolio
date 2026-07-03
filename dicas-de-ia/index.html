@@ -306,11 +306,11 @@
     margin-bottom: 48px;
   }
 
-  .scale-char { text-align: center; flex-shrink: 0; width: 110px; }
+  .scale-char { text-align: center; flex-shrink: 0; width: 170px; }
 
   .scale-img {
-    width: 90px;
-    height: 90px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
@@ -421,6 +421,8 @@
   .tool-item { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: start; }
   .tool-item:last-child { border-bottom: none; }
   .tool-name { font-family: 'Roboto Mono', monospace; font-size: 12px; font-weight: 700; color: var(--ink); }
+  .tool-name a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--border); transition: color 0.15s, border-color 0.15s; }
+  .tool-name a:hover { color: var(--accent); border-bottom-color: var(--accent); }
   .tool-maker { font-size: 11px; color: var(--accent); margin-top: 3px; }
   .tool-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin: 0; }
 
@@ -455,15 +457,16 @@
     .nav-hamburger      { display: flex; }
     .two-col, .prompt-compare, .temp-grid { grid-template-columns: 1fr; }
     .tool-item          { grid-template-columns: 1fr; gap: 4px; }
-    .scale-block        { flex-wrap: wrap; justify-content: center; gap: 16px; }
-    .scale-center       { width: 100%; order: 3; }
+    .scale-block        { gap: 12px; padding: 20px 16px; }
+    .scale-char         { width: 130px; }
+    .scale-img          { width: 110px; height: 110px; }
     .chapter            { scroll-margin-top: calc(var(--nav-h) + 56px); }
     .author-box         { scroll-margin-top: calc(var(--nav-h) + 56px); }
   }
 
   @media (max-width: 480px) {
     .scale-char { width: 90px; }
-    .scale-img  { width: 76px; height: 76px; }
+    .scale-img  { width: 82px; height: 82px; }
   }
 </style>
 </head>
@@ -582,7 +585,6 @@
           <img src="../imagens/kuririn.png" alt="Kuririn" class="scale-img">
           <div class="scale-emoji">🤖❤️</div>
           <div class="scale-char-name">Kuririn</div>
-          <div class="scale-char-role">ama IA</div>
         </div>
         <div class="scale-center">
           <div class="scale-label-text" id="scale-label">Em cima do muro 🤔</div>
@@ -598,7 +600,6 @@
           <img src="../imagens/trunks.png" alt="Trunks" class="scale-img">
           <div class="scale-emoji">💥</div>
           <div class="scale-char-name">Trunks</div>
-          <div class="scale-char-role">odeia IA</div>
         </div>
       </div>
 
@@ -631,9 +632,9 @@
         </div>
 
         <div class="gif-block">
-          <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjVlZHp5OHRuZzcyd2VqbTQ5eTVlbWZqZndvNm1zemNlNHJ2N3huZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ip3CsHAuuhnY4/giphy.gif" alt="Regras de campo" loading="lazy">
+          <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHg5amVxMHd2emt2Y2YwYnJidmg1bnVxbDE2dmR4NzFmbGppbTdkYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d5fMI9ftgQiGzoZoB9/giphy.gif" alt="Regras de campo" loading="lazy">
         </div>
-        <p class="gif-caption">Leia antes de qualquer outra coisa.</p>
+        <p class="gif-caption">hora de aquecer</p>
 
         <article id="cap-1" class="chapter">
           <div class="chapter-hd"><span class="chapter-num">01</span><h3 class="chapter-title">O que não colocar numa IA</h3></div>
@@ -708,7 +709,7 @@
         <div class="gif-block">
           <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnJzOHI4N3ZqeGxsZGo0bjN4Z2xqbWdlbGhyeDM1cmFwYjkycjIwMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sG4zmff2zDOp7t2MNA/giphy.gif" alt="Fundamentos" loading="lazy">
         </div>
-        <p class="gif-caption">&nbsp;</p>
+        <p class="gif-caption">"I Know Kung Fu" — Neo</p>
 
         <article id="cap-4" class="chapter">
           <div class="chapter-hd"><span class="chapter-num">04</span><h3 class="chapter-title">O que é um Prompt?</h3></div>
@@ -860,7 +861,7 @@ Não use emojis.</div>
         <div class="gif-block">
           <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzgza2lzd2N4dnpscGdnZDFocmVjZmpsdXRvejkxbm5lYmJ2dmFmdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YpcQ21F8SVvaclQMh8/giphy.gif" alt="Ferramentas e Modelos" loading="lazy">
         </div>
-        <p class="gif-caption">&nbsp;</p>
+        <p class="gif-caption">Choose your weapon.</p>
 
         <article id="cap-11" class="chapter">
           <div class="chapter-hd"><span class="chapter-num">11</span><h3 class="chapter-title">LLMs são ferramentas, não oráculo</h3></div>
@@ -879,10 +880,10 @@ Não use emojis.</div>
           <div class="chapter-hd"><span class="chapter-num">12</span><h3 class="chapter-title">O painel de ferramentas</h3></div>
           <p>Não existe a melhor IA. Existe a IA certa para cada tarefa.</p>
           <div class="tool-list">
-            <div class="tool-item"><div><div class="tool-name">ChatGPT</div><div class="tool-maker">OpenAI</div></div><p class="tool-desc">O mais conhecido e com a base de usuários mais ampla. Bom para tarefas gerais, geração de texto, brainstorming e uso cotidiano. A versão paga acessa a internet e gera imagens via DALL-E.</p></div>
-            <div class="tool-item"><div><div class="tool-name">Claude</div><div class="tool-maker">Anthropic</div></div><p class="tool-desc">Forte em textos longos, instruções complexas e escrita com mais nuance. Lida bem com documentos grandes e tende a seguir diretrizes de tom com mais consistência. Boa escolha para quem trabalha com conteúdo editorial.</p></div>
-            <div class="tool-item"><div><div class="tool-name">Gemini</div><div class="tool-maker">Google</div></div><p class="tool-desc">Integrado ao Google Workspace (Docs, Drive, Gmail). Vantagem para quem já vive no ecossistema Google e precisa de IA que acessa esses arquivos diretamente. Bom para pesquisa e síntese.</p></div>
-            <div class="tool-item"><div><div class="tool-name">Perplexity</div><div class="tool-maker">Perplexity AI</div></div><p class="tool-desc">Focado em pesquisa. Diferente dos outros, busca na internet em tempo real e apresenta as fontes junto com a resposta. Útil quando você precisa de informação atual com referência.</p></div>
+            <div class="tool-item"><div><div class="tool-name"><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></div><div class="tool-maker">OpenAI</div></div><p class="tool-desc">O mais conhecido e com a base de usuários mais ampla. Bom para tarefas gerais, geração de texto, brainstorming e uso cotidiano. A versão paga acessa a internet e gera imagens via DALL-E.</p></div>
+            <div class="tool-item"><div><div class="tool-name"><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></div><div class="tool-maker">Anthropic</div></div><p class="tool-desc">Forte em textos longos, instruções complexas e escrita com mais nuance. Lida bem com documentos grandes e tende a seguir diretrizes de tom com mais consistência. Boa escolha para quem trabalha com conteúdo editorial.</p></div>
+            <div class="tool-item"><div><div class="tool-name"><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a></div><div class="tool-maker">Google</div></div><p class="tool-desc">Integrado ao Google Workspace (Docs, Drive, Gmail). Vantagem para quem já vive no ecossistema Google e precisa de IA que acessa esses arquivos diretamente. Bom para pesquisa e síntese.</p></div>
+            <div class="tool-item"><div><div class="tool-name"><a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity</a></div><div class="tool-maker">Perplexity AI</div></div><p class="tool-desc">Focado em pesquisa. Diferente dos outros, busca na internet em tempo real e apresenta as fontes junto com a resposta. Útil quando você precisa de informação atual com referência.</p></div>
             <div class="tool-item"><div><div class="tool-name">WPP Open</div><div class="tool-maker">WPP</div></div><p class="tool-desc">A ferramenta do grupo para uso corporativo. É a opção correta quando o trabalho envolve informações de cliente, briefings e dados sensíveis. Menos flexível, mais segura.</p></div>
           </div>
         </article>
@@ -920,26 +921,26 @@ Não use emojis.</div>
           <div class="tool-category">
             <div class="tool-cat-title">Imagem</div>
             <div class="tool-list">
-              <div class="tool-item"><div><div class="tool-name">Midjourney</div></div><p class="tool-desc">Referência em qualidade de imagem gerada. Forte para conceito visual, ilustração e direção de arte. Tem curva de aprendizado mas os resultados são consistentemente bons.</p></div>
-              <div class="tool-item"><div><div class="tool-name">Adobe Firefly</div></div><p class="tool-desc">Integrado ao ecossistema Adobe. Vantagem para quem já usa Photoshop e Illustrator. Treinado com conteúdo licenciado, o que reduz riscos de copyright.</p></div>
-              <div class="tool-item"><div><div class="tool-name">DALL-E</div><div class="tool-maker">ChatGPT · OpenAI</div></div><p class="tool-desc">Mais acessível, bom para geração rápida e uso casual. Integrado direto na interface do ChatGPT.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://www.midjourney.com" target="_blank" rel="noopener">Midjourney</a></div></div><p class="tool-desc">Referência em qualidade de imagem gerada. Forte para conceito visual, ilustração e direção de arte. Tem curva de aprendizado mas os resultados são consistentemente bons.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://firefly.adobe.com" target="_blank" rel="noopener">Adobe Firefly</a></div></div><p class="tool-desc">Integrado ao ecossistema Adobe. Vantagem para quem já usa Photoshop e Illustrator. Treinado com conteúdo licenciado, o que reduz riscos de copyright.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://chatgpt.com" target="_blank" rel="noopener">DALL-E</a></div><div class="tool-maker">ChatGPT · OpenAI</div></div><p class="tool-desc">Mais acessível, bom para geração rápida e uso casual. Integrado direto na interface do ChatGPT.</p></div>
             </div>
           </div>
 
           <div class="tool-category">
             <div class="tool-cat-title">Vídeo</div>
             <div class="tool-list">
-              <div class="tool-item"><div><div class="tool-name">RunwayML</div></div><p class="tool-desc">Forte para geração e edição de vídeo com IA. Usado por produtoras e agências para prototipagem de conceitos.</p></div>
-              <div class="tool-item"><div><div class="tool-name">Sora</div><div class="tool-maker">OpenAI</div></div><p class="tool-desc">Geração de vídeo a partir de texto. Ainda em rollout, mas já referência técnica do setor.</p></div>
-              <div class="tool-item"><div><div class="tool-name">Kling</div></div><p class="tool-desc">Alternativa com boa qualidade para geração de vídeo curto.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://runwayml.com" target="_blank" rel="noopener">RunwayML</a></div></div><p class="tool-desc">Forte para geração e edição de vídeo com IA. Usado por produtoras e agências para prototipagem de conceitos.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://sora.com" target="_blank" rel="noopener">Sora</a></div><div class="tool-maker">OpenAI</div></div><p class="tool-desc">Geração de vídeo a partir de texto. Ainda em rollout, mas já referência técnica do setor.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://klingai.com" target="_blank" rel="noopener">Kling</a></div></div><p class="tool-desc">Alternativa com boa qualidade para geração de vídeo curto.</p></div>
             </div>
           </div>
 
           <div class="tool-category">
             <div class="tool-cat-title">Áudio e voz</div>
             <div class="tool-list">
-              <div class="tool-item"><div><div class="tool-name">ElevenLabs</div></div><p class="tool-desc">Clonagem e geração de voz. Usado para narração, podcasts e dublagem.</p></div>
-              <div class="tool-item"><div><div class="tool-name">Suno · Udio</div></div><p class="tool-desc">Geração de músicas a partir de prompt de texto.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://elevenlabs.io" target="_blank" rel="noopener">ElevenLabs</a></div></div><p class="tool-desc">Clonagem e geração de voz. Usado para narração, podcasts e dublagem.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://suno.com" target="_blank" rel="noopener">Suno</a> · <a href="https://www.udio.com" target="_blank" rel="noopener">Udio</a></div></div><p class="tool-desc">Geração de músicas a partir de prompt de texto.</p></div>
             </div>
           </div>
 
@@ -977,11 +978,11 @@ Não use emojis.</div>
     const kuririn = document.getElementById('char-kuririn');
     const trunks  = document.getElementById('char-trunks');
     const steps   = [
-      [0,  15,  'Kuririn supremo 🤖❤️'],
+      [0,  15,  'Casaria com IA 💍🤖'],
       [16, 35,  'IA entusiasta 😍'],
       [36, 64,  'Em cima do muro 🤔'],
       [65, 84,  'Prefiro à mão 😤'],
-      [85, 100, 'Trunks puro 💥'],
+      [85, 100, 'A revolução das máquinas começou 🤖'],
     ];
     function update() {
       const v = parseInt(slider.value);
