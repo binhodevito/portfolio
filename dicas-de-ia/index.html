@@ -480,6 +480,35 @@
     .scale-ends         { display: none; }
     .manual-inner       { padding: 24px 16px 56px; }
   }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 18px 0; }
+  .table-wrap table { width: 100%; min-width: 380px; border-collapse: collapse; }
+  .chapter th { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--paper); background: var(--ink); padding: 8px 14px; text-align: left; }
+  .chapter td { font-size: 14px; color: var(--muted); padding: 8px 14px; border-bottom: 1px solid var(--border); line-height: 1.5; }
+  .chapter tr:last-child td { border-bottom: none; }
+  .chapter tbody tr:nth-child(even) { background: var(--card); }
+
+  /* ── OL ── */
+  .chapter ol { list-style: none; counter-reset: step; margin: 0 0 14px; padding: 0; }
+  .chapter ol li { counter-increment: step; font-size: 16px; color: var(--muted); line-height: 1.7; padding: 5px 0 5px 32px; position: relative; }
+  .chapter ol li::before { content: counter(step) '.'; position: absolute; left: 0; color: var(--accent); font-weight: 700; font-family: 'Roboto Mono', monospace; font-size: 13px; }
+
+  /* ── GLOSSÁRIO ── */
+  .gloss-entry { padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .gloss-entry:last-child { border-bottom: none; }
+  .gloss-term { font-family: 'Roboto Mono', monospace; font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: 0.04em; margin-bottom: 6px; }
+  .gloss-def { font-size: 15px; color: var(--muted); line-height: 1.75; }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer-box { background: var(--card); border-left: 4px solid var(--ink); padding: 16px 20px; margin: 0 0 40px; border-radius: 0 2px 2px 0; font-size: 15px; line-height: 1.75; color: var(--muted); }
+  .disclaimer-box strong { color: var(--ink); }
+  .disclaimer-box a { color: var(--accent); }
+
+  /* ── LINKS ÚTEIS ── */
+  .links-section { margin-bottom: 32px; }
+  .links-section-title { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); padding-bottom: 8px; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
+  .links-note { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 8px; }
 </style>
 </head>
 <body>
@@ -542,16 +571,34 @@
     <a href="#cap-4" class="sidebar-link" data-target="cap-4">4. O que é um Prompt?</a>
     <a href="#cap-5" class="sidebar-link" data-target="cap-5">5. O que é um Script?</a>
     <a href="#cap-6" class="sidebar-link" data-target="cap-6">6. Prompt vs. Script</a>
-    <a href="#cap-7" class="sidebar-link" data-target="cap-7">7. Pensamento lógico</a>
-    <a href="#cap-8" class="sidebar-link" data-target="cap-8">8. Economia de tokens</a>
-    <a href="#cap-9" class="sidebar-link" data-target="cap-9">9. Janela de contexto</a>
-    <a href="#cap-10" class="sidebar-link" data-target="cap-10">10. Alucinação</a>
+    <a href="#cap-7" class="sidebar-link" data-target="cap-7">7. O que é um Agente?</a>
+    <a href="#cap-8" class="sidebar-link" data-target="cap-8">8. O que é uma Skill?</a>
+    <a href="#cap-9" class="sidebar-link" data-target="cap-9">9. Quando usar qual</a>
+    <a href="#cap-10" class="sidebar-link" data-target="cap-10">10. Pensamento lógico</a>
+    <a href="#cap-11" class="sidebar-link" data-target="cap-11">11. Tokens e contexto</a>
+    <a href="#cap-12" class="sidebar-link" data-target="cap-12">12. Alucinação</a>
 
     <div class="sidebar-part">Parte 2 — Ferramentas</div>
-    <a href="#cap-11" class="sidebar-link" data-target="cap-11">11. LLMs são ferramentas</a>
-    <a href="#cap-12" class="sidebar-link" data-target="cap-12">12. O painel de ferramentas</a>
-    <a href="#cap-13" class="sidebar-link" data-target="cap-13">13. Afinando o instrumento</a>
-    <a href="#cap-14" class="sidebar-link" data-target="cap-14">14. Além do texto</a>
+    <a href="#cap-13" class="sidebar-link" data-target="cap-13">13. LLMs são ferramentas</a>
+    <a href="#cap-14" class="sidebar-link" data-target="cap-14">14. O painel de ferramentas</a>
+    <a href="#cap-15" class="sidebar-link" data-target="cap-15">15. Afinando o instrumento</a>
+    <a href="#cap-16" class="sidebar-link" data-target="cap-16">16. Além do texto</a>
+
+    <div class="sidebar-part">Parte 3 — Fluxo de Trabalho</div>
+    <a href="#cap-17" class="sidebar-link" data-target="cap-17">17. Processo e documentação</a>
+    <a href="#cap-18" class="sidebar-link" data-target="cap-18">18. Loops e checkpoints</a>
+    <a href="#cap-19" class="sidebar-link" data-target="cap-19">19. Configurar um agente</a>
+    <a href="#cap-20" class="sidebar-link" data-target="cap-20">20. Pesquisa com IA</a>
+
+    <div class="sidebar-part">Parte 5 — Organização e Escala</div>
+    <a href="#cap-21" class="sidebar-link" data-target="cap-21">21. Exportando conteúdo</a>
+    <a href="#cap-22" class="sidebar-link" data-target="cap-22">22. GEO</a>
+    <a href="#cap-23" class="sidebar-link" data-target="cap-23">23. Escalando para o time</a>
+    <a href="#cap-24" class="sidebar-link" data-target="cap-24">24. Hackeando o sistema</a>
+
+    <div class="sidebar-part">Epílogo</div>
+    <a href="#glossario" class="sidebar-link" data-target="glossario">Glossário do Escoteiro</a>
+    <a href="#links-uteis" class="sidebar-link" data-target="links-uteis">Links Úteis</a>
   </aside>
 
   <!-- ── CONTENT ── -->
@@ -566,22 +613,37 @@
         <a href="#prologo" class="sidebar-link" onclick="closeIndex()">Prólogo</a>
         <a href="#quem-escreve" class="sidebar-link" onclick="closeIndex()">Quem escreve</a>
         <div class="sidebar-part">Parte 0 — Regras de Campo</div>
-        <a href="#cap-1" class="sidebar-link" onclick="closeIndex()">1. O que não colocar numa IA</a>
+        <a href="#cap-1" class="sidebar-link" onclick="closeIndex()">1. O que não colocar</a>
         <a href="#cap-2" class="sidebar-link" onclick="closeIndex()">2. Quando NÃO usar IA</a>
         <a href="#cap-3" class="sidebar-link" onclick="closeIndex()">3. A conta do tempo</a>
         <div class="sidebar-part">Parte 1 — Fundamentos</div>
         <a href="#cap-4" class="sidebar-link" onclick="closeIndex()">4. O que é um Prompt?</a>
         <a href="#cap-5" class="sidebar-link" onclick="closeIndex()">5. O que é um Script?</a>
         <a href="#cap-6" class="sidebar-link" onclick="closeIndex()">6. Prompt vs. Script</a>
-        <a href="#cap-7" class="sidebar-link" onclick="closeIndex()">7. Pensamento lógico</a>
-        <a href="#cap-8" class="sidebar-link" onclick="closeIndex()">8. Economia de tokens</a>
-        <a href="#cap-9" class="sidebar-link" onclick="closeIndex()">9. Janela de contexto</a>
-        <a href="#cap-10" class="sidebar-link" onclick="closeIndex()">10. Alucinação</a>
+        <a href="#cap-7" class="sidebar-link" onclick="closeIndex()">7. O que é um Agente?</a>
+        <a href="#cap-8" class="sidebar-link" onclick="closeIndex()">8. O que é uma Skill?</a>
+        <a href="#cap-9" class="sidebar-link" onclick="closeIndex()">9. Quando usar qual</a>
+        <a href="#cap-10" class="sidebar-link" onclick="closeIndex()">10. Pensamento lógico</a>
+        <a href="#cap-11" class="sidebar-link" onclick="closeIndex()">11. Tokens e contexto</a>
+        <a href="#cap-12" class="sidebar-link" onclick="closeIndex()">12. Alucinação</a>
         <div class="sidebar-part">Parte 2 — Ferramentas</div>
-        <a href="#cap-11" class="sidebar-link" onclick="closeIndex()">11. LLMs são ferramentas</a>
-        <a href="#cap-12" class="sidebar-link" onclick="closeIndex()">12. O painel de ferramentas</a>
-        <a href="#cap-13" class="sidebar-link" onclick="closeIndex()">13. Afinando o instrumento</a>
-        <a href="#cap-14" class="sidebar-link" onclick="closeIndex()">14. Além do texto</a>
+        <a href="#cap-13" class="sidebar-link" onclick="closeIndex()">13. LLMs são ferramentas</a>
+        <a href="#cap-14" class="sidebar-link" onclick="closeIndex()">14. O painel de ferramentas</a>
+        <a href="#cap-15" class="sidebar-link" onclick="closeIndex()">15. Afinando o instrumento</a>
+        <a href="#cap-16" class="sidebar-link" onclick="closeIndex()">16. Além do texto</a>
+        <div class="sidebar-part">Parte 3 — Fluxo de Trabalho</div>
+        <a href="#cap-17" class="sidebar-link" onclick="closeIndex()">17. Processo e documentação</a>
+        <a href="#cap-18" class="sidebar-link" onclick="closeIndex()">18. Loops e checkpoints</a>
+        <a href="#cap-19" class="sidebar-link" onclick="closeIndex()">19. Configurar um agente</a>
+        <a href="#cap-20" class="sidebar-link" onclick="closeIndex()">20. Pesquisa com IA</a>
+        <div class="sidebar-part">Parte 5 — Organização e Escala</div>
+        <a href="#cap-21" class="sidebar-link" onclick="closeIndex()">21. Exportando conteúdo</a>
+        <a href="#cap-22" class="sidebar-link" onclick="closeIndex()">22. GEO</a>
+        <a href="#cap-23" class="sidebar-link" onclick="closeIndex()">23. Escalando para o time</a>
+        <a href="#cap-24" class="sidebar-link" onclick="closeIndex()">24. Hackeando o sistema</a>
+        <div class="sidebar-part">Epílogo</div>
+        <a href="#glossario" class="sidebar-link" onclick="closeIndex()">Glossário do Escoteiro</a>
+        <a href="#links-uteis" class="sidebar-link" onclick="closeIndex()">Links Úteis</a>
       </nav>
     </div>
 
@@ -615,13 +677,18 @@
         </div>
       </div>
 
+      <!-- ── DISCLAIMER ── -->
+      <div class="disclaimer-box">
+        <strong>Este manual é e sempre será gratuito.</strong> Ele segue os princípios de uma internet livre, colaborativa e que contribui para a disseminação do conhecimento, da criatividade e da construção de um mundo melhor. Se esse conteúdo te ajudou de alguma forma e você quiser retribuir, considere fazer uma doação para um projeto beneficente. Se não souber para onde, sugerimos o <a href="https://www.instagram.com/solidariedadevegan/" target="_blank" rel="noopener">Solidariedade Vegan</a> ou o projeto de acolhimento do <a href="https://www.instagram.com/padrejulio.lancellotti/?hl=pt-br" target="_blank" rel="noopener">Padre Julio Lancelotti</a>.
+      </div>
+
       <!-- ── PRÓLOGO ── -->
       <article id="prologo" class="chapter">
         <div class="chapter-hd">
           <span class="chapter-num">—</span>
           <h2 class="chapter-title">Prólogo</h2>
         </div>
-        <p>Em algum momento entre 2022 e hoje, "usar IA" virou instrução padrão em qualquer empresa. A parte de ensinar <em>como</em> ficou pra depois.</p>
+        <p>Em algum momento entre 2022 e o agora, "usar IA" virou instrução padrão em qualquer empresa. A parte de ensinar <em>como</em> ficou pra depois.</p>
         <p>O gap entre saber que a ferramenta existe e saber trabalhar com ela é maior do que parece. Prompts que funcionam uma vez e nunca mais, processos que só uma pessoa consegue replicar, textos que chegam pra revisão sem que ninguém tenha lido antes de mandar, projetos que somem porque ninguém registrou nada.</p>
         <p>Esse manual foi feito pra criativos e jornalistas que querem usar IA com mais intenção. Não tem programação aqui. O foco é no raciocínio: quando acionar, como avaliar o que a ferramenta entrega e quando o melhor a fazer é simplesmente reescrever do zero.</p>
         <div class="callout">
@@ -669,7 +736,7 @@
 
         <article id="cap-2" class="chapter">
           <div class="chapter-hd"><span class="chapter-num">02</span><h3 class="chapter-title">Quando NÃO usar IA</h3></div>
-          <p>IA é boa em executar. Ruim em julgar. E julgamento é boa parte do que faz o trabalho criativo valer alguma coisa.</p>
+          <p>Julgamento é boa parte do que faz o trabalho criativo valer alguma coisa, e esse é exatamente o ponto onde a IA não chega.</p>
           <div class="subhead">Situações em que a ferramenta atrapalha mais do que ajuda</div>
           <ul>
             <li>Textos curtos que você escreveria em dois minutos</li>
@@ -679,13 +746,13 @@
           </ul>
           <p>A IA vai entregar um texto funcional. Funcional não é o suficiente quando o que está em jogo é confiança.</p>
           <div class="callout">
-            <p>A pergunta certa antes de abrir a ferramenta não é "a IA consegue fazer isso?". É "faz sentido pedir pra ela fazer isso agora?".</p>
+            <p>Antes de abrir a ferramenta, a pergunta mais útil que você pode fazer é: faz sentido pedir pra ela fazer isso agora?</p>
           </div>
         </article>
 
         <article id="cap-3" class="chapter">
           <div class="chapter-hd"><span class="chapter-num">03</span><h3 class="chapter-title">A conta do tempo</h3></div>
-          <p>Existe uma ilusão de que delegar para a IA é sempre mais rápido. Não é.</p>
+          <p>A ilusão de que delegar para a IA é sempre mais rápido não sobrevive ao primeiro projeto.</p>
           <p>Tem uma conta que a maioria não faz: o tempo que você gasta explicando o que quer, ajustando o resultado, revisando o que não ficou certo e editando até ficar como você queria. Para tarefas curtas, esse tempo costuma ser maior do que o tempo de simplesmente fazer.</p>
           <div class="two-col">
             <div class="col-box">
@@ -741,7 +808,7 @@
             </div>
             <div class="prompt-box">
               <div class="prompt-label good">Exemplo bom</div>
-              <p>Escreve um post para o Instagram da Intel sobre o Brasil Game Show. Tom casual, voltado para gamers, sem emojis. Máximo 150 caracteres. Destaca que a Intel vai ter uma área interativa no evento.</p>
+              <p>Escreva um post para o Instagram da Intel sobre o Brasil Game Show. Tom casual, voltado para gamers, sem emojis. Máximo 150 caracteres. Destaque que a Intel vai ter uma área interativa no evento.</p>
             </div>
           </div>
           <p>A diferença entre os dois não é habilidade técnica. É clareza sobre o que você quer.</p>
@@ -760,6 +827,32 @@ Tamanho: máximo <span class="code-var">[NÚMERO]</span> caracteres.
 Inclua: <span class="code-var">[ELEMENTO OBRIGATÓRIO]</span>
 Não use emojis.</div>
           <p>Toda vez que precisar de uma legenda, você preenche os campos e manda. O resultado vai ser consistente porque a estrutura é a mesma.</p>
+          <div class="subhead">Exemplo 1: calendário recorrente de cliente</div>
+          <p>Imagine que você gerencia o Instagram de um cliente e toda semana precisa entregar uma grade com posts para aprovação. Em vez de começar do zero toda segunda-feira, você monta um script uma vez e reutiliza:</p>
+          <div class="code-block">Você é um estrategista de conteúdo para redes sociais.
+
+Crie um calendário editorial para a semana de <span class="code-var">[DATA]</span> para a conta <span class="code-var">[CLIENTE]</span>.
+Segmento: <span class="code-var">[SEGMENTO]</span>
+Tom de voz: <span class="code-var">[TOM]</span>
+Frequência: <span class="code-var">[X]</span> posts por semana
+Formatos: <span class="code-var">[FEED / STORIES / REELS]</span>
+Tema da semana: <span class="code-var">[TEMA OU CAMPANHA ATIVA]</span>
+Restrições: <span class="code-var">[O QUE NÃO PODE APARECER]</span>
+
+Para cada post inclua: data, formato, ideia de copy e sugestão de visual.</div>
+          <p>O cliente muda, a semana muda, o tema muda. A estrutura do calendário não.</p>
+          <div class="subhead">Exemplo 2: replicação de estilo entre contas</div>
+          <p>Times de criação que atendem múltiplos clientes precisam trocar de voz o tempo inteiro. Um script de briefing criativo resolve isso sem depender da memória de cada pessoa do time:</p>
+          <div class="code-block">Você é um diretor de arte e redator.
+
+Crie <span class="code-var">[PEÇA]</span> para o cliente <span class="code-var">[CLIENTE]</span>.
+Perfil da marca: <span class="code-var">[DESCRIÇÃO CURTA DA PERSONALIDADE DA MARCA]</span>
+Paleta de linguagem: use palavras como <span class="code-var">[EXEMPLOS]</span> e evite <span class="code-var">[EXEMPLOS]</span>
+Referências visuais: <span class="code-var">[REFERÊNCIAS OU MOOD]</span>
+Público: <span class="code-var">[PERFIL DO PÚBLICO]</span>
+Objetivo da peça: <span class="code-var">[CONVERSÃO / AWARENESS / ENGAJAMENTO]</span>
+Formato de entrega: <span class="code-var">[DESCRIÇÃO DA PEÇA]</span></div>
+          <p>Com esse script, qualquer pessoa do time consegue replicar o briefing criativo de uma conta sem precisar ter atendido aquele cliente antes.</p>
           <p>Scripts são especialmente úteis quando mais de uma pessoa precisa executar a mesma tarefa, ou quando o resultado precisa ter sempre a mesma cara independente de quem está fazendo.</p>
         </article>
 
@@ -786,14 +879,69 @@ Não use emojis.</div>
               </ul>
             </div>
           </div>
-          <div class="callout">
-            <p>Escrever um post avulso sobre um lançamento é um prompt. Escrever posts de lançamento toda semana para uma conta com linguagem definida é um script.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Situação</th><th>Use</th></tr></thead>
+              <tbody>
+                <tr><td>Escrever um post avulso sobre um lançamento</td><td>Prompt</td></tr>
+                <tr><td>Criar posts de lançamento toda semana para uma conta</td><td>Script</td></tr>
+                <tr><td>Pesquisar referências para uma campanha específica</td><td>Prompt</td></tr>
+                <tr><td>Montar o calendário editorial de um cliente toda semana</td><td>Script</td></tr>
+                <tr><td>Dar feedback em um texto pontual</td><td>Prompt</td></tr>
+                <tr><td>Padronizar o briefing criativo de todas as contas do time</td><td>Script</td></tr>
+              </tbody>
+            </table>
           </div>
+          <p>Se a tarefa se repete com a mesma estrutura, o esforço de montar o script uma vez economiza tempo em todas as próximas execuções.</p>
         </article>
 
         <article id="cap-7" class="chapter">
-          <div class="chapter-hd"><span class="chapter-num">07</span><h3 class="chapter-title">Pensamento lógico para o seu briefing</h3></div>
+          <div class="chapter-hd"><span class="chapter-num">07</span><h3 class="chapter-title">O que é um Agente?</h3></div>
+          <p>Um agente é um fluxo autônomo que executa múltiplas tarefas em sequência, sem precisar que você intervenha a cada etapa. Você define o objetivo e os passos, e o agente percorre o caminho.</p>
+          <p>A diferença para um script é o nível de autonomia. Um script espera você preencher os campos e mandar. Um agente recebe um objetivo e decide como chegar lá, podendo pesquisar, produzir, revisar e entregar numa rodada só.</p>
+          <div class="subhead">Exemplos práticos</div>
+          <ul>
+            <li>Um agente que recebe o tema de uma pauta, pesquisa referências na web, resume os pontos principais e entrega um briefing de conteúdo pronto para revisão</li>
+            <li>Um agente que monitora menções de uma marca, filtra as relevantes e gera um relatório semanal formatado</li>
+            <li>Um agente que pega um briefing criativo, gera três opções de copy em tons diferentes e organiza tudo numa planilha de aprovação</li>
+          </ul>
+          <p>Agentes são úteis quando o processo tem várias etapas que dependem umas das outras e repetir esse ciclo manualmente toda semana custa tempo demais. O cap 19 desse manual entra em mais detalhe sobre como configurar um. Por ora, o suficiente é saber que eles existem e para que servem.</p>
+        </article>
+
+        <article id="cap-8" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">08</span><h3 class="chapter-title">O que é uma Skill?</h3></div>
+          <p>Uma skill é um script salvo como recurso permanente dentro de uma ferramenta de IA. Quando você abre uma conversa nova, a skill carrega automaticamente o contexto, as instruções e o comportamento que você definiu, sem precisar repetir nada.</p>
+          <p>Se você usa a mesma IA todos os dias e toda vez começa explicando quem você é, qual é o cliente, qual é o tom e quais são as regras, uma skill elimina esse ritual. Ela já sabe.</p>
+          <div class="subhead">Exemplos práticos</div>
+          <ul>
+            <li>Uma skill com o guia de voz e tom de um cliente, que qualquer pessoa do time pode acionar para garantir consistência</li>
+            <li>Uma skill com as diretrizes editoriais de uma publicação, para que o modelo sempre escreva dentro do estilo da casa</li>
+            <li>Uma skill com o fluxo de aprovação de conteúdo de uma conta, que orienta o modelo a formatar as entregas do jeito certo</li>
+          </ul>
+          <p>A diferença entre uma skill e um script é que o script você cola no prompt manualmente. A skill está sempre lá, sem esforço.</p>
+        </article>
+
+        <article id="cap-9" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">09</span><h3 class="chapter-title">Quando usar prompt, script, agente ou skill</h3></div>
+          <p>Agora que os quatro estão definidos, a escolha entre eles segue uma lógica de recorrência e complexidade.</p>
+          <p><strong>Prompt:</strong> tarefa única, contexto muda, você quer explorar.</p>
+          <p><strong>Script:</strong> tarefa recorrente, estrutura fixa, mais de uma pessoa precisa executar.</p>
+          <p><strong>Skill:</strong> contexto fixo que você não quer repetir toda vez. A ferramenta já sabe o que precisa saber antes de você começar.</p>
+          <p><strong>Agente:</strong> processo com múltiplas etapas encadeadas que você quer automatizar de ponta a ponta.</p>
+          <div class="subhead">Como cada nível impacta tokens e sessões</div>
+          <p>Cada vez que você abre uma conversa e repete contexto manualmente, está gastando tokens antes de começar a trabalhar de fato. Scripts economizam porque a estrutura já está pronta. Skills economizam mais porque o contexto é carregado automaticamente sem ocupar espaço na janela da conversa. Agentes economizam sessões inteiras porque encadeiam o que seria uma sequência de conversas em uma execução só.</p>
+          <p>Quanto mais estruturado o processo, menos tokens você gasta explicando o que quer.</p>
+        </article>
+
+        <article id="cap-10" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">10</span><h3 class="chapter-title">Pensamento lógico para o seu briefing</h3></div>
           <p>O resultado da IA vai ser tão bom quanto a instrução que você deu. Se você chega com um briefing vago, vai receber uma resposta vaga.</p>
+          <div class="subhead">O teste do bolo</div>
+          <p>Existe um exercício clássico em programação para ensinar pensamento algorítmico: imagine que você precisa ensinar alguém a fazer um bolo. Não qualquer alguém: uma pessoa que nunca entrou em uma cozinha, que não sabe o que é uma xícara de medida e que vai seguir suas instruções ao pé da letra.</p>
+          <p>Se você disser "adicione farinha suficiente", a pergunta vai travar tudo: farinha de quê? Quanto é suficiente? Antes ou depois dos ovos? A instrução incompleta gera uma execução imprevisível, ou simplesmente para no meio.</p>
+          <p>A IA funciona da mesma forma. Ela não tem contexto subentendido. Ela processa o que você escreveu da forma mais literal possível. Uma instrução vaga gera uma resposta plausível, mas não necessariamente a resposta que você precisava.</p>
+          <div class="subhead">O que responder antes de promtar</div>
+          <p>Antes de escrever qualquer prompt, vale gastar dois minutos respondendo essas perguntas:</p>
           <div class="subhead">O que eu quero?</div>
           <p>Seja específico. "Um texto sobre o produto" é diferente de "uma descrição de 80 palavras focada no benefício principal para quem compra pela primeira vez".</p>
           <div class="subhead">Para quem é?</div>
@@ -804,62 +952,93 @@ Não use emojis.</div>
           <p>Liste os elementos obrigatórios: mensagem principal, CTA, restrições de marca, palavras que não pode usar.</p>
           <div class="subhead">Qual é o tamanho esperado?</div>
           <p>IA tende a alongar. Diga o tamanho que você quer.</p>
-          <div class="callout">
-            <p>Responder isso antes de escrever o prompt poupa tempo de revisão depois. A maioria dos problemas com resultado de IA começa aqui.</p>
+          <div class="subhead">O loop entre você e a ferramenta</div>
+          <p>Responder essas perguntas antes de escrever o prompt economiza tempo de revisão. Mas o processo não é uma linha reta: a cada resultado que a IA entrega, você pausa, analisa o que veio, e decide se está pronto ou se o briefing precisa de ajuste.</p>
+          <p>O pensamento lógico entra em dois momentos: na hora de formular a instrução e em cada ciclo de avaliação. A IA entrega o que parece mais provável dado o que você pediu. Avaliar se isso é o que você precisava é sempre sua função.</p>
+          <div style="display: flex; justify-content: center; margin: 32px 0;">
+<svg viewBox="0 0 420 450" xmlns="http://www.w3.org/2000/svg" width="360" height="385" role="img" aria-label="Loop Criativo: Humano + IA">
+  <style>.arc-loop{fill:none;stroke:#cbd5e1;stroke-width:2.5}.node-h{fill:#1a3a5c}.node-ia{fill:#0369a1}.lbl-loop{font-family:system-ui,sans-serif;font-size:11px;font-weight:700;fill:white;text-anchor:middle;dominant-baseline:middle}.sub-loop{font-family:system-ui,sans-serif;font-size:8.5px;fill:rgba(255,255,255,0.78);text-anchor:middle;dominant-baseline:middle}.ctr-loop{font-family:system-ui,sans-serif;text-anchor:middle;dominant-baseline:middle}.arrow-loop{fill:#94a3b8}.leg-loop{font-family:system-ui,sans-serif;font-size:9px;fill:#64748b;dominant-baseline:middle}</style>
+  <path class="arc-loop" d="M 258.6,89.5 A 130,130 0 0,1 330.5,161.4"/>
+  <path class="arc-loop" d="M 330.5,258.6 A 130,130 0 0,1 258.6,330.5"/>
+  <path class="arc-loop" d="M 161.4,330.5 A 130,130 0 0,1 89.5,258.6"/>
+  <path class="arc-loop" d="M 89.5,161.4 A 130,130 0 0,1 161.4,89.5"/>
+  <g transform="translate(301.9,118.1) rotate(45)"><path class="arrow-loop" d="M -9,-4.5 L 3,0 L -9,4.5 Z"/></g>
+  <g transform="translate(301.9,301.9) rotate(135)"><path class="arrow-loop" d="M -9,-4.5 L 3,0 L -9,4.5 Z"/></g>
+  <g transform="translate(118.1,301.9) rotate(225)"><path class="arrow-loop" d="M -9,-4.5 L 3,0 L -9,4.5 Z"/></g>
+  <g transform="translate(118.1,118.1) rotate(315)"><path class="arrow-loop" d="M -9,-4.5 L 3,0 L -9,4.5 Z"/></g>
+  <circle cx="210" cy="80" r="47" class="node-h"/>
+  <text x="210" y="75" class="lbl-loop">PENSAR</text>
+  <text x="210" y="90" class="sub-loop">define o objetivo</text>
+  <circle cx="340" cy="210" r="47" class="node-h"/>
+  <text x="340" y="205" class="lbl-loop">INSTRUIR</text>
+  <text x="340" y="220" class="sub-loop">escreve o prompt</text>
+  <circle cx="210" cy="340" r="47" class="node-ia"/>
+  <text x="210" y="335" class="lbl-loop">EXECUTAR</text>
+  <text x="210" y="350" class="sub-loop">IA processa</text>
+  <circle cx="80" cy="210" r="47" class="node-h"/>
+  <text x="80" y="205" class="lbl-loop">AVALIAR</text>
+  <text x="80" y="220" class="sub-loop">lê e decide</text>
+  <text x="210" y="203" class="ctr-loop" font-size="12" font-weight="700" fill="#1e293b">LOOP</text>
+  <text x="210" y="220" class="ctr-loop" font-size="10" fill="#64748b">CRIATIVO</text>
+  <circle cx="122" cy="408" r="7" class="node-h"/><text x="134" y="408" class="leg-loop">etapa humana</text>
+  <circle cx="228" cy="408" r="7" class="node-ia"/><text x="240" y="408" class="leg-loop">etapa da IA</text>
+</svg>
           </div>
         </article>
 
-        <article id="cap-8" class="chapter">
-          <div class="chapter-hd"><span class="chapter-num">08</span><h3 class="chapter-title">Economia de tokens</h3></div>
-          <p>Token é a unidade que a IA usa para processar texto. De forma simplificada, cada palavra ou pedaço de palavra conta como um ou mais tokens. Isso importa por dois motivos: custo e limite.</p>
-          <p>Ferramentas de IA têm um limite de tokens por conversa. Quando você chega nesse limite, a ferramenta começa a perder o fio da meada ou simplesmente para de funcionar bem. Prompts muito longos, contextos excessivos e conversas que se arrastam consomem esse limite mais rápido.</p>
-          <div class="subhead">Hábitos que desperdiçam tokens</div>
+        <article id="cap-11" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">11</span><h3 class="chapter-title">Tokens e janela de contexto</h3></div>
+          <p>Token é a unidade que a IA usa para processar texto. De forma simplificada, cada palavra ou pedaço de palavra conta como um ou mais tokens. Isso importa porque toda ferramenta tem um limite de tokens por conversa.</p>
+          <p>Esse limite define o que a IA chama de janela de contexto: o volume de informação que ela consegue considerar de uma vez. À medida que a conversa avança, as informações mais antigas saem para dar lugar às novas. Em conversas longas, a IA pode contradizer algo que disse antes, ignorar uma instrução do início ou perder coerência com o que foi estabelecido. A ferramenta está funcionando exatamente como foi projetada. A janela tem limite.</p>
+          <div class="subhead">Hábitos que consomem a janela mais rápido do que deveriam</div>
           <ul>
-            <li>Repetir o briefing inteiro toda vez que manda uma mensagem nova</li>
-            <li>Colar documentos enormes quando você só precisa de um trecho</li>
-            <li>Deixar conversas antigas abertas e continuar empilhando contexto em vez de começar uma nova</li>
+            <li>Repetir o briefing inteiro a cada mensagem nova</li>
+            <li>Colar documentos completos quando só um trecho é necessário</li>
+            <li>Deixar conversas antigas abertas e continuar acumulando contexto em vez de começar uma nova</li>
           </ul>
-          <div class="subhead">Como economizar</div>
-          <ul>
-            <li>Seja direto. Contexto útil é diferente de contexto em excesso.</li>
-            <li>Para tarefas longas, divida em conversas separadas.</li>
-            <li>Se precisar que a IA use um documento, destaque só a parte relevante.</li>
-            <li>Resuma o contexto anterior em vez de repetir tudo.</li>
-          </ul>
-          <div class="callout">
-            <p>Prompt eficiente não é prompt curto. É prompt com o que precisa, sem o que não precisa.</p>
-          </div>
-        </article>
-
-        <article id="cap-9" class="chapter">
-          <div class="chapter-hd"><span class="chapter-num">09</span><h3 class="chapter-title">Janela de contexto</h3></div>
-          <p>Se você já notou que a IA parece esquecer o que você disse no começo de uma conversa longa, não é impressão. É o funcionamento da ferramenta.</p>
-          <p>Toda IA tem o que se chama de janela de contexto: o volume de informação que ela consegue considerar de uma vez. À medida que a conversa avança, as informações mais antigas começam a sair para dar lugar às novas. Em conversas muito longas, a IA pode contradizer algo que ela mesma disse antes, ignorar uma instrução do início ou perder coerência com o que foi estabelecido.</p>
-          <div class="subhead">Como lidar com isso</div>
+          <div class="subhead">Como trabalhar dentro desse limite</div>
           <ul>
             <li>Para projetos longos, comece conversas novas e traga só o contexto necessário</li>
             <li>Repita as instruções mais importantes quando a conversa estiver ficando extensa</li>
             <li>Se o resultado começar a piorar sem motivo claro, abra uma nova sessão</li>
-            <li>Guarde seus prompts e scripts fora da ferramenta (Notion, planilha, documento) para não depender do histórico da conversa</li>
-          </ul>
-          <p>A janela de contexto é uma limitação real. Trabalhar com ela em mente evita frustração e resultado ruim.</p>
-        </article>
-
-        <article id="cap-10" class="chapter">
-          <div class="chapter-hd"><span class="chapter-num">10</span><h3 class="chapter-title">Alucinação</h3></div>
-          <p>IA mente. Não por maldade, por limitação. E o problema é que ela mente com total confiança, sem nenhum sinal de que aquilo pode estar errado.</p>
-          <p>Isso acontece porque modelos de linguagem não "sabem" coisas da forma que um humano sabe. Eles geram texto com base em padrões, e às vezes esses padrões produzem informações que parecem corretas mas não são: datas erradas, nomes trocados, citações inventadas, estatísticas que não existem, links que não funcionam.</p>
-          <div class="subhead">O que verificar antes de publicar ou apresentar</div>
-          <ul>
-            <li>Dados e estatísticas: cheque a fonte original</li>
-            <li>Citações atribuídas a pessoas: verifique se foram ditas de fato</li>
-            <li>Datas e cronologias, especialmente de eventos recentes</li>
-            <li>Links e referências: a IA cria URLs que parecem reais mas não existem</li>
-            <li>Qualquer informação que você vai usar como base de decisão ou argumento</li>
+            <li>Guarde seus prompts e scripts fora da ferramenta (Notion, planilha, documento) para não depender do histórico</li>
           </ul>
           <div class="callout">
-            <p>Usar IA para pesquisa é válido e útil. Usar IA como fonte definitiva é um risco desnecessário.</p>
+            <p>Prompt eficiente tem o que precisa e descarta o resto.</p>
           </div>
+        </article>
+
+        <article id="cap-12" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">12</span><h3 class="chapter-title">Alucinação e fact-checking</h3></div>
+          <p>IA produz informações erradas com total confiança, sem nenhum sinal de que aquilo pode estar errado.</p>
+          <p>Isso acontece porque modelos de linguagem não "sabem" coisas da forma que um humano sabe. Eles geram texto com base em padrões, e às vezes esses padrões produzem informações que parecem corretas mas não são: datas erradas, nomes trocados, citações inventadas, estatísticas que não existem, links que não funcionam.</p>
+          <p>Verificar o que a IA produziu é o mesmo processo que qualquer redator experiente aplica a qualquer fonte, incluindo agências de notícia, assessorias de imprensa e colegas de redação. A diferença é que a IA mente com mais fluidez do que a maioria.</p>
+          <div class="subhead">O que tem maior risco de estar errado</div>
+          <ul>
+            <li>Estatísticas e porcentagens atribuídas a pesquisas ou institutos</li>
+            <li>Citações diretas atribuídas a pessoas reais</li>
+            <li>Datas de eventos, lançamentos, publicações</li>
+            <li>Nomes de cargos, títulos e funções atuais</li>
+            <li>URLs e links (a IA cria endereços plausíveis que não existem)</li>
+            <li>Eventos recentes, especialmente dos últimos 12 a 18 meses</li>
+          </ul>
+          <div class="subhead">Fluxo básico de verificação</div>
+          <p>Para cada informação crítica que você vai usar:</p>
+          <ol>
+            <li>Identifique a afirmação: o que exatamente está sendo dito?</li>
+            <li>Localize a fonte original: a IA mencionou alguma? Se sim, acesse diretamente e confirme.</li>
+            <li>Se não há fonte, busque você mesmo: Google, base de dados da redação, contato direto.</li>
+            <li>Se não consegue verificar, não usa. "Segundo a IA" não é fonte para publicação ou apresentação para cliente.</li>
+          </ol>
+          <div class="subhead">Ferramentas de apoio</div>
+          <ul>
+            <li><strong>Google</strong> com operadores de busca avançada: <em>"nome da pessoa" + "afirmação"</em> para confirmar citações</li>
+            <li><strong>Wayback Machine</strong> (web.archive.org): para verificar se uma página existia numa data específica</li>
+            <li><strong>Perplexity</strong>: para cruzar uma afirmação com múltiplas fontes rastreáveis ao mesmo tempo</li>
+            <li><strong>Bases de dados da redação ou do grupo</strong>: para contexto histórico de clientes e campanhas</li>
+          </ul>
+          <div class="subhead">Calibre o esforço pelo peso da informação</div>
+          <p>Verificar tudo o que a IA produz seria inviável. O critério prático: o quanto esse dado importa e qual é o custo de estar errado? Para um dado que sustenta um argumento numa apresentação para cliente, o risco é alto. Para contexto geral num texto de awareness, o risco é menor. O esforço de verificação deve ser proporcional ao que está em jogo.</p>
         </article>
       </section>
 
@@ -875,22 +1054,16 @@ Não use emojis.</div>
         </div>
         <p class="gif-caption">Choose your weapon.</p>
 
-        <article id="cap-11" class="chapter">
-          <div class="chapter-hd"><span class="chapter-num">11</span><h3 class="chapter-title">LLMs são ferramentas, não oráculo</h3></div>
+        <article id="cap-13" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">13</span><h3 class="chapter-title">LLMs são ferramentas, não oráculo</h3></div>
           <p>LLM é a sigla para Large Language Model, o tipo de modelo que está por trás do ChatGPT, Claude, Gemini e da maioria das ferramentas de IA que você usa para texto. O nome técnico não importa tanto quanto o que ele implica: são modelos treinados para gerar linguagem, não para saber a verdade.</p>
           <p>Essa distinção muda como você usa a ferramenta. Um oráculo você consulta e obedece. Uma ferramenta você usa com critério, sabendo o que ela faz bem e onde ela falha.</p>
-          <p>Você também não precisa escolher só uma. Cada modelo tem características diferentes, e dependendo da tarefa, uma ferramenta vai funcionar melhor que outra. Usar ChatGPT para uma coisa, Claude para outra e Gemini para uma terceira não é indecisão, é uso inteligente.</p>
-          <div class="subhead">Por que combinar ferramentas faz sentido</div>
-          <ul>
-            <li>Cada modelo é treinado de forma diferente e tem pontos fortes distintos</li>
-            <li>Nenhuma ferramenta é a melhor em tudo</li>
-            <li>Para projetos complexos, usar mais de uma pode melhorar o resultado final</li>
-          </ul>
+          <p>Você também não precisa escolher só uma. Cada modelo tem características diferentes, e dependendo da tarefa, uma ferramenta vai funcionar melhor que outra. Usar ChatGPT para uma coisa, Claude para outra e Gemini para uma terceira é só uso inteligente das ferramentas.</p>
         </article>
 
-        <article id="cap-12" class="chapter">
-          <div class="chapter-hd"><span class="chapter-num">12</span><h3 class="chapter-title">O painel de ferramentas</h3></div>
-          <p>Não existe a melhor IA. Existe a IA certa para cada tarefa.</p>
+        <article id="cap-14" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">14</span><h3 class="chapter-title">O painel de ferramentas</h3></div>
+          <p>Cada ferramenta tem um perfil diferente. A escolha certa depende do que a tarefa pede.</p>
           <div class="tool-list">
             <div class="tool-item"><div><div class="tool-name"><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></div><div class="tool-maker">OpenAI</div></div><p class="tool-desc">O mais conhecido e com a base de usuários mais ampla. Bom para tarefas gerais, geração de texto, brainstorming e uso cotidiano. A versão paga acessa a internet e gera imagens via DALL-E.</p></div>
             <div class="tool-item"><div><div class="tool-name"><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></div><div class="tool-maker">Anthropic</div></div><p class="tool-desc">Forte em textos longos, instruções complexas e escrita com mais nuance. Lida bem com documentos grandes e tende a seguir diretrizes de tom com mais consistência. Boa escolha para quem trabalha com conteúdo editorial.</p></div>
@@ -900,8 +1073,8 @@ Não use emojis.</div>
           </div>
         </article>
 
-        <article id="cap-13" class="chapter">
-          <div class="chapter-hd"><span class="chapter-num">13</span><h3 class="chapter-title">Afinando o instrumento</h3></div>
+        <article id="cap-15" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">15</span><h3 class="chapter-title">Afinando o instrumento</h3></div>
           <p>Trabalhar com modelos de IA tem algo parecido com equalizar um instrumento. Você não usa as mesmas configurações para uma música eletrônica e para um samba. Você ajusta os parâmetros de acordo com o que a tarefa pede.</p>
           <p>O parâmetro mais relevante para o dia a dia é a <strong>temperatura</strong>. Ela controla o quanto o modelo vai arriscar nas respostas.</p>
           <div class="temp-grid">
@@ -924,11 +1097,58 @@ Não use emojis.</div>
             <li><strong>Tamanho:</strong> número de palavras, parágrafos ou caracteres</li>
             <li><strong>Persona:</strong> escreva como um especialista em X, escreva para o público Y</li>
           </ul>
+          <div class="subhead">Escolhendo o modelo certo dentro de cada família</div>
+          <p>Além de escolher a ferramenta, você escolhe o modelo dentro dela. Cada família oferece versões com diferentes níveis de capacidade e velocidade.</p>
+          <p><strong>Claude (Anthropic)</strong></p>
+          <ul>
+            <li><strong>Haiku:</strong> o mais leve e rápido. Bom para tarefas simples e repetitivas onde velocidade importa mais do que profundidade.</li>
+            <li><strong>Sonnet:</strong> o equilíbrio entre capacidade e custo. Cobre bem a maioria das tarefas do dia a dia.</li>
+            <li><strong>Opus:</strong> o mais robusto da família. Para análises complexas, raciocínio longo e tarefas que exigem mais precisão.</li>
+            <li><strong>Fable:</strong> modelo especializado em escrita criativa e narrativa. Tem uma finalidade própria que não se enquadra na hierarquia de capacidade dos outros modelos. Use quando o resultado precisa de mais voz e personalidade.</li>
+          </ul>
+          <p><strong>ChatGPT (OpenAI)</strong></p>
+          <ul>
+            <li><strong>GPT-4o mini:</strong> mais rápido e econômico. Bom para tarefas diretas sem muita complexidade.</li>
+            <li><strong>GPT-4o:</strong> o modelo principal para uso geral. Acessa internet, gera imagens e equilibra bem velocidade e qualidade.</li>
+            <li><strong>o1 / o3:</strong> modelos de raciocínio, mais lentos e mais precisos. Para problemas que exigem análise cuidadosa passo a passo.</li>
+          </ul>
+          <p><strong>Gemini (Google)</strong></p>
+          <ul>
+            <li><strong>Gemini Flash:</strong> mais leve e rápido, bom para tarefas rotineiras integradas ao Workspace.</li>
+            <li><strong>Gemini Pro:</strong> mais capaz, indicado para análises mais densas e geração de conteúdo mais elaborado.</li>
+          </ul>
+          <div class="subhead">Posso trocar de modelo no meio de uma tarefa?</div>
+          <p>Pode, mas tem implicações. Quando você muda de modelo dentro de uma mesma conversa, o novo modelo recebe o histórico do que foi dito antes, mas pode interpretar esse contexto de forma diferente. O tom que você calibrou, as instruções que estabeleceu e o raciocínio que foi construído podem ser relidos com outro critério.</p>
+          <p>Na prática, trocar de modelo no meio de uma tarefa longa costuma gerar inconsistência. O uso mais inteligente é trocar entre tarefas: use um modelo mais leve para rascunhar e explorar, e um mais robusto para refinar e finalizar. Quando fizer isso, traga o contexto relevante de forma resumida em vez de depender do histórico da conversa.</p>
+          <div class="subhead">Memória: ligar ou desligar?</div>
+          <p>Memória é o recurso que permite que a IA lembre informações entre conversas diferentes, como suas preferências, o contexto de um projeto ou instruções que você deu antes. A decisão de deixar ligada ou desligada depende do que você está fazendo.</p>
+          <div class="two-col">
+            <div class="col-box">
+              <div class="col-box-label">Deixe ligada quando</div>
+              <ul>
+                <li>Você trabalha num projeto contínuo e quer que a IA lembre do contexto sem precisar repetir tudo</li>
+                <li>Tem preferências de tom, formato ou estilo que valem para todas as suas interações</li>
+              </ul>
+            </div>
+            <div class="col-box">
+              <div class="col-box-label">Deixe desligada quando</div>
+              <ul>
+                <li>A tarefa envolve informações sensíveis que você não quer que fiquem armazenadas</li>
+                <li>Você quer uma conversa sem interferência de contextos anteriores</li>
+                <li>Está testando algo novo e não quer que hábitos passados influenciem o resultado</li>
+              </ul>
+            </div>
+          </div>
+          <div class="subhead">Como tudo isso impacta os tokens</div>
+          <p>Cada vez que você abre uma conversa com memória ativada, essas informações são carregadas automaticamente e já consomem parte da sua janela de contexto antes mesmo de você digitar a primeira mensagem. Modelos mais robustos têm janelas maiores e aguentam mais contexto, mas também custam mais por token processado. Modelos mais leves são mais baratos e rápidos, mas esgotam o limite com mais facilidade em conversas longas.</p>
+          <div class="callout">
+            <p>Use o modelo mais simples que resolve a tarefa. Guardar o Opus ou o GPT-o1 para quando o problema realmente exige é uma forma de economizar sem perder qualidade onde ela importa.</p>
+          </div>
         </article>
 
-        <article id="cap-14" class="chapter">
-          <div class="chapter-hd"><span class="chapter-num">14</span><h3 class="chapter-title">Além do texto</h3></div>
-          <p>IA não é só texto. Para times de criação e conteúdo, as ferramentas de imagem, vídeo e áudio já fazem parte do fluxo de trabalho em muitas agências.</p>
+        <article id="cap-16" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">16</span><h3 class="chapter-title">Além do texto</h3></div>
+          <p>IA não é só texto. Para times de criação e conteúdo, as ferramentas de imagem, vídeo e áudio já fazem parte do fluxo de trabalho em muitas agências. Esse também é o segmento que muda mais rápido: novas ferramentas surgem toda semana e as condições de uso das que existem hoje podem ter mudado até você ler isso. O que está aqui é uma referência de partida.</p>
 
           <div class="tool-category">
             <div class="tool-cat-title">Imagem</div>
@@ -960,6 +1180,306 @@ Não use emojis.</div>
             <p>Conteúdo gerado por IA ainda está em zona cinza legal em vários países. Para uso em campanhas de clientes, verifique as políticas da ferramenta e as orientações do grupo antes de publicar.</p>
           </div>
         </article>
+      </section>
+
+      <!-- ════════════ PARTE 3 ════════════ -->
+      <section class="manual-section">
+        <div class="part-header">
+          <span class="part-badge">Parte 3</span>
+          <h2 class="part-title">Fluxo de Trabalho</h2>
+        </div>
+        <!-- GIF Parte 3 — URL pendente
+        <div class="gif-block"><img src="" alt="Fluxo de Trabalho" loading="lazy"></div>
+        <p class="gif-caption">agora a coisa fica séria</p>
+        -->
+
+        <article id="cap-17" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">17</span><h3 class="chapter-title">Processo, memória e documentação</h3></div>
+          <p>É difícil acompanhar tudo o que fazemos sozinhos. Trabalhamos em múltiplos projetos ao mesmo tempo, usamos ferramentas diferentes, atendemos clientes com contextos distintos. O que funcionou numa campanha de três meses atrás some da memória. O script que levou duas horas para construir fica perdido numa pasta que ninguém mais acha.</p>
+          <p>Quanto mais você usa IA, mais processos você cria. E processo sem documentação não existe de verdade. Existe na sua cabeça até a memória falhar.</p>
+          <p>A ideia de qualidade de trabalho está conectada à qualidade de processo. Processo de qualidade é processo documentado.</p>
+          <div class="subhead">Qual é o seu sistema?</div>
+          <p>O melhor sistema é o que você vai usar de verdade. Tem gente que funciona com caderno físico, tem gente que precisa de ferramenta digital pesquisável. O que não funciona é não ter nenhum.</p>
+          <p>Algumas ferramentas que se encaixam bem nesse fluxo:</p>
+          <div class="tool-list">
+            <div class="tool-item"><div><div class="tool-name"><a href="https://notion.so" target="_blank" rel="noopener">Notion</a></div></div><p class="tool-desc">Workspace para notas, wikis e bases de dados. Boa para times porque tudo fica centralizado e pesquisável. Funciona bem para biblioteca de scripts, registros de processos e calendários de conteúdo. Tem integração de IA (Notion AI) para gerar e resumir dentro do próprio workspace.</p></div>
+            <div class="tool-item"><div><div class="tool-name"><a href="https://obsidian.md" target="_blank" rel="noopener">Obsidian</a></div></div><p class="tool-desc">Editor de notas baseado em arquivos locais. Forte para quem quer criar conexões entre ideias e ter controle total sobre os próprios dados sem depender de nuvem. Preferência de quem pensa em rede, cada nota pode linkar para outra.</p></div>
+            <div class="tool-item"><div><div class="tool-name"><a href="https://craft.do" target="_blank" rel="noopener">Craft</a></div></div><p class="tool-desc">Alternativa ao Notion com foco em documentos com mais personalidade visual. Boa para quem precisa de documentos que também servem para apresentar ou compartilhar com clientes.</p></div>
+            <div class="tool-item"><div><div class="tool-name">Google Sheets / Excel</div></div><p class="tool-desc">Subestimado para organização de processos. Ótimo para bibliotecas de scripts, checklists recorrentes e rastreamento de tarefas quando a simplicidade importa mais do que a sofisticação.</p></div>
+            <div class="tool-item"><div><div class="tool-name">Google Keep / Apple Notes</div></div><p class="tool-desc">Rápidos e acessíveis de qualquer lugar. Bons para captura imediata, mas limitados em organização quando o volume cresce. Funcionam como memória de curto prazo, não como repositório de processo.</p></div>
+          </div>
+          <p>A escolha da ferramenta é menos importante do que o hábito. Um caderno físico usado com consistência vale mais do que um Notion abandonado.</p>
+          <div class="subhead">O que documentar</div>
+          <p>Não precisa registrar tudo. O que vale guardar:</p>
+          <ul>
+            <li>Scripts que funcionaram, com contexto de uso</li>
+            <li>Processos que você vai repetir</li>
+            <li>Decisões de fluxo que o time precisa conhecer</li>
+            <li>Erros e ajustes que evitam repetir o mesmo problema</li>
+          </ul>
+          <div class="subhead">Tarefas recorrentes são o ponto de partida</div>
+          <p>Todo time tem trabalho que aparece toda semana com a mesma estrutura. Calendário editorial, síntese de press release, resumo de pauta, relatório de performance. A estrutura não muda. O conteúdo muda.</p>
+          <p>Para cada tarefa recorrente que você identificar, a pergunta é: se eu saísse de férias amanhã, alguém do time conseguiria executar isso com o que tenho documentado? Se a resposta for não, o processo existe só na sua cabeça.</p>
+          <p>Um script padronizado não serve só para você. Serve para qualquer pessoa do time conseguir entregar o mesmo tipo de resultado sem depender de você para explicar como fazer. Isso transforma um hábito individual em prática de time.</p>
+        </article>
+
+        <article id="cap-18" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">18</span><h3 class="chapter-title">Loops e checkpoints humanos</h3></div>
+          <p>A IA não trabalha em linha reta. Ela entrega, você avalia, ajusta e manda de volta. Entender onde colocar os pontos de parada é o que define a qualidade do que vai para o cliente ou para publicação.</p>
+          <div class="subhead">Tipos de checagem</div>
+          <p>Não existe uma revisão só. Dependendo da tarefa, você precisa checar coisas diferentes:</p>
+          <ul>
+            <li><strong>Factual:</strong> os dados estão certos? Datas, números, citações, nomes?</li>
+            <li><strong>Tom:</strong> a voz está alinhada com o cliente ou com a publicação?</li>
+            <li><strong>Estratégico:</strong> o conteúdo serve ao objetivo ou apenas responde à instrução?</li>
+            <li><strong>Marca:</strong> está dentro das diretrizes de linguagem e posicionamento?</li>
+          </ul>
+          <p>Cada tipo de checagem pode ser feito por pessoas diferentes. O que importa é que o fluxo defina quem revisa o quê e quando.</p>
+          <div class="subhead">Iterar ou recomeçar?</div>
+          <p>Quando o resultado não serve, a decisão é: ajustar o prompt e tentar de novo, ou descartar e começar do zero?</p>
+          <p>Ajuste quando o problema é pontual: o tom ficou formal demais, faltou um elemento, o tamanho está errado. Recomece quando o resultado foi na direção errada desde o início. Continuar iterando numa base ruim costuma dar mais trabalho do que recomeçar com um prompt melhor.</p>
+          <div class="subhead">Crie uma cultura de checkpoints</div>
+          <p>A tendência natural é revisar só quando algo parece errado. O problema é que você frequentemente não percebe que algo está errado até ter construído três etapas em cima de uma base ruim.</p>
+          <p>O checkpoint funciona quando é deliberado, definido antes do trabalho começar. Antes de iniciar uma tarefa com IA, vale perguntar: em que momento vou parar para ler o que saiu antes de seguir? Quem precisa ver isso antes de avançar para a próxima etapa?</p>
+          <p>Isso vale especialmente quando a tarefa tem sequência. Se você usa o output de uma etapa como input da próxima sem revisar no meio, o erro se multiplica. Um dado errado numa síntese de pauta vira um dado errado no texto final, que vira um dado errado na publicação.</p>
+          <p>Quem para para revisar no meio do caminho economiza tempo no final.</p>
+          <div class="subhead">O princípio que não negocia</div>
+          <div class="callout">
+            <p>Nenhum conteúdo gerado por IA vai para cliente ou publicação sem ter sido lido por um humano. Isso vale para texto, dados, referências e qualquer outra coisa que a ferramenta entregou. Quem assina o trabalho é você, e a IA não tem como saber se o resultado é bom para aquele contexto específico.</p>
+          </div>
+        </article>
+
+        <article id="cap-19" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">19</span><h3 class="chapter-title">Como configurar um agente</h3></div>
+          <p>Antes de montar um agente, vale ter uma pergunta respondida: o processo que você quer automatizar já funciona bem de forma manual? Se a resposta for não, automatizar vai multiplicar os erros sem resolver o problema.</p>
+          <p>Agente bem configurado parte de um fluxo humano testado. Você identifica as etapas, verifica onde estão os pontos de decisão e entende quais inputs cada etapa precisa para funcionar. Só depois disso faz sentido montar a automação.</p>
+          <div class="subhead">O que definir antes de começar</div>
+          <ul>
+            <li><strong>Objetivo:</strong> o que o agente deve entregar ao final? Seja específico. "Gerar um relatório" é diferente de "gerar um relatório semanal com as cinco menções mais relevantes da marca, organizadas por sentimento e ordenadas por alcance".</li>
+            <li><strong>Etapas:</strong> quais são os passos em sequência? Liste cada um. Agente que pula etapas porque o briefing foi vago entrega resultado vago.</li>
+            <li><strong>Inputs:</strong> o que o agente precisa receber para começar? Um arquivo, uma URL, uma palavra-chave, uma data?</li>
+            <li><strong>Outputs:</strong> em que formato o resultado deve sair? Texto corrido, tabela, documento, e-mail formatado?</li>
+            <li><strong>Checkpoints:</strong> em que etapa o humano precisa revisar antes de o agente seguir? Nem todo agente deve rodar do início ao fim sem pausa.</li>
+          </ul>
+          <div class="subhead">O conceito é sempre o mesmo, a interface muda</div>
+          <p>Objetivo, etapas, inputs, outputs, checkpoints: essa estrutura se aplica em qualquer plataforma. O que muda é onde você configura isso e quanta automação está disponível.</p>
+          <div class="tool-list">
+            <div class="tool-item"><div><div class="tool-name">Claude (Projects)</div></div><p class="tool-desc">Dentro de um Project, você define instruções persistentes que o modelo segue em todas as conversas daquele projeto. É o equivalente a um agente de contexto fixo: você escreve as regras uma vez, e qualquer pessoa que abrir aquele projeto encontra o Claude já configurado com o papel, as diretrizes e os arquivos de referência que você definiu.</p></div>
+            <div class="tool-item"><div><div class="tool-name">ChatGPT (GPTs)</div></div><p class="tool-desc">O construtor de GPTs permite definir instruções, fazer upload de documentos de referência e, nas versões mais avançadas, conectar ações externas (como acessar uma API ou buscar na web). É mais visual do que o Claude e permite publicar o agente para o time acessar diretamente.</p></div>
+            <div class="tool-item"><div><div class="tool-name">Gemini (Gems)</div></div><p class="tool-desc">Funciona de forma similar ao ChatGPT GPTs: você cria um Gem com instruções e arquivos específicos. A vantagem está na integração com o Google Workspace, o que permite que o agente acesse documentos do Drive e e-mails diretamente.</p></div>
+            <div class="tool-item"><div><div class="tool-name">Zapier / Make / n8n</div></div><p class="tool-desc">Plataformas de automação que funcionam como um quadro visual onde você conecta etapas em sequência: um gatilho (novo e-mail, novo formulário, novo arquivo) dispara uma ação, que passa por um modelo de IA, que entrega um resultado em outro lugar. São as ferramentas certas quando o processo precisa rodar automaticamente, sem que ninguém precise apertar nenhum botão. A diferença prática: Claude, ChatGPT e Gemini exigem que alguém inicie a conversa. Zapier, Make e n8n rodam sozinhos quando o gatilho acontece.</p></div>
+          </div>
+          <p>Para quem está começando, o caminho mais simples é configurar um Project no Claude ou um GPT no ChatGPT com instruções em linguagem natural. O que você precisa é de um briefing bem escrito.</p>
+          <div class="code-block">Você é um assistente de pauta para times de comunicação.
+
+Quando receber um tema, faça o seguinte em sequência:
+1. Pesquise os principais ângulos editoriais do tema no momento atual
+2. Identifique três fontes ou referências confiáveis por ângulo
+3. Sintetize cada ângulo em dois parágrafos
+4. Monte um briefing de pauta com título sugerido, ângulo principal e fontes
+
+Entregue tudo em formato de documento com seções separadas.
+Não avance para a próxima etapa sem completar a anterior.</div>
+          <div class="subhead">Quando não usar agente</div>
+          <p>Agente demais para pouco problema cria complexidade sem ganho. Se a tarefa tem menos de três etapas, um script bem feito resolve com menos esforço. Agente faz sentido quando o processo tem dependências entre etapas e quando executar manualmente toda semana custa tempo real do time.</p>
+        </article>
+
+        <article id="cap-20" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">20</span><h3 class="chapter-title">Pesquisa com IA</h3></div>
+          <p>IA acelera muito o trabalho de varredura, síntese e organização de informação. O risco está na aparência de confiabilidade: a ferramenta entrega resultado convincente independente de ser verdadeiro ou não. Entender onde cada ferramenta é forte e onde falha é o que separa uma pesquisa produtiva de uma que vai dar trabalho na verificação.</p>
+          <div class="subhead">Cada ferramenta tem uma função diferente</div>
+          <div class="tool-list">
+            <div class="tool-item"><div><div class="tool-name"><a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity</a></div></div><p class="tool-desc">Busca na web em tempo real e apresenta as fontes junto com a resposta. É a ferramenta mais adequada quando você precisa de informação atual com rastreabilidade. Use para notícias recentes, dados de mercado, contexto de um tema do momento.</p></div>
+            <div class="tool-item"><div><div class="tool-name">Claude / ChatGPT</div></div><p class="tool-desc">Fortes para síntese, análise e reorganização de informação que você já tem. Use para resumir documentos longos, extrair pontos principais de um texto, comparar posições ou gerar perguntas de pauta a partir de um tema. Evite para busca de fatos específicos sem fornecer o documento de origem.</p></div>
+            <div class="tool-item"><div><div class="tool-name">Gemini</div></div><p class="tool-desc">Integrado ao Google Workspace, acessa seus arquivos e e-mails diretamente. Útil para pesquisa dentro do material que você já tem, não para busca externa.</p></div>
+          </div>
+          <div class="subhead">Como promtar para pesquisa</div>
+          <ul>
+            <li>Diga o objetivo: "Preciso entender o contexto de X para escrever uma pauta sobre Y"</li>
+            <li>Peça fontes quando a ferramenta suporta: "Cite as fontes para cada afirmação"</li>
+            <li>Peça perspectivas diferentes: "Quais são as posições em debate sobre esse tema?"</li>
+            <li>Limite o escopo temporal quando relevante: "Considerando eventos dos últimos seis meses"</li>
+          </ul>
+          <div class="subhead">O que a IA não consegue fazer na pesquisa</div>
+          <ul>
+            <li>Acessar conteúdo por trás de paywall</li>
+            <li>Confirmar se uma fonte específica realmente publicou algo</li>
+            <li>Distinguir entre fato estabelecido e opinião quando os dois coexistem num corpus de treinamento</li>
+            <li>Pesquisar em tempo real (exceto Perplexity e versões com acesso à web)</li>
+          </ul>
+          <p>O resultado de uma pesquisa com IA é um ponto de partida. O trabalho de verificação começa depois que a ferramenta entrega o material. Para o fluxo completo de como verificar, veja o cap 12.</p>
+        </article>
+      </section>
+
+      <!-- ════════════ PARTE 5 ════════════ -->
+      <section class="manual-section">
+        <div class="part-header">
+          <span class="part-badge">Parte 5</span>
+          <h2 class="part-title">Organização e Escala</h2>
+        </div>
+        <!-- GIF Parte 5 — URL pendente
+        <div class="gif-block"><img src="" alt="Organização e Escala" loading="lazy"></div>
+        <p class="gif-caption">Quando você começa a escalar, a bagunça escala junto.</p>
+        -->
+
+        <article id="cap-21" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">21</span><h3 class="chapter-title">Exportando seu conteúdo</h3></div>
+          <p>Quando você termina uma conversa com uma IA e tem um texto na frente, o instinto é ctrl+c. Funciona. Mas entender as outras opções faz diferença dependendo do que você precisa fazer com esse material.</p>
+          <div class="subhead">Ctrl+c e acabou</div>
+          <p>Para texto simples, post curto, legenda de rede social, resposta de e-mail, copiar e colar é a opção certa. O problema aparece quando você tem um documento estruturado com títulos, tabelas e listas que precisam manter formatação. Aí o ctrl+c entrega o markdown bruto, cheio de asteriscos e cerquilhas que aparecem como caracteres soltos no Word ou no Google Docs.</p>
+          <div class="subhead">Exportar como markdown</div>
+          <p>Markdown é um formato de texto simples onde <code>**bold**</code> vira <strong>negrito</strong> e <code># Título</code> vira um título quando renderizado. Quase todo editor moderno, incluindo Notion, Google Docs (com o plugin certo) e muitos CMSs, aceita markdown e converte a formatação automaticamente.</p>
+          <p>Claude tem um botão de copiar que mantém o markdown. ChatGPT e Gemini também. Para documentos longos, copiar o markdown completo e colar num ambiente que o renderize é o caminho mais limpo.</p>
+          <div class="subhead">Integração direta</div>
+          <p>Algumas ferramentas simplificam o processo: Gemini vive dentro do Google Workspace, então você pode inserir texto direto no Docs ou no Sheets sem sair da plataforma. Claude tem integração com Google Docs via Projects. O Notion tem IA embutida que gera dentro da plataforma.</p>
+          <p>Para fluxos que você repete toda semana, vale investigar se existe integração nativa. Poupa uns passos toda vez, e esses passos se acumulam.</p>
+          <div class="subhead">O que ainda não existe</div>
+          <p>Um formato universal que preserve tudo e funcione em todo lugar. Cada plataforma tem sua própria estrutura, e exportar geralmente significa alguma perda. Para uso profissional, o fluxo mais estável ainda é: IA produz, você copia o conteúdo necessário, formata no destino final. Automatizações via Zapier ou Make resolvem isso para fluxos muito repetitivos, mas têm custo de configuração.</p>
+        </article>
+
+        <article id="cap-22" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">22</span><h3 class="chapter-title">GEO: seu conteúdo na era da busca com IA</h3></div>
+          <p>SEO sempre foi sobre convencer o Google a mostrar seu conteúdo. GEO (Generative Engine Optimization) é a versão disso para quando a busca acontece dentro do ChatGPT, Gemini, Perplexity, ou qualquer ferramenta que use IA para gerar respostas. A lógica é parecida. Os critérios são diferentes.</p>
+          <div class="subhead">Como a IA decide o que citar</div>
+          <p>Quando alguém pergunta "qual é a melhor estratégia para X" e a IA devolve uma resposta com fonte, ela está escolhendo de onde tirar esse conteúdo. Os fatores que pesam nessa escolha são clareza das afirmações, especificidade dos dados, estrutura do texto e autoridade da fonte.</p>
+          <p>Um parágrafo que começa com "Segundo pesquisa da Nielsen de 2024, 73% dos consumidores..." tem muito mais chance de ser citado do que um que começa com "Cada vez mais, as pessoas buscam...". Um diz alguma coisa verificável. O outro preenche espaço.</p>
+          <div class="subhead">O que muda na prática</div>
+          <p>Para jornalistas e produtores de conteúdo, a adaptação é menor do que parece. O que sempre foi bom jornalismo, afirmações claras, dados com fonte, estrutura lógica, também é o que funciona bem para GEO.</p>
+          <p>O que vale ajustar:</p>
+          <ul>
+            <li><strong>Definições explícitas ajudam.</strong> Textos que explicam "o que é X" em uma frase direta são mais fáceis de extrair. A IA busca respostas curtas e limpas para perguntas diretas.</li>
+            <li><strong>Dados com atribuição valem mais.</strong> "A taxa de abandono caiu" é vago. "A taxa de abandono caiu 18 pontos percentuais entre 2023 e 2024, segundo o relatório da Kantar" é o tipo de afirmação que entra numa resposta gerada.</li>
+            <li><strong>Títulos como perguntas facilitam a extração.</strong> Estrutura de FAQ e H2s em formato de pergunta permitem que a IA encontre a resposta certa para a consulta certa.</li>
+            <li><strong>Entidades nomeadas importam.</strong> Marcas, pessoas, lugares e produtos mencionados com contexto claro aparecem mais em respostas de IA sobre esses assuntos.</li>
+          </ul>
+          <p>Para equipes de comunicação corporativa, isso tem uma implicação direta: press releases com dados concretos e afirmações verificáveis têm chance real de aparecer quando alguém faz uma busca sobre o setor no ChatGPT. Press releases que falam em "soluções inovadoras" e "compromisso com a excelência", não.</p>
+          <div class="subhead">A ressalva honesta</div>
+          <p>GEO ainda está se formando como campo. O que funciona hoje pode mudar quando os modelos forem atualizados. Tratar isso como um conjunto de princípios, clareza, especificidade, estrutura, é mais sustentável do que seguir uma lista de táticas que pode envelhecer em seis meses. Os princípios têm vida útil mais longa do que as técnicas.</p>
+        </article>
+
+        <article id="cap-23" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">23</span><h3 class="chapter-title">Escalando práticas para o time</h3></div>
+          <p>Quando uma ferramenta funciona para você, a tentativa de passá-la para o time geralmente esbarra em três versões do mesmo problema: ninguém usa do mesmo jeito, ninguém sabe que existe, ou cada pessoa reinventa a roda toda semana.</p>
+          <p>IA amplifica isso. É uma ferramenta com curva de aprendizado informal, onde a diferença entre alguém que sabe usar e alguém que não sabe pode ser enorme. E essa diferença raramente aparece de forma óbvia no resultado final, porque o texto gerado parece OK mesmo quando o processo foi torto.</p>
+          <div class="subhead">O problema da adoção invisível</div>
+          <p>Quando um colega começa a usar IA de forma eficaz, o resultado é um texto melhor e mais rápido. Quando outro colega cola qualquer coisa no ChatGPT e manda sem revisar, o resultado também parece aceitável na primeira lida. A diferença entre os dois aparece mais tarde: nas inconsistências, no fact-checking que não aconteceu, no texto que perdeu a voz da marca.</p>
+          <p>Escalar IA para um time sem padrões é escalar o problema junto.</p>
+          <div class="subhead">O que realmente precisa ser compartilhado</div>
+          <ul>
+            <li><strong>Scripts que funcionam.</strong> Se alguém desenvolveu um script para resumir relatórios no padrão da empresa, cada pessoa reinventar esse script é tempo perdido. Uma pasta compartilhada no Notion ou no Google Drive com scripts testados e categorizados resolve.</li>
+            <li><strong>Instruções de agente.</strong> Se o time usa Claude Projects ou GPTs customizados, um agente bem configurado com o contexto da empresa, tom de voz e restrições corretas vale mais do que cada pessoa ter sua própria versão improvisada. Veja cap 19 para como configurar.</li>
+            <li><strong>Padrões de verificação.</strong> O que verificar, como verificar, e quando o nível de checagem deve aumentar são perguntas que o time todo precisa responder da mesma forma. Um checklist simples e compartilhado resolve a inconsistência sem criar burocracia.</li>
+          </ul>
+          <div class="subhead">Como começar sem travar o time</div>
+          <p>A abordagem que tende a funcionar é documentar conforme você usa, não criar um manual antes de começar. Quando um script funciona bem, você registra. Quando um processo vira rotina, você escreve como faz. O material cresce junto com o uso real.</p>
+          <p>Forçar adoção com treinamento formal antes que o time tenha contexto prático raramente funciona. Mostrar um caso concreto de algo que funcionou, seja uma matéria produzida mais rápido ou uma análise que levaria dias feita em horas, abre mais portas do que qualquer apresentação.</p>
+          <div class="subhead">Medir sem enlouquecer</div>
+          <p>O sinal mais simples de que a adoção está funcionando é observacional: as pessoas usam por conta própria, sem ser lembradas. Perguntam "como você fez isso?" quando veem um resultado bom. Compartilham o que aprenderam espontaneamente.</p>
+          <p>Métricas formais de adoção de ferramenta geralmente produzem mais relatório do que aprendizado. O que importa é se o time consegue usar IA de forma que melhore o trabalho real, com qualidade, e sem os atalhos que criam problemas depois.</p>
+        </article>
+
+        <article id="cap-24" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">24</span><h3 class="chapter-title">Hackeando o sistema</h3></div>
+          <p>A maioria das ferramentas corporativas com IA integrada funciona bem dentro do próprio ecossistema: o Copilot no Word, a IA do Canva dentro do Canva, o assistente do CMS dentro do sistema de publicação. O problema é que execução boa dentro do software e geração de texto realmente útil são coisas diferentes, e as ferramentas nativas raramente se destacam nas duas.</p>
+          <p>O workaround é simples: use a melhor ferramenta para o trabalho de elaboração e a ferramenta corporativa para executar no documento.</p>
+          <div class="subhead">O caso do Copilot</div>
+          <p>O Copilot vive dentro do M365, o que é a vantagem dele. Ele consegue formatar um documento Word, reorganizar slides no PowerPoint, inserir dados em uma planilha do Excel, tudo sem sair do software. Mas o prompt que você manda para ele faz toda a diferença, e elaborar um bom prompt dentro da interface do Word é incômodo.</p>
+          <p>A solução é escrever o prompt no Claude ou no ChatGPT, refinar até ficar bom, e colar no Copilot para executar. Você usa uma ferramenta para pensar e a outra para agir. O Copilot fica responsável pelo que ele faz bem, que é operar dentro do seu documento.</p>
+          <div class="subhead">Fórmulas sem precisar entender a sintaxe</div>
+          <p>Excel e Google Sheets têm uma lógica própria que leva tempo para dominar. Para quem usa planilha mas não é analista, pedir ao Claude uma fórmula específica e colar direto na célula é mais rápido e mais confiável do que tentar fazer o Copilot gerar algo dentro do Excel. Você descreve o que precisa em linguagem normal, pega a fórmula, e testa.</p>
+          <div class="subhead">IA revisando IA</div>
+          <p>Quando o Copilot ou qualquer ferramenta nativa gera um rascunho que ficou abaixo do esperado, você não precisa reescrever do zero. Copie o output, cole no Claude com uma instrução de melhoria, e cole de volta no documento. O resultado costuma ser muito melhor do que tentar forçar a ferramenta original a fazer diferente. Usar uma IA para corrigir o output de outra é prático e funciona.</p>
+          <div class="subhead">CMS, Canva e tudo que tem IA fraca embutida</div>
+          <p>A maioria dos sistemas de gestão de conteúdo corporativos tem IA básica ou nenhuma. Escrever no Claude com o contexto correto e colar no CMS pronto para publicar é mais rápido do que tentar arrancar algo razoável do assistente interno.</p>
+          <p>O mesmo vale para ferramentas de design: o Canva tem IA para imagem, mas o texto ainda é inconsistente. Escrever copy no Claude e colar no Canva costuma chegar mais rápido onde você quer do que usar o Magic Write deles.</p>
+          <div class="subhead">O print como conector universal</div>
+          <p>Nem toda ferramenta tem integração com IA, e forçar uma integração técnica tem custo de configuração. Para análise rápida de dados, tirar um print de um dashboard, relatório de analytics, ou planilha e jogar no Claude para interpretar elimina a necessidade de qualquer integração. O print é o conector. Funciona com qualquer ferramenta que você consiga ver na tela.</p>
+          <div class="callout">
+            <p>As ferramentas corporativas definem onde você trabalha, mas não precisam definir com qual IA você pensa.</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- ════════════ EPÍLOGO ════════════ -->
+      <section class="manual-section">
+        <div class="part-header">
+          <span class="part-badge">Epílogo</span>
+          <h2 class="part-title">Para consulta rápida</h2>
+        </div>
+
+        <article id="glossario" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">—</span><h3 class="chapter-title">Glossário do Escoteiro</h3></div>
+          <p>Todas as definições que aparecem ao longo do manual, reunidas aqui para consulta rápida.</p>
+          <div class="gloss-entry"><div class="gloss-term">Agente</div><div class="gloss-def">Uma IA configurada de antemão para um papel específico, com contexto, tom de voz e instruções fixas. Aplica essas configurações automaticamente toda vez que você abre uma conversa, sem precisar explicar tudo de novo. → cap 7 e cap 19.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">Alucinação</div><div class="gloss-def">Quando a IA produz informações falsas com total confiança, sem nenhum sinal de que algo pode estar errado. Acontece com frequência em datas, citações, dados numéricos e nomes. Verificar sempre. → cap 12.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">GEO (Generative Engine Optimization)</div><div class="gloss-def">Prática de estruturar conteúdo para aumentar a chance de ser citado por ferramentas de IA que geram respostas. Diferente do SEO tradicional, que otimiza para buscadores. → cap 22.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">Janela de contexto</div><div class="gloss-def">O limite de texto que a IA consegue processar de uma vez, incluindo tudo que você já escreveu na conversa. Quando a janela enche, a IA começa a perder o fio do início. → cap 11.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">LLM (Large Language Model)</div><div class="gloss-def">O tipo de modelo de IA por trás do ChatGPT, Claude, Gemini e outros. Treinado em grandes volumes de texto para prever e gerar linguagem. É a tecnologia que faz as ferramentas funcionarem, não um produto específico.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">Markdown</div><div class="gloss-def">Formato de texto simples onde símbolos como **, # e - definem formatação. Asteriscos duplos viram negrito, cerquilhas viram títulos. A maioria das ferramentas de IA gera texto em markdown por padrão. → cap 21.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">Modelo</div><div class="gloss-def">A versão específica de IA que você está usando. GPT-4o, Claude Sonnet, Gemini são modelos diferentes, com capacidades e custos distintos. Trocar de modelo é diferente de trocar de ferramenta. → cap 15.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">Prompt</div><div class="gloss-def">A instrução que você dá para a IA em linguagem natural. Pode ser uma pergunta, um comando, ou um contexto mais elaborado. A qualidade do prompt define diretamente a qualidade da resposta. → cap 4.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">Script</div><div class="gloss-def">Um prompt estruturado e reutilizável, com campos variáveis que você preenche cada vez que usa. Ao contrário do prompt escrito na hora, o script é salvo e serve de modelo para tarefas recorrentes. → cap 5.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">Skill</div><div class="gloss-def">Um script salvo como recurso permanente dentro de uma ferramenta de IA. Carrega contexto, instruções e comportamento automaticamente ao abrir uma conversa, sem precisar repetir nada. → cap 8.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">Temperatura</div><div class="gloss-def">Configuração que controla o nível de criatividade das respostas da IA. Temperatura baixa gera respostas mais previsíveis e consistentes. Temperatura alta produz variações mais criativas e, às vezes, menos precisas. → cap 15.</div></div>
+          <div class="gloss-entry"><div class="gloss-term">Token</div><div class="gloss-def">A unidade que a IA usa para ler e escrever texto. Palavras curtas costumam ser um token, palavras longas podem ser dois ou três. Define o custo e o limite de processamento de cada ferramenta. → cap 11.</div></div>
+        </article>
+
+        <article id="links-uteis" class="chapter">
+          <div class="chapter-hd"><span class="chapter-num">—</span><h3 class="chapter-title">Links Úteis</h3></div>
+
+          <div class="links-section">
+            <div class="links-section-title">Aprender IA (gratuito)</div>
+            <div class="tool-list">
+              <div class="tool-item"><div><div class="tool-name"><a href="https://anthropic.skilljar.com/" target="_blank" rel="noopener">Anthropic Academy</a></div></div><p class="tool-desc">Cursos oficiais da Anthropic sobre Claude, da introdução ao uso avançado. Gratuito, no seu ritmo, com certificado.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://www.elementsofai.com/" target="_blank" rel="noopener">Elements of AI</a></div></div><p class="tool-desc">Curso introdutório criado pela Universidade de Helsinki. Sem código, sem requisito técnico. 20 a 30 horas. Gratuito com certificado.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://grow.google/ai" target="_blank" rel="noopener">Google AI</a></div></div><p class="tool-desc">Módulos de IA do Google focados em uso prático e aplicação no trabalho. Gratuito.</p></div>
+            </div>
+          </div>
+
+          <div class="links-section">
+            <div class="links-section-title">Acompanhar e se informar</div>
+            <div class="tool-list">
+              <div class="tool-item"><div><div class="tool-name"><a href="https://www.tecnologiaeclasse.com.br/" target="_blank" rel="noopener">Tecnologia e Classe</a></div><div class="tool-maker">newsletter</div></div><p class="tool-desc">Análise crítica de tecnologia com perspectiva de classe. Para quem quer entender o que está por trás das ferramentas, não só como usá-las.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://www.youtube.com/@TecnologiaeClasse" target="_blank" rel="noopener">Tecnologia e Classe</a></div><div class="tool-maker">YouTube</div></div><p class="tool-desc">Canal do TeClas.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://www.youtube.com/@teomewhy" target="_blank" rel="noopener">Téo Me Why</a></div><div class="tool-maker">YouTube</div></div><p class="tool-desc">Ensino de tecnologia e programação de forma acessível e gratuita.</p></div>
+            </div>
+          </div>
+
+          <div class="links-section">
+            <div class="links-section-title">Livros: tecnologia, impacto e sociedade</div>
+            <p class="links-note">Links de associado — comprar pelo link apoia o manual.</p>
+            <div class="tool-list">
+              <div class="tool-item"><div><div class="tool-name"><a href="https://link.amazon/B01abZJiP" target="_blank" rel="noopener">Realismo Capitalista</a></div></div><p class="tool-desc">É Mais Fácil Imaginar o fim do Mundo do que o fim do Capitalismo?</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://link.amazon/B08GV8Z5B" target="_blank" rel="noopener">Os nove titãs da IA</a></div></div><p class="tool-desc">Como os gigantes da tecnologia e suas máquinas pensantes podem subverter a humanidade.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://link.amazon/B07PJ7pP5" target="_blank" rel="noopener">Sociedade do Cansaço</a></div></div><p class="tool-desc">Byung-Chul Han.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://link.amazon/B0hs2i43h" target="_blank" rel="noopener">Infocracia</a></div></div><p class="tool-desc">Digitalização e a crise da democracia.</p></div>
+            </div>
+          </div>
+
+          <div class="links-section">
+            <div class="links-section-title">Livros: processo criativo com IA</div>
+            <p class="links-note">Links de associado — comprar pelo link apoia o manual.</p>
+            <div class="tool-list">
+              <div class="tool-item"><div><div class="tool-name"><a href="https://link.amazon/B0clFjDhW" target="_blank" rel="noopener">Brevidade inteligente</a></div></div><p class="tool-desc">O poder de dizer muito com poucas palavras.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://link.amazon/B04haYEG2" target="_blank" rel="noopener">Rápido e devagar</a></div></div><p class="tool-desc">Duas formas de pensar.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://link.amazon/B0fDljn6L" target="_blank" rel="noopener">Faça tempo</a></div></div><p class="tool-desc">4 passos para definir suas prioridades e não adiar mais nada.</p></div>
+            </div>
+          </div>
+
+          <div class="links-section">
+            <div class="links-section-title">Podcasts: Calma Urgente</div>
+            <div class="tool-list">
+              <div class="tool-item"><div><div class="tool-name"><a href="https://www.youtube.com/live/fTzXYBYgsys?si=9HR0o9Q3J-mXmLNR" target="_blank" rel="noopener">O manifesto da Palantir</a></div></div><p class="tool-desc">Como o manifesto da Palantir retrata uma visão preocupante da tecnologia para o mundo.</p></div>
+              <div class="tool-item"><div><div class="tool-name"><a href="https://www.youtube.com/live/65UgRMsQiQA?si=6K28X-xAQClq2acg" target="_blank" rel="noopener">Contrapontos sobre a IA na feira do livro</a></div></div><p class="tool-desc">Debate sobre inteligência artificial na Feira do Livro.</p></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="disclaimer-box" style="margin-top: 48px;">
+          <strong>Este manual é e sempre será gratuito.</strong> Ele segue os princípios de uma internet livre, colaborativa e que contribui para a disseminação do conhecimento, da criatividade e da construção de um mundo melhor. Se esse conteúdo te ajudou de alguma forma e você quiser retribuir, considere fazer uma doação para um projeto beneficente. Se não souber para onde, sugerimos o <a href="https://www.instagram.com/solidariedadevegan/" target="_blank" rel="noopener">Solidariedade Vegan</a> ou o projeto de acolhimento do <a href="https://www.instagram.com/padrejulio.lancellotti/?hl=pt-br" target="_blank" rel="noopener">Padre Julio Lancelotti</a>.
+          <br><br>
+          <em>Este manual foi escrito com IA sob supervisão humana. Nenhum prompt foi colado sem ser lido antes e nenhuma IA foi maltratada no processo.</em>
+        </div>
       </section>
 
     </div>
