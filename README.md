@@ -40,10 +40,10 @@ Guia prático de IA para times criativos e jornalistas. Sem programação, com f
 | Parte 1 — Fundamentos | 4–12: Prompt, Script, Prompt vs. Script, Agente, Skill, Quando usar qual, Pensamento lógico, Tokens e contexto, Alucinação |
 | Parte 2 — Ferramentas e Modelos | 13–16: LLMs, Painel de ferramentas, Afinando o instrumento, Além do texto |
 | Parte 3 — Fluxo de Trabalho | 17–20: Processo e documentação, Loops e checkpoints, Configurar um agente, Pesquisa com IA |
-| Parte 5 — Organização e Escala | 21–24: Exportando conteúdo, GEO, Escalando para o time, Hackeando o sistema |
+| Parte 4 — Organização e Escala | 21–24: Exportando conteúdo, GEO, Escalando para o time, Hackeando o sistema |
 | Epílogo | Glossário do Escoteiro (12 termos) + Links Úteis |
 
-> GIFs das Partes 3 e 5 pendentes — descomentar no HTML e adicionar URL quando disponível.
+> GIFs das Partes 3 e 4 pendentes — descomentar no HTML e adicionar URL quando disponível.
 
 ## Deploy
 
