@@ -451,7 +451,7 @@
     .sidebar-mobile-bar { display: block; }
     .manual-content     { margin-left: 0; }
     .site-footer        { margin-left: 0; padding: 20px 20px; flex-direction: column; gap: 8px; text-align: center; }
-    .manual-inner       { padding: 28px 20px 64px; overflow-x: hidden; }
+    .manual-inner       { padding: 28px 20px 64px; }
     nav                 { padding: 14px 20px; }
     .nav-links          { display: none; }
     .nav-hamburger      { display: flex; }
@@ -459,25 +459,17 @@
     .lang-btn           { padding: 4px 8px; font-size: 10px; }
     .two-col, .prompt-compare, .temp-grid { grid-template-columns: 1fr; }
     .tool-item          { grid-template-columns: 1fr; gap: 4px; }
-    .scale-block        { gap: 8px; padding: 16px 12px; }
-    .scale-char         { width: 72px; }
-    .scale-img          { width: 68px; height: 68px; }
-    .scale-label-text   { font-size: 12px; min-height: auto; }
-    .scale-ends         { font-size: 10px; letter-spacing: 0; }
-    .scale-char-name    { font-size: 9px; }
-    .scale-emoji        { font-size: 14px; }
+    .scale-block        { display: none; }
     .gif-block          { max-width: 100%; }
     .manual-h1          { font-size: clamp(22px, 6vw, 34px); }
-    .code-block         { font-size: 12px; padding: 16px; }
+    .code-block         { font-size: 12px; padding: 16px; white-space: pre-wrap; word-break: break-word; }
     .chapter            { scroll-margin-top: calc(var(--nav-h) + 56px); }
     .author-box         { scroll-margin-top: calc(var(--nav-h) + 56px); }
+    .svg-loop-wrap      { overflow-x: auto; }
+    .svg-loop-wrap svg  { max-width: 100%; height: auto; }
   }
 
   @media (max-width: 480px) {
-    .scale-char         { width: 60px; }
-    .scale-img          { width: 56px; height: 56px; }
-    .scale-label-text   { font-size: 11px; }
-    .scale-ends         { display: none; }
     .manual-inner       { padding: 24px 16px 56px; }
   }
 
@@ -955,7 +947,7 @@ Formato de entrega: <span class="code-var">[DESCRIÇÃO DA PEÇA]</span></div>
           <div class="subhead">O loop entre você e a ferramenta</div>
           <p>Responder essas perguntas antes de escrever o prompt economiza tempo de revisão. Mas o processo não é uma linha reta: a cada resultado que a IA entrega, você pausa, analisa o que veio, e decide se está pronto ou se o briefing precisa de ajuste.</p>
           <p>O pensamento lógico entra em dois momentos: na hora de formular a instrução e em cada ciclo de avaliação. A IA entrega o que parece mais provável dado o que você pediu. Avaliar se isso é o que você precisava é sempre sua função.</p>
-          <div style="display: flex; justify-content: center; margin: 32px 0;">
+          <div class="svg-loop-wrap" style="display: flex; justify-content: center; margin: 32px 0;">
 <svg viewBox="0 0 420 450" xmlns="http://www.w3.org/2000/svg" width="360" height="385" role="img" aria-label="Loop Criativo: Humano + IA">
   <style>.arc-loop{fill:none;stroke:#cbd5e1;stroke-width:2.5}.node-h{fill:#1a3a5c}.node-ia{fill:#0369a1}.lbl-loop{font-family:system-ui,sans-serif;font-size:11px;font-weight:700;fill:white;text-anchor:middle;dominant-baseline:middle}.sub-loop{font-family:system-ui,sans-serif;font-size:8.5px;fill:rgba(255,255,255,0.78);text-anchor:middle;dominant-baseline:middle}.ctr-loop{font-family:system-ui,sans-serif;text-anchor:middle;dominant-baseline:middle}.arrow-loop{fill:#94a3b8}.leg-loop{font-family:system-ui,sans-serif;font-size:9px;fill:#64748b;dominant-baseline:middle}</style>
   <path class="arc-loop" d="M 258.6,89.5 A 130,130 0 0,1 330.5,161.4"/>
