@@ -294,74 +294,6 @@
   .author-box p { font-size: 15px; color: var(--muted); line-height: 1.75; }
   .author-box p + p { margin-top: 10px; font-style: italic; font-size: 14px; }
 
-  /* ── ESCALA KURIRIN/TRUNKS ── */
-  .scale-block {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 28px 24px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    margin-bottom: 48px;
-  }
-
-  .scale-char { text-align: center; flex-shrink: 0; width: 170px; }
-
-  .scale-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 8px;
-    border: 3px solid var(--border);
-    transition: border-color 0.3s, transform 0.2s;
-  }
-  .scale-char.active .scale-img { border-color: var(--accent); transform: scale(1.06); }
-
-  .scale-emoji { font-size: 16px; margin-bottom: 4px; line-height: 1; }
-  .scale-char-name { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
-  .scale-char-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-  .scale-center { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; }
-
-  .scale-label-text { font-family: 'Roboto Slab', serif; font-size: 14px; color: var(--ink); text-align: center; min-height: 22px; line-height: 1.4; transition: color 0.3s; word-break: break-word; overflow-wrap: break-word; }
-
-  .scale-track-wrap { position: relative; width: 100%; height: 28px; display: flex; align-items: center; }
-
-  .scale-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 8px;
-    border-radius: 4px;
-    outline: none;
-    cursor: grab;
-    background: linear-gradient(to right, #6B62D9, #D8D0C4, var(--accent));
-  }
-  .scale-slider:active { cursor: grabbing; }
-  .scale-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: var(--ink);
-    border: 3px solid var(--paper);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
-    cursor: grab;
-    transition: transform 0.1s;
-  }
-  .scale-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
-  .scale-slider::-moz-range-thumb {
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: var(--ink);
-    border: 3px solid var(--paper);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
-  }
-
-  .scale-ends { display: flex; justify-content: space-between; width: 100%; font-size: 11px; color: var(--muted); font-family: 'Roboto Mono', monospace; letter-spacing: 0.04em; }
-
   /* ── GIFs ── */
   .gif-block { margin: 0 auto 8px; border-radius: 2px; overflow: hidden; max-width: 420px; display: block; }
   .gif-block img { width: 100%; display: block; }
@@ -459,7 +391,6 @@
     .lang-btn           { padding: 4px 8px; font-size: 10px; }
     .two-col, .prompt-compare, .temp-grid { grid-template-columns: 1fr; }
     .tool-item          { grid-template-columns: 1fr; gap: 4px; }
-    .scale-block        { display: none; }
     .gif-block          { max-width: 100%; }
     .manual-h1          { font-size: clamp(22px, 6vw, 34px); }
     .code-block         { font-size: 12px; padding: 16px; white-space: pre-wrap; word-break: break-word; }
@@ -644,30 +575,6 @@
       <p class="manual-eyebrow">Dicas de IA</p>
       <h1 class="manual-h1">Manual do Escoteiro Mirim da IA</h1>
       <p class="manual-intro">Um guia prático para criativos e jornalistas que querem usar IA com mais intenção. Sem programação. Com raciocínio.</p>
-
-      <!-- ── ESCALA ── -->
-      <div class="scale-block">
-        <div class="scale-char" id="char-kuririn">
-          <img src="../imagens/kuririn.png" alt="Kuririn" class="scale-img">
-          <div class="scale-emoji">🤖❤️</div>
-          <div class="scale-char-name">Kuririn</div>
-        </div>
-        <div class="scale-center">
-          <div class="scale-label-text" id="scale-label">Em cima do muro 🤔</div>
-          <div class="scale-track-wrap">
-            <input type="range" min="0" max="100" value="50" class="scale-slider" id="scale-slider" aria-label="Escala Kuririn–Trunks">
-          </div>
-          <div class="scale-ends">
-            <span>🤖❤️ ama IA</span>
-            <span>odeia IA 💥</span>
-          </div>
-        </div>
-        <div class="scale-char" id="char-trunks">
-          <img src="../imagens/trunks.png" alt="Trunks" class="scale-img">
-          <div class="scale-emoji">💥</div>
-          <div class="scale-char-name">Trunks</div>
-        </div>
-      </div>
 
       <!-- ── DISCLAIMER ── -->
       <div class="disclaimer-box">
@@ -1492,30 +1399,6 @@ Não avance para a próxima etapa sem completar a anterior.</div>
   }
   function toggleIndex() { document.getElementById('sidebar-mobile-bar').classList.toggle('open'); }
   function closeIndex()  { document.getElementById('sidebar-mobile-bar').classList.remove('open'); }
-
-  // Escala Kuririn / Trunks
-  (function () {
-    const slider  = document.getElementById('scale-slider');
-    const label   = document.getElementById('scale-label');
-    const kuririn = document.getElementById('char-kuririn');
-    const trunks  = document.getElementById('char-trunks');
-    const steps   = [
-      [0,  15,  'Casaria com IA 💍🤖'],
-      [16, 35,  'IA entusiasta 😍'],
-      [36, 64,  'Em cima do muro 🤔'],
-      [65, 84,  'Prefiro à mão 😤'],
-      [85, 100, 'A revolução das máquinas começou 🤖'],
-    ];
-    function update() {
-      const v = parseInt(slider.value);
-      const match = steps.find(([min, max]) => v >= min && v <= max);
-      if (match) label.textContent = match[2];
-      kuririn.classList.toggle('active', v <= 35);
-      trunks.classList.toggle('active',  v >= 65);
-    }
-    slider.addEventListener('input', update);
-    update();
-  })();
 
   // Active sidebar link
   const desktopLinks = document.querySelectorAll('.manual-sidebar .sidebar-link[data-target]');
