@@ -149,7 +149,7 @@
   .lang-btn.active { background: var(--ink); color: var(--paper); }
 
   /* ── LAYOUT ── */
-  .manual-wrapper { display: flex; padding-top: var(--nav-h); min-height: 100vh; }
+  .manual-wrapper { display: flex; padding-top: var(--nav-h); min-height: 100vh; overflow-x: clip; }
 
   /* ── SIDEBAR ── */
   .manual-sidebar {
@@ -247,7 +247,7 @@
   .sidebar-mobile-nav .sidebar-part { border-top: none; padding: 12px 24px 4px; }
 
   /* ── CONTENT ── */
-  .manual-content { flex: 1; margin-left: var(--sidebar-w); min-height: 100vh; }
+  .manual-content { flex: 1; margin-left: var(--sidebar-w); min-height: 100vh; min-width: 0; }
 
   .manual-inner { max-width: 720px; margin: 0 auto; padding: 56px 48px 80px; }
 
@@ -305,7 +305,10 @@
   .part-title { font-family: 'Roboto Slab', serif; font-size: 21px; color: var(--ink); }
 
   /* ── SECTION ── */
-  .manual-section { margin-bottom: 72px; }
+  .manual-section { margin-bottom: 72px; scroll-margin-top: calc(var(--nav-h) + 20px); }
+
+  a.sidebar-part { display: block; text-decoration: none; cursor: pointer; }
+  a.sidebar-part:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
 
   /* ── CHAPTER ── */
   .chapter { margin-bottom: 52px; padding-bottom: 52px; border-bottom: 1px solid var(--border); scroll-margin-top: calc(var(--nav-h) + 24px); }
@@ -397,6 +400,7 @@
     .code-block         { font-size: 12px; padding: 16px; white-space: pre-wrap; word-break: break-word; }
     .chapter            { scroll-margin-top: calc(var(--nav-h) + 56px); }
     .author-box         { scroll-margin-top: calc(var(--nav-h) + 56px); }
+    .manual-section     { scroll-margin-top: calc(var(--nav-h) + 56px); }
     .svg-loop-wrap      { overflow-x: auto; }
     .svg-loop-wrap svg  { max-width: 100%; height: auto; }
     .part-header        { gap: 10px; margin-bottom: 20px; padding-bottom: 12px; }
@@ -484,12 +488,12 @@
     <a href="#prologo" class="sidebar-link" data-target="prologo">Prólogo</a>
     <a href="#quem-escreve" class="sidebar-link" data-target="quem-escreve">Quem escreve</a>
 
-    <div class="sidebar-part">Parte 0 — Regras de Campo</div>
+    <a href="#parte-0" class="sidebar-part">Parte 0 — Regras de Campo</a>
     <a href="#cap-1" class="sidebar-link" data-target="cap-1">1. O que não colocar</a>
     <a href="#cap-2" class="sidebar-link" data-target="cap-2">2. Quando NÃO usar IA</a>
     <a href="#cap-3" class="sidebar-link" data-target="cap-3">3. A conta do tempo</a>
 
-    <div class="sidebar-part">Parte 1 — Fundamentos</div>
+    <a href="#parte-1" class="sidebar-part">Parte 1 — Fundamentos</a>
     <a href="#cap-4" class="sidebar-link" data-target="cap-4">4. O que é um Prompt?</a>
     <a href="#cap-5" class="sidebar-link" data-target="cap-5">5. O que é um Script?</a>
     <a href="#cap-6" class="sidebar-link" data-target="cap-6">6. Prompt vs. Script</a>
@@ -500,19 +504,19 @@
     <a href="#cap-11" class="sidebar-link" data-target="cap-11">11. Tokens e contexto</a>
     <a href="#cap-12" class="sidebar-link" data-target="cap-12">12. Alucinação</a>
 
-    <div class="sidebar-part">Parte 2 — Ferramentas</div>
+    <a href="#parte-2" class="sidebar-part">Parte 2 — Ferramentas</a>
     <a href="#cap-13" class="sidebar-link" data-target="cap-13">13. LLMs são ferramentas</a>
     <a href="#cap-14" class="sidebar-link" data-target="cap-14">14. O painel de ferramentas</a>
     <a href="#cap-15" class="sidebar-link" data-target="cap-15">15. Afinando o instrumento</a>
     <a href="#cap-16" class="sidebar-link" data-target="cap-16">16. Além do texto</a>
 
-    <div class="sidebar-part">Parte 3 — Fluxo de Trabalho</div>
+    <a href="#parte-3" class="sidebar-part">Parte 3 — Fluxo de Trabalho</a>
     <a href="#cap-17" class="sidebar-link" data-target="cap-17">17. Processo e documentação</a>
     <a href="#cap-18" class="sidebar-link" data-target="cap-18">18. Loops e checkpoints</a>
     <a href="#cap-19" class="sidebar-link" data-target="cap-19">19. Configurar um agente</a>
     <a href="#cap-20" class="sidebar-link" data-target="cap-20">20. Pesquisa com IA</a>
 
-    <div class="sidebar-part">Parte 5 — Organização e Escala</div>
+    <a href="#parte-4" class="sidebar-part">Parte 4 — Organização e Escala</a>
     <a href="#cap-21" class="sidebar-link" data-target="cap-21">21. Exportando conteúdo</a>
     <a href="#cap-22" class="sidebar-link" data-target="cap-22">22. GEO</a>
     <a href="#cap-23" class="sidebar-link" data-target="cap-23">23. Escalando para o time</a>
@@ -531,14 +535,14 @@
         <span>Índice</span>
         <span class="sidebar-mobile-arrow">↓</span>
       </button>
-      <nav class="sidebar-mobile-nav">
+      <div class="sidebar-mobile-nav">
         <a href="#prologo" class="sidebar-link" onclick="closeIndex()">Prólogo</a>
         <a href="#quem-escreve" class="sidebar-link" onclick="closeIndex()">Quem escreve</a>
-        <div class="sidebar-part">Parte 0 — Regras de Campo</div>
+        <a href="#parte-0" class="sidebar-part" onclick="closeIndex()">Parte 0 — Regras de Campo</a>
         <a href="#cap-1" class="sidebar-link" onclick="closeIndex()">1. O que não colocar</a>
         <a href="#cap-2" class="sidebar-link" onclick="closeIndex()">2. Quando NÃO usar IA</a>
         <a href="#cap-3" class="sidebar-link" onclick="closeIndex()">3. A conta do tempo</a>
-        <div class="sidebar-part">Parte 1 — Fundamentos</div>
+        <a href="#parte-1" class="sidebar-part" onclick="closeIndex()">Parte 1 — Fundamentos</a>
         <a href="#cap-4" class="sidebar-link" onclick="closeIndex()">4. O que é um Prompt?</a>
         <a href="#cap-5" class="sidebar-link" onclick="closeIndex()">5. O que é um Script?</a>
         <a href="#cap-6" class="sidebar-link" onclick="closeIndex()">6. Prompt vs. Script</a>
@@ -548,17 +552,17 @@
         <a href="#cap-10" class="sidebar-link" onclick="closeIndex()">10. Pensamento lógico</a>
         <a href="#cap-11" class="sidebar-link" onclick="closeIndex()">11. Tokens e contexto</a>
         <a href="#cap-12" class="sidebar-link" onclick="closeIndex()">12. Alucinação</a>
-        <div class="sidebar-part">Parte 2 — Ferramentas</div>
+        <a href="#parte-2" class="sidebar-part" onclick="closeIndex()">Parte 2 — Ferramentas</a>
         <a href="#cap-13" class="sidebar-link" onclick="closeIndex()">13. LLMs são ferramentas</a>
         <a href="#cap-14" class="sidebar-link" onclick="closeIndex()">14. O painel de ferramentas</a>
         <a href="#cap-15" class="sidebar-link" onclick="closeIndex()">15. Afinando o instrumento</a>
         <a href="#cap-16" class="sidebar-link" onclick="closeIndex()">16. Além do texto</a>
-        <div class="sidebar-part">Parte 3 — Fluxo de Trabalho</div>
+        <a href="#parte-3" class="sidebar-part" onclick="closeIndex()">Parte 3 — Fluxo de Trabalho</a>
         <a href="#cap-17" class="sidebar-link" onclick="closeIndex()">17. Processo e documentação</a>
         <a href="#cap-18" class="sidebar-link" onclick="closeIndex()">18. Loops e checkpoints</a>
         <a href="#cap-19" class="sidebar-link" onclick="closeIndex()">19. Configurar um agente</a>
         <a href="#cap-20" class="sidebar-link" onclick="closeIndex()">20. Pesquisa com IA</a>
-        <div class="sidebar-part">Parte 5 — Organização e Escala</div>
+        <a href="#parte-4" class="sidebar-part" onclick="closeIndex()">Parte 4 — Organização e Escala</a>
         <a href="#cap-21" class="sidebar-link" onclick="closeIndex()">21. Exportando conteúdo</a>
         <a href="#cap-22" class="sidebar-link" onclick="closeIndex()">22. GEO</a>
         <a href="#cap-23" class="sidebar-link" onclick="closeIndex()">23. Escalando para o time</a>
@@ -566,7 +570,7 @@
         <div class="sidebar-part">Epílogo</div>
         <a href="#glossario" class="sidebar-link" onclick="closeIndex()">Glossário do Escoteiro</a>
         <a href="#links-uteis" class="sidebar-link" onclick="closeIndex()">Links Úteis</a>
-      </nav>
+      </div>
     </div>
 
     <div class="manual-inner">
@@ -601,7 +605,7 @@
       </div>
 
       <!-- ════════════ PARTE 0 ════════════ -->
-      <section class="manual-section">
+      <section class="manual-section" id="parte-0">
         <div class="part-header">
           <span class="part-badge">Parte 0</span>
           <h2 class="part-title">Regras de Campo</h2>
@@ -676,7 +680,7 @@
       </section>
 
       <!-- ════════════ PARTE 1 ════════════ -->
-      <section class="manual-section">
+      <section class="manual-section" id="parte-1">
         <div class="part-header">
           <span class="part-badge">Parte 1</span>
           <h2 class="part-title">Fundamentos</h2>
@@ -940,7 +944,7 @@ Formato de entrega: <span class="code-var">[DESCRIÇÃO DA PEÇA]</span></div>
       </section>
 
       <!-- ════════════ PARTE 2 ════════════ -->
-      <section class="manual-section">
+      <section class="manual-section" id="parte-2">
         <div class="part-header">
           <span class="part-badge">Parte 2</span>
           <h2 class="part-title">Ferramentas e Modelos</h2>
@@ -1080,7 +1084,7 @@ Formato de entrega: <span class="code-var">[DESCRIÇÃO DA PEÇA]</span></div>
       </section>
 
       <!-- ════════════ PARTE 3 ════════════ -->
-      <section class="manual-section">
+      <section class="manual-section" id="parte-3">
         <div class="part-header">
           <span class="part-badge">Parte 3</span>
           <h2 class="part-title">Fluxo de Trabalho</h2>
@@ -1208,13 +1212,13 @@ Não avance para a próxima etapa sem completar a anterior.</div>
         </article>
       </section>
 
-      <!-- ════════════ PARTE 5 ════════════ -->
-      <section class="manual-section">
+      <!-- ════════════ PARTE 4 ════════════ -->
+      <section class="manual-section" id="parte-4">
         <div class="part-header">
-          <span class="part-badge">Parte 5</span>
+          <span class="part-badge">Parte 4</span>
           <h2 class="part-title">Organização e Escala</h2>
         </div>
-        <!-- GIF Parte 5 — URL pendente
+        <!-- GIF Parte 4 — URL pendente
         <div class="gif-block"><img src="" alt="Organização e Escala" loading="lazy"></div>
         <p class="gif-caption">Quando você começa a escalar, a bagunça escala junto.</p>
         -->
