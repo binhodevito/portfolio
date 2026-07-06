@@ -44,7 +44,7 @@ Guia prático de IA para times criativos e jornalistas. Sem programação, com f
 | Parte 4 — Organização e Escala | 21–24: Exportando conteúdo, GEO, Escalando para o time, Hackeando o sistema |
 | Epílogo | Glossário do Escoteiro (12 termos) + Links Úteis |
 
-> GIF da Parte 3 pendente — descomentar no HTML e adicionar URL quando disponível.
+> Todos os GIFs adicionados. Único item pendente: Links Úteis no epílogo (Fábio preenche).
 
 ## Deploy
 
