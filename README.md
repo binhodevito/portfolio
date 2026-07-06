@@ -10,6 +10,7 @@ Site estático em HTML/CSS/JS puro, hospedado via **GitHub Pages** com domínio 
 - Fontes: Roboto + Roboto Slab + Roboto Mono (Google Fonts) + FIT (Adobe Fonts / Typekit)
 - CSS custom properties para paleta brutalista: `--ink`, `--paper`, `--accent`
 - JavaScript vanilla para: troca de idioma (PT/EN/ES), animação de sprite, menu mobile
+- Google Analytics 4 (`G-YGQJH4XW7R`) em ambas as páginas
 
 ## Estrutura
 
@@ -43,7 +44,7 @@ Guia prático de IA para times criativos e jornalistas. Sem programação, com f
 | Parte 4 — Organização e Escala | 21–24: Exportando conteúdo, GEO, Escalando para o time, Hackeando o sistema |
 | Epílogo | Glossário do Escoteiro (12 termos) + Links Úteis |
 
-> GIFs das Partes 3 e 4 pendentes — descomentar no HTML e adicionar URL quando disponível.
+> GIF da Parte 3 pendente — descomentar no HTML e adicionar URL quando disponível.
 
 ## Deploy
 
