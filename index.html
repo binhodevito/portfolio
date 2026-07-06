@@ -178,6 +178,10 @@
   .nav-mobile a:hover { color: var(--ink); }
   .nav-mobile a.nav-newsletter { color: var(--accent); border-bottom-color: var(--accent); }
 
+  .nav-mobile-lang { display: flex; gap: 8px; padding-top: 16px; }
+  .nav-mobile-lang .lang-btn { padding: 8px 16px; border-radius: 2px; border: 1px solid var(--border); font-size: 12px; }
+  .nav-mobile-lang .lang-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
   .lang-toggle {
     display: flex;
     align-items: center;
@@ -761,11 +765,12 @@
   .hero > *:nth-child(2) { animation-delay: 0.15s; }
 
   @media (max-width: 768px) {
-    nav { padding: 14px 20px; }
+    nav { padding: 14px 20px; justify-content: center; }
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
-    .nav-right { gap: 12px; }
-    .lang-btn { padding: 4px 8px; font-size: 10px; }
+    .nav-right { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); gap: 12px; }
+    .nav-logo-img { height: 40px; }
+    .lang-toggle { display: none; }
     .hero { grid-template-columns: 1fr; padding: 110px 20px 56px; gap: 32px; }
     .hero-image-wrap { order: -1; max-width: 200px; margin: 0 auto; }
     .pixel-character { --sz: 200px; }
@@ -857,6 +862,11 @@
   <a href="dicas-de-ia/" data-lang="en" onclick="toggleMenu()">AI Tips</a>
   <a href="dicas-de-ia/" data-lang="es" onclick="toggleMenu()">Tips de IA</a>
   <a href="https://substack.com/@devito" target="_blank" rel="noopener" class="nav-newsletter" onclick="toggleMenu()">Newsletter</a>
+  <div class="nav-mobile-lang">
+    <button class="lang-btn active" onclick="setLang('pt')">PT</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
+  </div>
 </div>
 
 <!-- HERO -->

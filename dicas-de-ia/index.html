@@ -149,7 +149,7 @@
   .lang-btn.active { background: var(--ink); color: var(--paper); }
 
   /* ── LAYOUT ── */
-  .manual-wrapper { display: flex; padding-top: var(--nav-h); min-height: 100vh; overflow-x: hidden; }
+  .manual-wrapper { display: flex; padding-top: var(--nav-h); min-height: 100vh; }
 
   /* ── SIDEBAR ── */
   .manual-sidebar {
@@ -384,10 +384,11 @@
     .manual-content     { margin-left: 0; }
     .site-footer        { margin-left: 0; padding: 20px 20px; flex-direction: column; gap: 8px; text-align: center; }
     .manual-inner       { padding: 28px 20px 64px; }
-    nav                 { padding: 14px 20px; }
+    nav                 { padding: 14px 20px; justify-content: center; }
     .nav-links          { display: none; }
     .nav-hamburger      { display: flex; }
-    .nav-right          { gap: 10px; }
+    .nav-right          { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); gap: 10px; }
+    .nav-logo-img       { height: 40px; }
     .lang-btn           { padding: 4px 8px; font-size: 10px; }
     .two-col, .prompt-compare, .temp-grid { grid-template-columns: 1fr; }
     .tool-item          { grid-template-columns: 1fr; gap: 4px; }
