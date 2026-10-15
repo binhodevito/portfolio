@@ -19,10 +19,18 @@ Site estático em HTML/CSS/JS puro, hospedado via **GitHub Pages** com domínio 
 ├── index.html          # Página principal do portfólio
 ├── dicas-de-ia/
 │   └── index.html      # Guia prático de IA para criativos e jornalistas
+├── guitarra/
+│   └── index.html      # Página oculta de estudo de guitarra (ver README-guitarra.md)
 ├── imagens/            # Assets estáticos (sprites, fotos, ícones)
 ├── CNAME               # Domínio customizado para GitHub Pages
 └── README.md
 ```
+
+### Convenção para páginas extras
+
+Toda página além do portfólio principal (`index.html`) vive na sua própria pasta com um `index.html` autocontido — CSS e JS inline, sem build, sem arquivos satélites (`dicas-de-ia/`, `guitarra/`). Isso mantém o deploy idêntico ao do portfólio (GitHub Pages serve qualquer pasta com `index.html` direto) e evita decidir caso a caso onde colocar cada página nova. Só separe CSS/JS em arquivos à parte se uma página específica crescer a ponto de o arquivo único atrapalhar a edição — não é o padrão hoje.
+
+Páginas que não devem aparecer no nav do site (ferramentas pessoais, protótipos) simplesmente não entram em nenhum link do `index.html` — ficam "ocultas" por omissão, não por alguma configuração especial.
 
 ## Páginas
 
@@ -30,6 +38,7 @@ Site estático em HTML/CSS/JS puro, hospedado via **GitHub Pages** com domínio 
 |-----|----------|
 | `fabiodevito.com.br` | Portfolio completo com experiência, destaques e contato |
 | `fabiodevito.com.br/dicas-de-ia` | Manual do Escoteiro Mirim da IA — 24 capítulos + epílogo |
+| `fabiodevito.com.br/guitarra` | Página oculta de estudo de guitarra — ver [README-guitarra.md](README-guitarra.md) |
 
 ### Manual do Escoteiro Mirim da IA
 

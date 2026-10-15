@@ -1,8 +1,8 @@
-# guitarra.html
+# guitarra/index.html
 
 Página oculta de estudo de guitarra — sem link em nenhum menu do site, acesso só por URL direta.
 
-**URL:** `fabiodevito.com.br/guitarra.html`
+**URL:** `fabiodevito.com.br/guitarra/`
 
 ## O que é
 
@@ -23,4 +23,4 @@ Todo o estado de UI (abas, filtros, checkboxes do cronograma) é mantido em `loc
 
 ## Manutenção
 
-Arquivo único e autocontido (`guitarra.html`). Para atualizar, basta substituir o arquivo por uma nova versão gerada e commitar.
+Arquivo único e autocontido (`guitarra/index.html`), seguindo a mesma convenção do `dicas-de-ia/index.html`. Para atualizar, basta substituir o arquivo por uma nova versão gerada e commitar.
