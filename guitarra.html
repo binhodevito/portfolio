@@ -1035,8 +1035,8 @@ p{margin:0}
   const LET=['C','D','E','F','G','A','B'],NAT=[0,2,4,5,7,9,11];
   const KEYS=['C','G','D','A','E','B','F#','D♭','A♭','E♭','B♭','F'];
   const WHEEL_MAJ=['C','G','D','A','E','B','F#/G♭','D♭','A♭','E♭','B♭','F'];
-  const WHEEL_MIN=['Am','Em','Bm','F#m','C#m','G#m','D#m','B♭m','Fm','Cm','Gm','Dm'];
-  const WHEEL_DIM=['B°','F#°','C#°','G#°','D#°','A#°','E#°','C°','G°','D°','A°','E°'];
+  const WHEEL_MIN=['Am','Em','Bm','F#m','C#m','G#m','D#m/E♭m','B♭m','Fm','Cm','Gm','Dm'];
+  const WHEEL_DIM=['B°','F#°','C#°','G#°','D#°','A#°','E#°/F°','C°','G°','D°','A°','E°'];
   const ROMAN=['I','ii','iii','IV','V','vi','vii°'];
   const TRI=['','m','m','','','m','°'], TET=['7M','m7','m7','7M','7','m7','m7(♭5)'];
   const FN=['Tônica','Subdominante','Tônica','Subdominante','Dominante','Tônica','Dominante'];
@@ -1073,7 +1073,7 @@ p{margin:0}
       rot.appendChild(path); segs[ring].push(path);
       const rm=(R[ring][0]+R[ring][1])/2+(ring===0?6:ring===1?4:2);
       const [x,y]=P(rm,a);
-      const txt=el('text',{x:x,y:y+5,'text-anchor':'middle','font-family':ring===0?'Young Serif, Georgia, serif':'IBM Plex Sans, sans-serif','font-size':ring===0?(ringText[0][i].length>3?15:22):ring===1?15:12.5,'font-weight':ring===0?'400':'500',fill:'var(--ink)','pointer-events':'none'});
+      const txt=el('text',{x:x,y:y+5,'text-anchor':'middle','font-family':ring===0?'Young Serif, Georgia, serif':'IBM Plex Sans, sans-serif','font-size':ring===0?(ringText[0][i].length>3?15:22):ring===1?(ringText[1][i].length>5?11.5:15):(ringText[2][i].length>4?10:12.5),'font-weight':ring===0?'400':'500',fill:'var(--ink)','pointer-events':'none'});
       txt.textContent=ringText[ring][i];
       rot.appendChild(txt); labels.push({t:txt,x:x,y:y+5,ring,i});
     }
@@ -1146,7 +1146,7 @@ p{margin:0}
       document.getElementById('r-kMeta').textContent=accTxt+' · relativo menor: '+n[5]+'m'+(state.k===6?' · enarmônico de G♭ maior':'');
     }
     document.getElementById('r-kScale').innerHTML=order().map((d,i)=>'<span'+(i===0?' class="r"':'')+'>'+n[d]+'</span>').join('');
-    chipsEl.innerHTML=order().map(d=>'<button type="button" class="chip" data-deg="'+d+'"><span class="r">'+roman(d)+' · '+fnOf(d)+'</span><span class="c">'+chordName(n,d)+'</span><span class="t">'+[0,2,4].concat(state.tet?[6]:[]).map(j=>n[(d+j)%7]).join(' · ')+'</span></button>').join('');
+    chipsEl.innerHTML=order().map(d=>'<button type="button" class="chip" data-deg="'+d+'"><span class="r">'+roman(d)+' · '+fnOf(d)+'</span><span class="c">'+chordName(n,d)+'</span>'+(n[d]==='E#'?'<span class="t">= F'+(state.tet?TET[d]:TRI[d])+' (enarmônico)</span>':'')+'<span class="t">'+[0,2,4].concat(state.tet?[6]:[]).map(j=>n[(d+j)%7]).join(' · ')+'</span></button>').join('');
     document.getElementById('r-progs').innerHTML=progs().map((p,pi)=>'<div class="prog"><span class="nm">'+p[0]+' · '+p[1].map(roman).join('→')+'</span><span class="ch">'+p[1].map(d=>chordName(n,d)).join('  ')+'</span><button type="button" class="play" data-prog="'+pi+'" aria-pressed="false">▶ Tocar</button></div>').join('');
     winTexts.forEach(([t,ring,off])=>{t.textContent=roman(WINDEG[ring+','+off]);});
     centerK.textContent=state.minor?n[5]+'m':key;
